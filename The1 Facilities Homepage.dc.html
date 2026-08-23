@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;family=Archivo:wght@100..900&amp;family=Noto+Kufi+Arabic:wght@400;600;700&amp;display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; background: #FFFFFF; }
+  a { color: #8BC53F; text-decoration: none; }
+  a:hover { color: #6E9E2E; }
+  * { box-sizing: border-box; }
+  @keyframes std-rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes std-pulse { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.55); opacity: 0.45; } }
+  @keyframes hero-cycle { 0% { opacity: 0; } 4% { opacity: 1; } 12.5% { opacity: 1; } 16.5% { opacity: 0; } 100% { opacity: 0; } }
+  @keyframes hero-drift { 0% { transform: scale(1.04) translate3d(0,0,0); } 50% { transform: scale(1.10) translate3d(-1.2%,-0.8%,0); } 100% { transform: scale(1.04) translate3d(0,0,0); } }
+</style>
+</helmet>
+
+<div style="font-family: 'Poppins', sans-serif; color: #111412; overflow-x: auto; min-width: 1360px;">
+
+  <!-- MAIN NAV -->
+  <div ref="{{ navContainerRef }}" onMouseLeave="{{ onNavLeave }}" style="position:relative; background:#111412; display:flex; align-items:center; justify-content:space-between; padding:0 32px 0 64px; gap:20px;">
+    <div style="display:flex; align-items:center; gap:34px; position:relative; flex-shrink:0;">
+      <a href="#" style="display:flex; align-items:center; flex-shrink:0; padding:16px 0;"><img src="assets/the1-wordmark.png" alt="The 1 Facilities Management" style="height:32px; width:auto;"></a>
+      <div onMouseEnter="{{ onHomeEnter }}" style="position:relative; padding:20px 0; white-space:nowrap; flex-shrink:0;">
+        <a href="#" style="color:#fff; font-family:'Poppins',sans-serif; font-size:13px; letter-spacing:1px; font-weight:500; white-space:nowrap;">HOME</a>
+      </div>
+      <div onMouseEnter="{{ onAboutEnter }}" style="position:relative; padding:20px 0; white-space:nowrap; flex-shrink:0;">
+        <a href="about-us.dc.html" style="color:#C9C9C9; font-family:'Poppins',sans-serif; font-size:13px; letter-spacing:1px; font-weight:500; white-space:nowrap;">ABOUT US</a>
+      </div>
+      <div onMouseEnter="{{ onServicesEnter }}" onMouseLeave="{{ onDropdownLeave }}" style="position:relative; padding:20px 0; white-space:nowrap; flex-shrink:0;">
+        <a href="#services" style="color:#C9C9C9; font-family:'Poppins',sans-serif; font-size:13px; letter-spacing:1px; font-weight:500; white-space:nowrap;">SERVICES ▾</a>
+        <sc-if value="{{ servicesOpen }}" hint-placeholder-val="{{ false }}">
+          <div style="position:absolute; top:100%; left:0; min-width:280px; background:#8BC53F; box-shadow:0 18px 30px rgba(0,0,0,0.25); z-index:20;">
+            <sc-for list="{{ services }}" as="s" hint-placeholder-count="5">
+              <a href="{{ s.href }}" style="display:block; padding:14px 22px; font-family:'Poppins',sans-serif; font-size:12.5px; letter-spacing:1px; font-weight:600; color:#111412; border-bottom:1px solid rgba(255,255,255,0.18); transition:background 0.15s ease, color 0.15s ease;" style-hover="background:#111412; color:#8BC53F;">{{ s.name }}</a>
+            </sc-for>
+          </div>
+        </sc-if>
+      </div>
+      <div onMouseEnter="{{ onIndustriesEnter }}" onMouseLeave="{{ onDropdownLeave }}" style="position:relative; padding:20px 0; white-space:nowrap; flex-shrink:0;">
+        <a href="#sectors" style="color:#C9C9C9; font-family:'Poppins',sans-serif; font-size:13px; letter-spacing:1px; font-weight:500; white-space:nowrap;">SECTORS ▾</a>
+        <sc-if value="{{ industriesOpen }}" hint-placeholder-val="{{ false }}">
+          <div style="position:absolute; top:100%; left:0; min-width:280px; max-height:340px; overflow-y:auto; background:#8BC53F; box-shadow:0 18px 30px rgba(0,0,0,0.25); z-index:20;">
+            <sc-for list="{{ industries }}" as="i" hint-placeholder-count="6">
+              <a href="sectors.dc.html" style="display:block; padding:14px 22px; font-family:'Poppins',sans-serif; font-size:12.5px; letter-spacing:1px; font-weight:600; color:#111412; border-bottom:1px solid rgba(255,255,255,0.18); transition:background 0.15s ease, color 0.15s ease;" style-hover="background:#111412; color:#8BC53F;">{{ i }}</a>
+            </sc-for>
+          </div>
+        </sc-if>
+      </div>
+      <div onMouseEnter="{{ onWhyEnter }}" style="position:relative; padding:20px 0; white-space:nowrap; flex-shrink:0;">
+        <a href="#why-choose-us" style="color:#C9C9C9; font-family:'Poppins',sans-serif; font-size:13px; letter-spacing:1px; font-weight:500; white-space:nowrap;">WHY CHOOSE US</a>
+      </div>
+      <div onMouseEnter="{{ onCareersEnter }}" style="position:relative; padding:20px 0; white-space:nowrap; flex-shrink:0;">
+        <a href="contact.dc.html" style="color:#C9C9C9; font-family:'Poppins',sans-serif; font-size:13px; letter-spacing:1px; font-weight:500; white-space:nowrap;">CAREERS</a>
+      </div>
+      <div onMouseEnter="{{ onContactEnter }}" style="position:relative; padding:20px 0; white-space:nowrap; flex-shrink:0;">
+        <a href="contact.dc.html" style="color:#C9C9C9; font-family:'Poppins',sans-serif; font-size:13px; letter-spacing:1px; font-weight:500; white-space:nowrap;">CONTACT</a>
+      </div>
+      <div style="position:absolute; bottom:10px; width:6px; height:6px; border-radius:50%; background:#8BC53F; transition:left 0.28s ease, opacity 0.2s ease; left:{{ indicatorLeft }}px; opacity:{{ indicatorOpacity }};"></div>
+    </div>
+    <div style="display:flex; align-items:center; gap:16px; flex-shrink:0;">
+      <div style="display:flex; align-items:center; gap:12px;">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="#6E736F"><path d="M22 12a10 10 0 10-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0022 12z"></path></svg>
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="#6E736F"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2 3.77-2 4 0 4.7 2.6 4.7 6.1V21h-4v-5.3c0-1.3 0-2.9-1.8-2.9s-2.1 1.4-2.1 2.8V21H9z"></path></svg>
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="#6E736F"><path d="M22.2 5.8c-.7.3-1.5.5-2.3.6.8-.5 1.4-1.3 1.7-2.3-.8.5-1.7.8-2.6 1a4.1 4.1 0 00-7 3.7A11.6 11.6 0 013 4.9a4.1 4.1 0 001.3 5.5c-.6 0-1.3-.2-1.8-.5v.1c0 2 1.4 3.6 3.3 4a4.2 4.2 0 01-1.9.1 4.1 4.1 0 003.9 2.9A8.3 8.3 0 012 18.6a11.6 11.6 0 006.3 1.8c7.5 0 11.7-6.3 11.7-11.7v-.5c.8-.6 1.5-1.3 2.2-2.4z"></path></svg>
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="#6E736F"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 2 .3 2.4.5.6.2 1 .5 1.5 1 .4.4.7.9 1 1.5.2.4.4 1.2.5 2.4.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.3 2-.5 2.4-.3.6-.6 1-1 1.5-.4.4-.9.7-1.5 1-.4.2-1.2.4-2.4.5-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-2-.3-2.4-.5a4 4 0 01-1.5-1 4 4 0 01-1-1.5c-.2-.4-.4-1.2-.5-2.4-.1-1.3-.1-1.7-.1-4.9s0-3.6.1-4.9c.1-1.2.3-2 .5-2.4.2-.6.5-1 1-1.5.4-.4.9-.7 1.5-1 .4-.2 1.2-.4 2.4-.5 1.3-.1 1.7-.1 4.9-.1zM12 0C8.7 0 8.3 0 7 .1c-1.3.1-2.2.3-3 .6a6.3 6.3 0 00-2.2 1.5A6.3 6.3 0 00.6 4.4c-.3.8-.5 1.7-.6 3C0 8.7 0 9.1 0 12.4s0 3.7.1 5c.1 1.3.3 2.2.6 3 .3.9.7 1.6 1.5 2.3.7.7 1.4 1.2 2.2 1.5.8.3 1.7.5 3 .6 1.3.1 1.7.1 5 .1s3.7 0 5-.1c1.3-.1 2.2-.3 3-.6a6.3 6.3 0 002.2-1.5 6.3 6.3 0 001.5-2.2c.3-.8.5-1.7.6-3 .1-1.3.1-1.7.1-5s0-3.7-.1-5c-.1-1.3-.3-2.2-.6-3a6.3 6.3 0 00-1.5-2.2A6.3 6.3 0 0019.6.7c-.8-.3-1.7-.5-3-.6C15.3 0 14.9 0 12 0z"></path><path d="M12 5.8a6.2 6.2 0 100 12.4 6.2 6.2 0 000-12.4zm0 10.2a4 4 0 110-8 4 4 0 010 8zM18.4 5.5a1.4 1.4 0 11-2.8 0 1.4 1.4 0 012.8 0z"></path></svg>
+      </div>
+      <a href="contact.dc.html" style="background:#8BC53F; color:#111412; padding:16px 22px; font-family:'Poppins',sans-serif; font-weight:600; font-size:13px; letter-spacing:0.5px; white-space:nowrap; flex-shrink:0;">Get In Touch</a>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div style="position:relative; background:#111412; overflow:hidden; padding: 70px 64px 150px; clip-path: polygon(0 0, 100% 0, 100% 96%, 0 100%); margin-bottom:32px;">
+    <video src="assets/hero-bg.mp4" autoPlay="{{ true }}" muted="{{ true }}" loop="{{ true }}" playsInline="{{ true }}" poster="assets/hero-f0.jpg" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;"></video>
+    <div style="position:absolute; inset:0; background: linear-gradient(100deg, rgba(6,10,8,0.85) 0%, rgba(6,10,8,0.6) 55%, rgba(6,10,8,0.35) 100%);"></div>
+    <svg style="position: absolute; left: -18px; top: -11px; width: 340px; height: 100%" viewBox="0 0 340 700" preserveAspectRatio="none">
+      <polygon points="0,0 250,0 0,340" fill="#8BC53F" opacity="0.45"></polygon>
+      <polygon points="0,0 130,0 0,620" fill="#6E9E2E" opacity="0.4"></polygon>
+    </svg>
+    <svg style="position:absolute; right:0; bottom:0; width:420px; height:400px;" viewBox="0 0 420 400" preserveAspectRatio="none">
+      <polygon points="420,400 130,400 420,110" fill="#8BC53F" opacity="0.42"></polygon>
+    </svg>
+    <div style="position:relative; max-width:720px; padding-top:10px;">
+      
+      
+      <h1 style="font-family: 'Archivo',sans-serif; font-size: 65px; font-weight: 800; color: #fff; line-height: 1.06; margin: 0 0 14px; text-transform: uppercase; width: 700px; height: 127px">Your Facility. <span style="color:#8BC53F;">One</span> Partner.</h1><div style="width:70px; height:3px; background:#8BC53F; margin-bottom:26px;"></div>
+      <p style="font-family: 'Poppins',sans-serif; font-size: 19px; color: #fff; line-height: 1.6; max-width: 480px; margin: 0 0 14px; font-weight: 400; width: 493px; height: 83px">Bring cleaning, maintenance, security, and facilities management together under one accountable team.</p>
+      <p style="font-family:'Noto Kufi Arabic',sans-serif; direction:rtl; font-size:16px; color:#C9C9C9; line-height:1.9; max-width:480px; margin:0 0 34px;">اجمع النظافة والصيانة والأمن وإدارة المرافق تحت مسؤولية فريق واحد.</p><div style="font-family: 'Noto Kufi Arabic',sans-serif; direction: rtl; font-size: 32px; font-weight: 600; color: #8BC53F; margin: 0 0 26px; text-align: left">منشأتك. شريك واحد.&nbsp;</div>
+      <a href="contact.dc.html" style="display:inline-flex; align-items:center; gap:14px; background:#8BC53F; color:#111412; padding:14px 28px 14px 14px; border-radius:50px; font-family:'Poppins',sans-serif; font-size:16px; font-weight:600; transition:gap 0.3s ease, background 0.3s ease, box-shadow 0.3s ease; box-shadow:0 0 0 rgba(139,197,63,0.5);" style-hover="gap:22px; background:#9ED84A; box-shadow:0 0 24px rgba(139,197,63,0.55);">
+        <span style="width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; background-color: #111412;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8BC53F" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        </span>
+        Get in touch with us
+      </a>
+    </div>
+    
+  </div>
+
+  <!-- OUR STORY -->
+  
+
+  <!-- SOLUTIONS / SERVICES -->
+  <div style="position:relative; background:#FFFFFF; padding:36px 64px; overflow:hidden;">
+    <div style="position:relative; max-width:1240px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; align-items:center;">
+      <div style="position:relative; z-index:2; padding:0 56px 0 0;">
+        <div style="display:flex; align-items:center; gap:12px; margin-bottom:18px;">
+          <span style="font-family:'Poppins',sans-serif; font-size:12px; letter-spacing:3px; font-weight:600; color:#6E9E2E;">OUR STORY</span>
+        </div>
+        <h2 style="font-family:'Archivo',sans-serif; font-size:44px; font-weight:800; line-height:1.03; margin:0 0 22px; color:#111412;">Built In America.<br>Ready For The World.</h2>
+        <p style="font-size:15px; color:#3C403D; line-height:1.75; margin:0 0 10px; max-width:520px;">Founded in the United States by a visionary facilities management entrepreneur, our company grew into one of the nation's largest service organizations — 16,000+ employees and 4,000+ service providers across all 50 states.</p>
+        <p style="font-family:'Noto Kufi Arabic',sans-serif; direction:rtl; font-size:13.5px; color:#6E9E2E; line-height:1.9; margin:0 0 30px; max-width:520px;">تأسست شركتنا في الولايات المتحدة، ونمت لتصبح واحدة من أكبر مؤسسات الخدمات في البلاد.</p>
+        <a href="about-us.dc.html" style="display:inline-flex; align-items:center; gap:12px; font-family:'Poppins',sans-serif; font-size:12.5px; font-weight:600; letter-spacing:2px; color:#111412; padding-bottom:8px; border-bottom:2px solid #8BC53F;">LEARN MORE <span style="color:#8BC53F;">→</span></a>
+      </div>
+      <div style="position:relative; padding:20px 40px 40px 0;">
+        <img src="assets/our-story-team.jpg" alt="Business partners shaking hands" style="width:100%; height:340px; object-fit:cover; display:block;">
+      </div>
+    </div>
+  </div><div id="services" style="position:relative; background: linear-gradient(135deg, #1C201B 0%, #2A2E2A 45%, #1C201B 100%); padding: 90px 64px 0; overflow:visible;">
+    <svg style="position:absolute; inset:0; width:100%; height:100%; opacity:0.35;" preserveAspectRatio="none" viewBox="0 0 1400 700">
+      <defs>
+        <pattern id="circuitDots" width="26" height="26" patternUnits="userSpaceOnUse">
+          <circle cx="1.2" cy="1.2" r="1.2" fill="#B9DE7C"></circle>
+        </pattern>
+      </defs>
+      <rect width="1400" height="700" fill="url(#circuitDots)"></rect>
+      <g stroke="#8BC53F" stroke-width="1" fill="none" opacity="0.5">
+        <path d="M-50 700 L500 0"></path>
+        <path d="M100 700 L650 0"></path>
+        <path d="M250 700 L800 0"></path>
+        <path d="M900 700 L1450 0"></path>
+        <path d="M1050 700 L1600 0"></path>
+        <circle cx="500" cy="220" r="3" fill="#B9DE7C"></circle>
+        <circle cx="650" cy="380" r="3" fill="#B9DE7C"></circle>
+        <circle cx="1050" cy="150" r="3" fill="#B9DE7C"></circle>
+        <circle cx="1200" cy="420" r="3" fill="#B9DE7C"></circle>
+      </g>
+    </svg>
+    <div style="position:relative; text-align:center; max-width:700px; margin:0 auto 0;">
+      <div style="font-family:'Poppins',sans-serif; font-size:13px; letter-spacing:3px; color:#8BC53F; font-weight:600; margin-bottom:12px;">• WHAT WE DELIVER</div>
+      <h2 style="font-family:'Poppins',sans-serif; font-size:38px; font-weight:600; color:#fff; margin:0;">Our Services</h2>
+    </div>
+    <div style="position:relative; display:grid; grid-template-columns:repeat(3,1fr); gap:26px; max-width:1000px; margin:0 auto; padding-bottom:70px; transform:translateY(30px); z-index:2;">
+      <div style="background:#fff; padding:34px 20px; text-align:center; box-shadow:0 10px 24px rgba(0,0,0,0.18); transition:transform 0.25s ease, box-shadow 0.25s ease; display:flex; flex-direction:column; align-items:center; justify-content:flex-start; min-height:270px;" style-hover="transform:translateY(-8px); box-shadow:0 18px 34px rgba(0,0,0,0.28);">
+        <div style="width:64px; height:64px; border-radius:50%; background:#111412; display:flex; align-items:center; justify-content:center; margin:0 auto 18px;">
+          <svg width="30" height="30" viewBox="0 0 32 32" fill="none" stroke="#B9DE7C" stroke-width="1.6"><path d="M8 26h16" stroke-linecap="round"></path><path d="M16 6v14" stroke-linecap="round"></path><path d="M11 10c0-3 2-4 5-4s5 1 5 4" stroke-linecap="round"></path></svg>
+        </div>
+        <div style="font-family:'Poppins',sans-serif; font-size:15px; font-weight:600; letter-spacing:0.5px; text-transform:uppercase; margin-bottom:4px;">Cleaning</div>
+        <div style="font-family:'Noto Kufi Arabic',sans-serif; direction:rtl; font-size:14px; font-weight:600; color:#6E9E2E; margin-bottom:10px;">النظافة</div>
+        <p style="font-size:13px; color:#3C403D; line-height:1.6; margin:0 0 14px;">Daily and specialist cleaning programs, designed to meet and exceed the standards our clients expect across every floor and shift.</p>
+        <a href="cleaning.dc.html" style="font-size:12.5px; font-weight:600; color:#8BC53F; margin-top:auto;">Learn More &nbsp;→</a>
+      </div>
+      <div style="background:#fff; padding:34px 20px; text-align:center; box-shadow:0 10px 24px rgba(0,0,0,0.18); transition:transform 0.25s ease, box-shadow 0.25s ease; display:flex; flex-direction:column; align-items:center; justify-content:flex-start; min-height:270px;" style-hover="transform:translateY(-8px); box-shadow:0 18px 34px rgba(0,0,0,0.28);">
+        <div style="width:64px; height:64px; border-radius:50%; background:#111412; display:flex; align-items:center; justify-content:center; margin:0 auto 18px;">
+          <svg width="30" height="30" viewBox="0 0 32 32" fill="none" stroke="#B9DE7C" stroke-width="1.6"><circle cx="16" cy="16" r="4"></circle><path d="M16 6v3M16 23v3M6 16h3M23 16h3M9 9l2 2M21 21l2 2M23 9l-2 2M9 23l2-2" stroke-linecap="round"></path></svg>
+        </div>
+        <div style="font-family:'Poppins',sans-serif; font-size:15px; font-weight:600; letter-spacing:0.5px; text-transform:uppercase; margin-bottom:4px;">Maintenance &amp; Operations</div>
+        <div style="font-family:'Noto Kufi Arabic',sans-serif; direction:rtl; font-size:14px; font-weight:600; color:#6E9E2E; margin-bottom:10px;">الصيانة</div>
+        <p style="font-size:13px; color:#3C403D; line-height:1.6; margin:0 0 14px;">From cleanliness to safety to health hazards, problems can emerge fast — our planned and reactive maintenance stops them before they spread.</p>
+        <a href="maintenance.dc.html" style="font-size:12.5px; font-weight:600; color:#8BC53F; margin-top:auto;">Learn More &nbsp;→</a>
+      </div>
+      <div style="background:#fff; padding:34px 20px; text-align:center; box-shadow:0 10px 24px rgba(0,0,0,0.18); transition:transform 0.25s ease, box-shadow 0.25s ease; display:flex; flex-direction:column; align-items:center; justify-content:flex-start; min-height:270px;" style-hover="transform:translateY(-8px); box-shadow:0 18px 34px rgba(0,0,0,0.28);">
+        <div style="width:64px; height:64px; border-radius:50%; background:#111412; display:flex; align-items:center; justify-content:center; margin:0 auto 18px;">
+          <svg width="30" height="30" viewBox="0 0 32 32" fill="none" stroke="#B9DE7C" stroke-width="1.6"><path d="M16 6l9 3v7c0 6-4 9-9 11-5-2-9-5-9-11V9z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        </div>
+        <div style="font-family:'Poppins',sans-serif; font-size:15px; font-weight:600; letter-spacing:0.5px; text-transform:uppercase; margin-bottom:4px;">Security</div>
+        <div style="font-family:'Noto Kufi Arabic',sans-serif; direction:rtl; font-size:14px; font-weight:600; color:#6E9E2E; margin-bottom:10px;">الأمن</div>
+        <p style="font-size:13px; color:#3C403D; line-height:1.6; margin:0 0 14px;">Trained security personnel protect your building, residence or event, with coverage for multi-location clients across every site we serve.</p>
+        <a href="security.dc.html" style="font-size:12.5px; font-weight:600; color:#8BC53F; margin-top:auto;">Learn More &nbsp;→</a>
+      </div>
+      <div style="background:#fff; padding:34px 20px; text-align:center; box-shadow:0 10px 24px rgba(0,0,0,0.18); transition:transform 0.25s ease, box-shadow 0.25s ease; display:flex; flex-direction:column; align-items:center; justify-content:flex-start; min-height:270px;" style-hover="transform:translateY(-8px); box-shadow:0 18px 34px rgba(0,0,0,0.28);">
+        <div style="width:64px; height:64px; border-radius:50%; background:#111412; display:flex; align-items:center; justify-content:center; margin:0 auto 18px;">
+          <svg width="30" height="30" viewBox="0 0 32 32" fill="none" stroke="#B9DE7C" stroke-width="1.6"><path d="M8 26V12l8-5 8 5v14" stroke-linecap="round" stroke-linejoin="round"></path><path d="M13 26v-6h6v6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        </div>
+        <div style="font-family:'Poppins',sans-serif; font-size:15px; font-weight:600; letter-spacing:0.5px; text-transform:uppercase; margin-bottom:4px;">Facilities Management</div>
+        <div style="font-family:'Noto Kufi Arabic',sans-serif; direction:rtl; font-size:14px; font-weight:600; color:#6E9E2E; margin-bottom:10px;">إدارة المرافق</div>
+        <p style="font-size:13px; color:#3C403D; line-height:1.6; margin:0 0 14px;">Central coordination of vendors, compliance and assets, giving every facility one accountable team overseeing daily operations.</p>
+        <a href="facilities-management.dc.html" style="font-size:12.5px; font-weight:600; color:#8BC53F; margin-top:auto;">Learn More &nbsp;→</a>
+      </div>
+      <div style="background:#fff; padding:34px 20px; text-align:center; box-shadow:0 10px 24px rgba(0,0,0,0.18); transition:transform 0.25s ease, box-shadow 0.25s ease; display:flex; flex-direction:column; align-items:center; justify-content:flex-start; min-height:270px;" style-hover="transform:translateY(-8px); box-shadow:0 18px 34px rgba(0,0,0,0.28);">
+        <div style="width:64px; height:64px; border-radius:50%; background:#111412; display:flex; align-items:center; justify-content:center; margin:0 auto 18px;">
+          <svg width="30" height="30" viewBox="0 0 32 32" fill="none" stroke="#B9DE7C" stroke-width="1.6"><circle cx="12" cy="13" r="5"></circle><path d="M22 22l6 6" stroke-linecap="round"></path></svg>
+        </div>
+        <div style="font-family:'Poppins',sans-serif; font-size:15px; font-weight:600; letter-spacing:0.5px; text-transform:uppercase; margin-bottom:4px;">Integrated Solutions</div>
+        <div style="font-family:'Noto Kufi Arabic',sans-serif; direction:rtl; font-size:14px; font-weight:600; color:#6E9E2E; margin-bottom:10px;">حلول متكاملة</div>
+        <p style="font-size:13px; color:#3C403D; line-height:1.6; margin:0 0 14px;">Every service bundled into a single contract and one point of contact, so nothing falls between the gaps of separate vendors.</p>
+        <a href="integrated-solutions.dc.html" style="font-size:12.5px; font-weight:600; color:#8BC53F; margin-top:auto;">Learn More &nbsp;→</a>
+      </div>
+      <div style="background:#fff; padding:34px 20px; text-align:center; box-shadow:0 10px 24px rgba(0,0,0,0.18); transition:transform 0.25s ease, box-shadow 0.25s ease; display:flex; flex-direction:column; align-items:center; justify-content:flex-start; min-height:270px;" style-hover="transform:translateY(-8px); box-shadow:0 18px 34px rgba(0,0,0,0.28);">
+        <div style="width:64px; height:64px; border-radius:50%; background:#111412; display:flex; align-items:center; justify-content:center; margin:0 auto 18px;">
+          <svg width="30" height="30" viewBox="0 0 32 32" fill="none" stroke="#B9DE7C" stroke-width="1.6"><path d="M16 26v-8M16 18c-4 0-7-3-7-7 4 0 7 2 7 5M16 18c4 0 7-3 7-7-4 0-7 2-7 5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        </div>
+        <div style="font-family:'Poppins',sans-serif; font-size:15px; font-weight:600; letter-spacing:0.5px; text-transform:uppercase; margin-bottom:4px;">Specialty Floor Care</div>
+        <div style="font-family:'Noto Kufi Arabic',sans-serif; direction:rtl; font-size:14px; font-weight:600; color:#6E9E2E; margin-bottom:10px;">العناية المتخصصة بالأرضيات</div>
+        <p style="font-size:13px; color:#3C403D; line-height:1.6; margin:0 0 14px;">Stripping, waxing, polishing and specialized care for hard and soft flooring, keeping every surface safe and presentable.</p>
+        <a href="cleaning.dc.html" style="font-size:12.5px; font-weight:600; color:#8BC53F; margin-top:auto;">Learn More &nbsp;→</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- REGIONAL REACH -->
+  <div style="background:#FFFFFF; padding:90px 64px;">
+    <div style="max-width:1240px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center;">
+      <div style="position:relative; padding-top:14px;">
+        <div style="position:absolute; left:0; top:0; width:60%; height:2px; background:#8BC53F;"></div>
+        <div style="position:absolute; left:0; top:0; width:2px; height:100%; background:#8BC53F;"></div>
+        <div style="position:relative; margin-left:20px; aspect-ratio:1/0.86; background:#0A0F0B; clip-path: polygon(0 0, 92% 0, 100% 12%, 100% 100%, 0 100%); display:flex; align-items:center; justify-content:center; overflow:hidden;">
+          <svg width="100%" height="100%" viewBox="0 0 400 340" style="position:absolute; inset:0;">
+            <defs>
+              <pattern id="regionDots" width="10" height="10" patternUnits="userSpaceOnUse"><circle cx="1.4" cy="1.4" r="1.3" fill="#1F5C1F"></circle></pattern>
+              <radialGradient id="globeGrad" cx="42%" cy="38%" r="65%"><stop offset="0%" stop-color="#CFF29B"></stop><stop offset="45%" stop-color="#7DBF3F"></stop><stop offset="100%" stop-color="#173D14"></stop></radialGradient>
+              <radialGradient id="fadeMask" cx="50%" cy="42%" r="55%"><stop offset="60%" stop-color="#fff" stop-opacity="1"></stop><stop offset="100%" stop-color="#fff" stop-opacity="0"></stop></radialGradient>
+              <mask id="dotMask"><rect width="400" height="340" fill="url(#fadeMask)"></rect></mask>
+            </defs>
+            <rect width="400" height="340" fill="#0A0F0B"></rect>
+            <rect width="400" height="340" fill="url(#regionDots)" mask="url(#dotMask)"></rect>
+            <circle cx="170" cy="150" r="98" fill="url(#globeGrad)"></circle>
+            <g stroke="#0A0F0B" stroke-width="0.7" fill="none" opacity="0.55">
+              <ellipse cx="170" cy="150" rx="98" ry="98"></ellipse>
+              <ellipse cx="170" cy="150" rx="70" ry="98"></ellipse>
+              <ellipse cx="170" cy="150" rx="35" ry="98"></ellipse>
+              <path d="M72 150 H268"></path>
+              <path d="M80 108 Q170 130 260 108"></path>
+              <path d="M80 192 Q170 170 260 192"></path>
+            </g>
+          </svg>
+        </div>
+      </div>
+
+      <div>
+        <div style="font-family:'Poppins',sans-serif; font-size:13px; letter-spacing:3px; color:#6E9E2E; font-weight:600; margin-bottom:14px;">REGIONAL REACH</div>
+        <h2 style="font-family:'Archivo',sans-serif; font-size:38px; font-weight:800; line-height:1.12; margin:0 0 20px; color:#111412;">Expanding Frontiers: Our Middle Eastern Footprint</h2>
+        <p style="font-size:14.5px; color:#3C403D; line-height:1.75; margin:0 0 22px; max-width:520px;">We deliver premier janitorial, corporate security and facility services across the region's fastest-growing business hubs. Our strategic coverage ensures your assets remain immaculate, compliant and strictly protected.</p>
+        <div style="display:flex; flex-direction:column; gap:10px; margin-bottom:30px;">
+          <p style="font-size:14px; color:#3C403D; line-height:1.7; margin:0;"><strong style="color:#111412;">The Gulf Cooperation Council (GCC):</strong> Complete coverage across Saudi Arabia, the UAE, Qatar, Kuwait, Bahrain and Oman.</p>
+          <p style="font-size:14px; color:#3C403D; line-height:1.7; margin:0;"><strong style="color:#111412;">The Levant &amp; North Africa:</strong> Scaled solutions for modern corporate centers and administrative hubs in Egypt and Jordan.</p>
+          <p style="font-size:14px; color:#3C403D; line-height:1.7; margin:0;"><strong style="color:#111412;">Cross-Regional Hubs:</strong> High-standard asset protection and specialized cleaning infrastructure across commercial networks in Turkey.</p>
+        </div>
+        <a href="expansion-markets.dc.html" style="display:inline-flex; align-items:center; gap:10px; background:#8BC53F; color:#111412; padding:15px 30px; font-family:'Poppins',sans-serif; font-weight:600; font-size:13.5px; letter-spacing:0.5px;">LEARN MORE &nbsp;→</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- WHY CHOOSE US -->
+  <div id="why-choose-us" style="position:relative; background:#111412; padding:110px 64px; overflow:hidden;">
+    <img src="assets/team-why-choose-bg-c.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 15%; opacity: 1; left: -2px">
+    <div style="position:relative; max-width:1240px; margin:0 auto;">
+      <div>
+        <div style="display:flex; align-items:center; gap:12px; margin-bottom:14px;">
+          
+          <span style="font-family:'Poppins',sans-serif; font-size:12.5px; letter-spacing:3px; font-weight:600; color:#8BC53F;">OUR TEAM</span>
+        </div>
+        <h2 style="font-family:'Archivo',sans-serif; font-size:42px; font-weight:800; color:#fff; margin:0 0 8px; text-transform:uppercase;">Professionals<br>You Can Trust.</h2>
+        
+        <p style="font-size:15px; color:#C9C9C9; line-height:1.8; max-width:480px; margin:0 0 10px;">Trained teams. Clear standards. A consistent, professional presence in every facility we serve.</p>
+        <p style="font-family: 'Noto Kufi Arabic',sans-serif; direction: rtl; font-size: 14.5px; color: #B9DE7C; line-height: 1.9; max-width: 480px; margin: 0 0 34px; width: 433px; height: 30px">فرق مدرّبة. معايير واضحة. حضور مهني ثابت في كل منشأة نخدمها.</p><div style="font-family: 'Noto Kufi Arabic',sans-serif; direction: rtl; font-size: 24px; font-weight: 600; color: #8BC53F; margin: 0 0 22px; text-align: center; width: 281px; height: 38px">محترفون جديرون بالثقة.</div><div style="display: inline-flex; flex-direction: column; gap: 6px; border: 1.5px solid #8BC53F; padding: 16px 26px; border-color: #8BC53F00">
+          <span style="font-family:'Poppins',sans-serif; font-size:13px; font-weight:700; letter-spacing:2px; color:#fff;">UNIFORMED • TRAINED • ACCOUNTABLE</span>
+          <span style="font-family:'Noto Kufi Arabic',sans-serif; direction:rtl; font-size:13.5px; font-weight:600; color:#8BC53F;">زي موحّد • تدريب • مساءلة</span>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <!-- INDUSTRIES WE TAKE CHARGE OF -->
+  <div style="background:#F5F4F0; padding:80px 0 90px; overflow:hidden;">
+    <div style="max-width:1240px; margin:0 auto 46px; padding:0 64px; display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:start;">
+      <div>
+        <div style="font-family:'Poppins',sans-serif; font-size:12.5px; letter-spacing:3px; font-weight:600; color:#6E9E2E; margin-bottom:12px;">FOR DIVERSE INDUSTRIES</div>
+        <h2 style="font-family:'Archivo',sans-serif; font-size:38px; font-weight:800; line-height:1.1; margin:0; color:#111412;">Industries We Take<br>Charge Of</h2>
+      </div>
+      <p style="font-size:14px; color:#3C403D; line-height:1.8; margin:0; padding-top:6px;">We tailor our services to meet distinct sector needs, ensuring optimal cleanliness and safety. Whether it's a healthcare facility demanding strict sanitation standards, or a commercial property requiring meticulous attention to detail — discover how we cater to the specific cleaning needs across a broad range of sectors.</p>
+    </div>
+    <div style="overflow:hidden;">
+      <div ref="{{ indTrackRef }}" onMouseEnter="{{ pauseMarquee }}" onMouseLeave="{{ resumeMarquee }}" style="display:flex; gap:0; width:max-content; will-change:transform;">
+        <div style="position:relative; flex:0 0 340px; height:470px; overflow:hidden;">
+          <img src="assets/industry-national-accounts-c.jpg" alt="National Accounts Cleaning" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;">
+          <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(17,20,18,0) 40%, rgba(17,20,18,0.85) 100%);"></div>
+          <div style="position:absolute; left:22px; right:22px; bottom:26px;">
+            <div style="font-family:'Archivo',sans-serif; font-size:22px; font-weight:700; color:#fff; line-height:1.15; margin-bottom:12px;">National Accounts Cleaning</div>
+            <div style="height:2px; background:#8BC53F; margin-bottom:12px;"></div>
+            <div style="font-family:'Poppins',sans-serif; font-size:11px; letter-spacing:2px; color:#C9C9C9;">COMMERCIAL PROPERTY</div>
+          </div>
+        </div>
+        <div style="position:relative; flex:0 0 340px; height:470px; overflow:hidden;">
+          <img src="assets/industry-school-university-c.jpg" alt="School &amp; University Cleaning" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;">
+          <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(17,20,18,0) 40%, rgba(17,20,18,0.85) 100%);"></div>
+          <div style="position:absolute; left:22px; right:22px; bottom:26px;">
+            <div style="font-family:'Archivo',sans-serif; font-size:22px; font-weight:700; color:#fff; line-height:1.15; margin-bottom:12px;">School &amp; University Cleaning</div>
+            <div style="height:2px; background:#8BC53F; margin-bottom:12px;"></div>
+            <div style="font-family:'Poppins',sans-serif; font-size:11px; letter-spacing:2px; color:#C9C9C9;">EDUCATION</div>
+          </div>
+        </div>
+        <div style="position:relative; flex:0 0 340px; height:470px; overflow:hidden;">
+          <img src="assets/industry-healthcare.jpg" alt="Healthcare Cleaning" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;">
+          <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(17,20,18,0) 40%, rgba(17,20,18,0.85) 100%);"></div>
+          <div style="position:absolute; left:22px; right:22px; bottom:26px;">
+            <div style="font-family:'Archivo',sans-serif; font-size:22px; font-weight:700; color:#fff; line-height:1.15; margin-bottom:12px;">Healthcare Cleaning</div>
+            <div style="height:2px; background:#8BC53F; margin-bottom:12px;"></div>
+            <div style="font-family:'Poppins',sans-serif; font-size:11px; letter-spacing:2px; color:#C9C9C9;">HEALTHCARE</div>
+          </div>
+        </div>
+        <div style="position:relative; flex:0 0 340px; height:470px; overflow:hidden;">
+          <img src="assets/industry-government-c.jpg" alt="Government Building Cleaning" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;">
+          <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(17,20,18,0) 40%, rgba(17,20,18,0.85) 100%);"></div>
+          <div style="position:absolute; left:22px; right:22px; bottom:26px;">
+            <div style="font-family:'Archivo',sans-serif; font-size:22px; font-weight:700; color:#fff; line-height:1.15; margin-bottom:12px;">Government Building Cleaning</div>
+            <div style="height:2px; background:#8BC53F; margin-bottom:12px;"></div>
+            <div style="font-family:'Poppins',sans-serif; font-size:11px; letter-spacing:2px; color:#C9C9C9;">GOVERNMENT</div>
+          </div>
+        </div>
+        <div style="position:relative; flex:0 0 340px; height:470px; overflow:hidden;">
+          <img src="assets/industry-office-building.jpg" alt="Office &amp; Building Cleaning" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;">
+          <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(17,20,18,0) 40%, rgba(17,20,18,0.85) 100%);"></div>
+          <div style="position:absolute; left:22px; right:22px; bottom:26px;">
+            <div style="font-family:'Archivo',sans-serif; font-size:22px; font-weight:700; color:#fff; line-height:1.15; margin-bottom:12px;">Office &amp; Building Cleaning</div>
+            <div style="height:2px; background:#8BC53F; margin-bottom:12px;"></div>
+            <div style="font-family:'Poppins',sans-serif; font-size:11px; letter-spacing:2px; color:#C9C9C9;">OFFICES</div>
+          </div>
+        </div>
+        <div style="position:relative; flex:0 0 340px; height:470px; overflow:hidden;">
+          <img src="assets/industry-hotel-resort-c.jpg" alt="Hotel &amp; Resort Cleaning" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;">
+          <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(17,20,18,0) 40%, rgba(17,20,18,0.85) 100%);"></div>
+          <div style="position:absolute; left:22px; right:22px; bottom:26px;">
+            <div style="font-family:'Archivo',sans-serif; font-size:22px; font-weight:700; color:#fff; line-height:1.15; margin-bottom:12px;">Hotel &amp; Resort Cleaning</div>
+            <div style="height:2px; background:#8BC53F; margin-bottom:12px;"></div>
+            <div style="font-family:'Poppins',sans-serif; font-size:11px; letter-spacing:2px; color:#C9C9C9;">HOSPITALITY</div>
+          </div>
+        </div>
+        <div style="position:relative; flex:0 0 340px; height:470px; overflow:hidden;">
+          <img src="assets/industry-national-accounts-c.jpg" alt="National Accounts Cleaning" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;">
+          <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(17,20,18,0) 40%, rgba(17,20,18,0.85) 100%);"></div>
+          <div style="position:absolute; left:22px; right:22px; bottom:26px;">
+            <div style="font-family:'Archivo',sans-serif; font-size:22px; font-weight:700; color:#fff; line-height:1.15; margin-bottom:12px;">National Accounts Cleaning</div>
+            <div style="height:2px; background:#8BC53F; margin-bottom:12px;"></div>
+            <div style="font-family:'Poppins',sans-serif; font-size:11px; letter-spacing:2px; color:#C9C9C9;">COMMERCIAL PROPERTY</div>
+          </div>
+        </div>
+        <div style="position:relative; flex:0 0 340px; height:470px; overflow:hidden;">
+          <img src="assets/industry-school-university-c.jpg" alt="School &amp; University Cleaning" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;">
+          <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(17,20,18,0) 40%, rgba(17,20,18,0.85) 100%);"></div>
+          <div style="position:absolute; left:22px; right:22px; bottom:26px;">
+            <div style="font-family:'Archivo',sans-serif; font-size:22px; font-weight:700; color:#fff; line-height:1.15; margin-bottom:12px;">School &amp; University Cleaning</div>
+            <div style="height:2px; background:#8BC53F; margin-bottom:12px;"></div>
+            <div style="font-family:'Poppins',sans-serif; font-size:11px; letter-spacing:2px; color:#C9C9C9;">EDUCATION</div>
+          </div>
+        </div>
+        <div style="position:relative; flex:0 0 340px; height:470px; overflow:hidden;">
+          <img src="assets/industry-healthcare.jpg" alt="Healthcare Cleaning" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;">
+          <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(17,20,18,0) 40%, rgba(17,20,18,0.85) 100%);"></div>
+          <div style="position:absolute; left:22px; right:22px; bottom:26px;">
+            <div style="font-family:'Archivo',sans-serif; font-size:22px; font-weight:700; color:#fff; line-height:1.15; margin-bottom:12px;">Healthcare Cleaning</div>
+            <div style="height:2px; background:#8BC53F; margin-bottom:12px;"></div>
+            <div style="font-family:'Poppins',sans-serif; font-size:11px; letter-spacing:2px; color:#C9C9C9;">HEALTHCARE</div>
+          </div>
+        </div>
+        <div style="position:relative; flex:0 0 340px; height:470px; overflow:hidden;">
+          <img src="assets/industry-government-c.jpg" alt="Government Building Cleaning" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;">
+          <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(17,20,18,0) 40%, rgba(17,20,18,0.85) 100%);"></div>
+          <div style="position:absolute; left:22px; right:22px; bottom:26px;">
+            <div style="font-family:'Archivo',sans-serif; font-size:22px; font-weight:700; color:#fff; line-height:1.15; margin-bottom:12px;">Government Building Cleaning</div>
+            <div style="height:2px; background:#8BC53F; margin-bottom:12px;"></div>
+            <div style="font-family:'Poppins',sans-serif; font-size:11px; letter-spacing:2px; color:#C9C9C9;">GOVERNMENT</div>
+          </div>
+        </div>
+        <div style="position:relative; flex:0 0 340px; height:470px; overflow:hidden;">
+          <img src="assets/industry-office-building.jpg" alt="Office &amp; Building Cleaning" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;">
+          <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(17,20,18,0) 40%, rgba(17,20,18,0.85) 100%);"></div>
+          <div style="position:absolute; left:22px; right:22px; bottom:26px;">
+            <div style="font-family:'Archivo',sans-serif; font-size:22px; font-weight:700; color:#fff; line-height:1.15; margin-bottom:12px;">Office &amp; Building Cleaning</div>
+            <div style="height:2px; background:#8BC53F; margin-bottom:12px;"></div>
+            <div style="font-family:'Poppins',sans-serif; font-size:11px; letter-spacing:2px; color:#C9C9C9;">OFFICES</div>
+          </div>
+        </div>
+        <div style="position:relative; flex:0 0 340px; height:470px; overflow:hidden;">
+          <img src="assets/industry-hotel-resort-c.jpg" alt="Hotel &amp; Resort Cleaning" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;">
+          <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(17,20,18,0) 40%, rgba(17,20,18,0.85) 100%);"></div>
+          <div style="position:absolute; left:22px; right:22px; bottom:26px;">
+            <div style="font-family:'Archivo',sans-serif; font-size:22px; font-weight:700; color:#fff; line-height:1.15; margin-bottom:12px;">Hotel &amp; Resort Cleaning</div>
+            <div style="height:2px; background:#8BC53F; margin-bottom:12px;"></div>
+            <div style="font-family:'Poppins',sans-serif; font-size:11px; letter-spacing:2px; color:#C9C9C9;">HOSPITALITY</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LEADERSHIP -->
+  <div style="background:#111412; padding:90px 64px;">
+    <div style="text-align:center; max-width:640px; margin:0 auto 50px;">
+      <div style="font-family:'Poppins',sans-serif; font-size:13px; letter-spacing:3px; color:#8BC53F; font-weight:600; margin-bottom:10px;">OPERATION TEAM</div>
+      <h2 style="font-family:'Poppins',sans-serif; font-size:34px; font-weight:600; color:#fff; margin:0;">Meet Our Operations Leadership</h2>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:24px; max-width:1200px; margin:0 auto;">
+      <div style="text-align:center;">
+        <div style="overflow:hidden; border-radius:8px; margin-bottom:16px; transition:transform 0.35s ease, box-shadow 0.35s ease;" style-hover="transform:translateY(-6px); box-shadow:0 18px 34px rgba(0,0,0,0.45);">
+        <img src="assets/lead-faris.jpg" alt="Faris Al-Khatib" style="width:100%; aspect-ratio:4/5; object-fit:cover; object-position:center top; border:2px solid #8BC53F; border-radius:8px; display:block; transition:transform 0.5s ease, filter 0.5s ease;" style-hover="transform:scale(1.07); filter:saturate(1.15) contrast(1.05);">
+        </div>
+        <div style="font-family:'Poppins',sans-serif; font-size:15px; font-weight:600; color:#fff;">Faris Al-Khatib</div>
+        <div style="font-family:'Noto Kufi Arabic',sans-serif; font-size:16px; font-weight:600; color:#8BC53F; margin-top:6px;">فارس الخطيب</div>
+        <div style="font-size:12px; color:#8BC53F; letter-spacing:0.5px; margin-top:4px;">VICE PRESIDENT OF OPERATIONS</div>
+        <div style="font-family:'Noto Kufi Arabic',sans-serif; font-size:12px; color:#8BC53F; margin-top:2px;">نائب الرئيس للعمليات</div>
+      </div>
+      <div style="text-align:center;">
+        <div style="overflow:hidden; border-radius:8px; margin-bottom:16px; transition:transform 0.35s ease, box-shadow 0.35s ease;" style-hover="transform:translateY(-6px); box-shadow:0 18px 34px rgba(0,0,0,0.45);">
+        <img src="assets/lead-hassan.jpg" alt="Hassan Al-Sayegh" style="width:100%; aspect-ratio:4/5; object-fit:cover; object-position:center top; border:2px solid #8BC53F; border-radius:8px; display:block; transition:transform 0.5s ease, filter 0.5s ease;" style-hover="transform:scale(1.07); filter:saturate(1.15) contrast(1.05);">
+        </div>
+        <div style="font-family:'Poppins',sans-serif; font-size:15px; font-weight:600; color:#fff;">Hassan Al-Sayegh</div>
+        <div style="font-family:'Noto Kufi Arabic',sans-serif; font-size:16px; font-weight:600; color:#8BC53F; margin-top:6px;">حسن الصايغ</div>
+        <div style="font-size:12px; color:#8BC53F; letter-spacing:0.5px; margin-top:4px;">GENERAL MANAGER</div>
+        <div style="font-family:'Noto Kufi Arabic',sans-serif; font-size:12px; color:#8BC53F; margin-top:2px;">المدير العام</div>
+      </div>
+      <div style="text-align:center;">
+        <div style="overflow:hidden; border-radius:8px; margin-bottom:16px; transition:transform 0.35s ease, box-shadow 0.35s ease;" style-hover="transform:translateY(-6px); box-shadow:0 18px 34px rgba(0,0,0,0.45);">
+        <img src="assets/lead-omar.jpg" alt="Omar Al-Rashid" style="width:100%; aspect-ratio:4/5; object-fit:cover; object-position:center top; border:2px solid #8BC53F; border-radius:8px; display:block; transition:transform 0.5s ease, filter 0.5s ease;" style-hover="transform:scale(1.07); filter:saturate(1.15) contrast(1.05);">
+        </div>
+        <div style="font-family:'Poppins',sans-serif; font-size:15px; font-weight:600; color:#fff;">Omar Al-Rashid</div>
+        <div style="font-family:'Noto Kufi Arabic',sans-serif; font-size:16px; font-weight:600; color:#8BC53F; margin-top:6px;">عمر الراشد</div>
+        <div style="font-size:12px; color:#8BC53F; letter-spacing:0.5px; margin-top:4px;">QUALITY &amp; TRAINING MANAGER</div>
+        <div style="font-family:'Noto Kufi Arabic',sans-serif; font-size:12px; color:#8BC53F; margin-top:2px;">مدير الجودة والتدريب</div>
+      </div>
+      <div style="text-align:center;">
+        <div style="overflow:hidden; border-radius:8px; margin-bottom:16px; transition:transform 0.35s ease, box-shadow 0.35s ease;" style-hover="transform:translateY(-6px); box-shadow:0 18px 34px rgba(0,0,0,0.45);">
+        <img src="assets/lead-sami.jpg" alt="Sami Al-Najjar" style="width:100%; aspect-ratio:4/5; object-fit:cover; object-position:center top; border:2px solid #8BC53F; border-radius:8px; display:block; transition:transform 0.5s ease, filter 0.5s ease;" style-hover="transform:scale(1.07); filter:saturate(1.15) contrast(1.05);">
+        </div>
+        <div style="font-family:'Poppins',sans-serif; font-size:15px; font-weight:600; color:#fff;">Sami Al-Najjar</div>
+        <div style="font-family:'Noto Kufi Arabic',sans-serif; font-size:16px; font-weight:600; color:#8BC53F; margin-top:6px;">سامي النجار</div>
+        <div style="font-size:12px; color:#8BC53F; letter-spacing:0.5px; margin-top:4px;">CLIENT SERVICES MANAGER</div>
+        <div style="font-family:'Noto Kufi Arabic',sans-serif; font-size:12px; color:#8BC53F; margin-top:2px;">مدير خدمات العملاء</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VISIBILITY & ACCOUNTABILITY -->
+  <div style="background:#FFFFFF; padding:40px 0 90px; position:relative; overflow:hidden;">
+    <div style="max-width:1400px; margin:0 auto; display:grid; grid-template-columns:0.85fr 1.15fr; align-items:stretch; gap:0;">
+      <div style="position:relative; min-height:640px; overflow:hidden;">
+        <img src="assets/inspection-tablet.jpg" alt="Facilities specialist running a live digital inspection" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 20%;">
+        <div style="position:absolute; left:0; right:0; bottom:0; height:38%; background:linear-gradient(180deg, rgba(17,20,18,0) 0%, rgba(17,20,18,0.82) 100%);"></div>
+        <div style="position:absolute; left:34px; bottom:34px; right:34px;">
+          <div style="font-family:'Poppins',sans-serif; font-size:11.5px; letter-spacing:2.4px; color:#B9DE7C; margin-bottom:8px;">LIVE FROM SITE</div>
+          <div style="font-family:'Archivo',sans-serif; font-size:26px; font-weight:800; color:#FFFFFF; line-height:1.15;">Every inspection,<br>recorded and shared.</div>
+        </div>
+      </div>
+
+      <div style="padding:96px 64px 0 70px;">
+        <div style="display:flex; align-items:center; gap:10px; margin-bottom:14px;">
+          <span style="font-family:'Poppins',sans-serif; font-size:12px; letter-spacing:3px; font-weight:600; color:#6E9E2E;">VISIBILITY &amp; ACCOUNTABILITY</span>
+        </div>
+        <h2 style="font-family:'Archivo',sans-serif; font-size:42px; font-weight:800; line-height:1.05; margin:0 0 10px; color:#111412; text-transform:uppercase;">Visibility in real time.<br>Accountability at every step.</h2>
+        <div style="font-family:'Noto Kufi Arabic',sans-serif; direction:rtl; text-align:right; font-size:19px; font-weight:600; color:#6E9E2E; line-height:1.7; margin:0 0 34px; max-width:560px;">رؤية مباشرة. ومساءلة في كل خطوة.</div>
+
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:0 44px;">
+        <div style="border-top:1px solid #E4E2DC; padding:22px 0 4px;">
+          <div style="display:flex; align-items:baseline; gap:12px; margin-bottom:8px;">
+            <span style="font-family:'Archivo',sans-serif; font-size:12px; font-weight:800; color:#8BC53F; letter-spacing:1px;">01</span>
+            <span style="font-family:'Poppins',sans-serif; font-size:13.5px; font-weight:600; letter-spacing:1.4px; text-transform:uppercase; color:#111412;">Live Data &amp; Dashboards</span>
+          </div>
+          <div style="font-family:'Noto Kufi Arabic',sans-serif; direction:rtl; text-align:right; font-size:14px; font-weight:600; color:#6E9E2E; margin-bottom:10px;">بيانات مباشرة ولوحات أداء</div>
+          <p style="font-size:13.5px; color:#3C403D; line-height:1.7; margin:0 0 6px;">See activity, completion and performance across every facility.</p>
+          <p style="font-family:'Noto Kufi Arabic',sans-serif; direction:rtl; text-align:right; font-size:12px; color:#6E9E2E; line-height:1.9; margin:0;">تابع النشاط والإنجاز والأداء في جميع المنشآت.</p>
+        </div>
+        <div style="border-top:1px solid #E4E2DC; padding:22px 0 4px;">
+          <div style="display:flex; align-items:baseline; gap:12px; margin-bottom:8px;">
+            <span style="font-family:'Archivo',sans-serif; font-size:12px; font-weight:800; color:#8BC53F; letter-spacing:1px;">02</span>
+            <span style="font-family:'Poppins',sans-serif; font-size:13.5px; font-weight:600; letter-spacing:1.4px; text-transform:uppercase; color:#111412;">Digital Inspections</span>
+          </div>
+          <div style="font-family:'Noto Kufi Arabic',sans-serif; direction:rtl; text-align:right; font-size:14px; font-weight:600; color:#6E9E2E; margin-bottom:10px;">فحوصات رقمية</div>
+          <p style="font-size:13.5px; color:#3C403D; line-height:1.7; margin:0 0 6px;">Standardized mobile inspections create measurable quality records.</p>
+          <p style="font-family:'Noto Kufi Arabic',sans-serif; direction:rtl; text-align:right; font-size:12px; color:#6E9E2E; line-height:1.9; margin:0;">فحوصات موحدة عبر الأجهزة المحمولة توثّق الجودة بوضوح.</p>
+        </div>
+        <div style="border-top:1px solid #E4E2DC; padding:22px 0 4px;">
+          <div style="display:flex; align-items:baseline; gap:12px; margin-bottom:8px;">
+            <span style="font-family:'Archivo',sans-serif; font-size:12px; font-weight:800; color:#8BC53F; letter-spacing:1px;">03</span>
+            <span style="font-family:'Poppins',sans-serif; font-size:13.5px; font-weight:600; letter-spacing:1.4px; text-transform:uppercase; color:#111412;">Transparent Reporting</span>
+          </div>
+          <div style="font-family:'Noto Kufi Arabic',sans-serif; direction:rtl; text-align:right; font-size:14px; font-weight:600; color:#6E9E2E; margin-bottom:10px;">تقارير شفافة</div>
+          <p style="font-size:13.5px; color:#3C403D; line-height:1.7; margin:0 0 6px;">Clear reports reveal trends, priorities and opportunities to improve.</p>
+          <p style="font-family:'Noto Kufi Arabic',sans-serif; direction:rtl; text-align:right; font-size:12px; color:#6E9E2E; line-height:1.9; margin:0;">تقارير واضحة تكشف الاتجاهات والأولويات وفرص التحسين.</p>
+        </div>
+        <div style="border-top:1px solid #E4E2DC; padding:22px 0 4px;">
+          <div style="display:flex; align-items:baseline; gap:12px; margin-bottom:8px;">
+            <span style="font-family:'Archivo',sans-serif; font-size:12px; font-weight:800; color:#8BC53F; letter-spacing:1px;">04</span>
+            <span style="font-family:'Poppins',sans-serif; font-size:13.5px; font-weight:600; letter-spacing:1.4px; text-transform:uppercase; color:#111412;">Faster Response</span>
+          </div>
+          <div style="font-family:'Noto Kufi Arabic',sans-serif; direction:rtl; text-align:right; font-size:14px; font-weight:600; color:#6E9E2E; margin-bottom:10px;">استجابة أسرع</div>
+          <p style="font-size:13.5px; color:#3C403D; line-height:1.7; margin:0 0 6px;">Connected workflows route issues quickly to the accountable team.</p>
+          <p style="font-family:'Noto Kufi Arabic',sans-serif; direction:rtl; text-align:right; font-size:12px; color:#6E9E2E; line-height:1.9; margin:0;">مسارات عمل مترابطة توجّه البلاغات سريعًا إلى الفريق المسؤول.</p>
+        </div>
+        </div>
+
+        <div style="margin:34px 0 0; padding:0; display:flex; align-items:center; justify-content:space-between; gap:28px;">
+          <div style="font-family:'Poppins',sans-serif; font-size:14.5px; font-weight:500; color:#111412; line-height:1.6;">One accountable team, one record of every visit — reviewed with you, not reported at you.</div>
+          <div style="font-family:'Noto Kufi Arabic',sans-serif; direction:rtl; font-size:13.5px; font-weight:600; color:#6E9E2E; flex-shrink:0;">فريق واحد مسؤول، وسجل واحد لكل زيارة.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTORS -->
+  <div id="sectors" style="background:#E5E5E1; padding:100px 64px; position:relative; overflow:hidden;">
+    <svg style="position:absolute; right:0; top:-140px; width:520px; height:520px; opacity:0.5;" viewBox="0 0 520 520"><circle cx="380" cy="140" r="300" fill="#DBDBD6"></circle></svg>
+    <div style="position:relative; max-width:1240px; margin:0 auto; display:grid; grid-template-columns:0.95fr 1.05fr; gap:70px; align-items:center;">
+
+      <div style="position:relative; height:520px;">
+        <img src="assets/sector-jordan-medical-2.jpg" alt="Arab Medical Centre" style="position:absolute; left:0; top:0; width:70%; height:62%; object-fit:cover;">
+        <img src="assets/sector-university-jordan-2.jpg" alt="The University of Jordan" style="position:absolute; right:0; bottom:0; width:62%; height:58%; object-fit:cover; border-top:6px solid #E5E5E1; border-left:6px solid #E5E5E1;">
+      </div>
+
+      <div>
+        <div style="display:flex; align-items:center; gap:12px; margin-bottom:14px;">
+          <span style="width:6px; height:6px; border-radius:50%; background:#6E9E2E;"></span>
+          <span style="font-family:'Poppins',sans-serif; font-size:12.5px; letter-spacing:3px; font-weight:600; color:#6E9E2E;">SECTORS WE SERVE</span>
+        </div>
+        <h2 style="font-family:'Archivo',sans-serif; font-size:44px; font-weight:800; color:#111412; line-height:1.06; margin:0 0 8px; text-transform:uppercase;">Specialized Care For<br>Every Environment.</h2>
+        <div style="font-family:'Noto Kufi Arabic',sans-serif; direction:rtl; text-align:right; font-size:20px; font-weight:600; color:#6E9E2E; line-height:1.7; margin:0 0 30px;">عناية متخصصة لكل بيئة.</div>
+
+        <sc-for list="{{ sectors }}" as="sec" hint-placeholder-count="3">
+          <div onClick="{{ toggleSector }}" data-idx="{{ sec.idx }}" style="border-top:1px solid #CFCFCA; padding:20px 0; cursor:pointer;">
+            <div style="display:flex; align-items:center; gap:18px;">
+              <span style="font-family:'Poppins',sans-serif; font-size:20px; font-weight:400; color:#6E9E2E; line-height:1; width:14px; flex-shrink:0;">{{ sec.sign }}</span>
+              <span style="font-family:'Poppins',sans-serif; font-size:16px; font-weight:600; letter-spacing:0.6px; text-transform:uppercase; color:#111412;">{{ sec.title }}</span>
+              <span style="font-family:'Noto Kufi Arabic',sans-serif; direction:rtl; font-size:15px; font-weight:600; color:#6E9E2E; margin-left:auto; flex-shrink:0;">{{ sec.titleAr }}</span>
+            </div>
+            <sc-if value="{{ sec.open }}" hint-placeholder-val="{{ false }}">
+              <div style="padding:14px 0 4px 32px;">
+                <p style="font-size:13.5px; color:#3C403D; line-height:1.75; margin:0 0 6px;">{{ sec.body }}</p>
+                <p style="font-family:'Noto Kufi Arabic',sans-serif; direction:rtl; text-align:right; font-size:12.5px; color:#6E9E2E; line-height:1.9; margin:0;">{{ sec.bodyAr }}</p>
+              </div>
+            </sc-if>
+          </div>
+        </sc-for>
+        <div style="border-top:1px solid #CFCFCA;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TRUSTED BY -->
+  
+
+  <!-- CTA BANNER -->
+  <div style="position:relative; background: #2A2E2A; background-image: radial-gradient(circle at 20% 30%, #2A2E2A 0%, #2A2E2A 60%); padding:100px 64px; text-align:center;">
+    <h2 style="font-family:'Poppins',sans-serif; font-size:32px; font-weight:700; color:#fff; letter-spacing:1px; text-transform:uppercase; margin:0 0 14px;">Your Facility. One Partner.</h2>
+    <div style="font-family:'Noto Kufi Arabic',sans-serif; direction:rtl; font-size:26px; font-weight:600; color:#8BC53F; margin:0 0 26px;">منشأتك. شريك واحد.</div>
+    <p style="font-size:15px; color:#C9C9C9; max-width:640px; margin:0 auto 14px; line-height:1.7; font-weight:300;">Bring cleaning, maintenance, security, and facilities management together under one accountable team.</p>
+    <p style="font-family:'Noto Kufi Arabic',sans-serif; direction:rtl; font-size:14.5px; color:#C9C9C9; max-width:640px; margin:0 auto 34px; line-height:1.9;">اجمع النظافة والصيانة والأمن وإدارة المرافق تحت مسؤولية فريق واحد.</p>
+    <div style="display:flex; gap:16px; justify-content:center;">
+      <a href="contact.dc.html" style="background:#8BC53F; color:#111412; padding:15px 30px; font-family:'Poppins',sans-serif; font-weight:600; font-size:14px;">Start A Conversation Today &nbsp;→</a>
+      <a href="contact.dc.html" style="border:1px solid #6E736F; color:#fff; padding:15px 30px; font-family:'Poppins',sans-serif; font-weight:600; font-size:14px;">Request a Proposal &nbsp;→</a>
+    </div>
+  </div>
+
+  <div style="background:#F5F4F0; padding:64px 64px;">
+    <div style="text-align:center; max-width:640px; margin:0 auto 40px;">
+      <div style="font-family:'Poppins',sans-serif; font-size:13px; letter-spacing:3px; color:#6E9E2E; font-weight:600; margin-bottom:10px;">TRUSTED BY</div>
+      <h2 style="font-family:'Archivo',sans-serif; font-size:32px; font-weight:800; color:#111412; margin:0;">Proven At Scale</h2>
+    </div>
+    <div style="display:flex; align-items:center; justify-content:center; flex-wrap:nowrap; gap:44px; max-width:1400px; margin:0 auto;">
+      
+      <img src="assets/client-meijer-trim.png" alt="Meijer" style="height: 52px; width: 142px; object-fit: contain">
+      
+      
+      
+      <img src="assets/client-target-trim.png" alt="Target" style="height:48px; width:auto; object-fit:contain;"><img src="assets/client-annarbor-trim-c.png" alt="Ann Arbor Public Schools" style="height: 70px; width: 162px; object-fit: contain"><img src="assets/client-emu.webp" alt="Eastern Michigan University" style="height: 48px; width: 240px; object-fit: contain"><img src="assets/client-umich-trim.png" alt="University of Michigan" style="height: 44px; width: 234px; object-fit: contain"><img src="assets/client-trinity-trim.png" alt="Trinity Health" style="height: 74px; width: 226px; object-fit: contain">
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div style="background: #111412; padding:64px 64px 32px;">
+    <div style="max-width:1200px; margin:0 auto; display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:40px; padding-bottom:40px; border-bottom:1px solid #111412;">
+      <div>
+        <img src="assets/the1-wordmark.png" alt="The 1 Facilities Management" style="height:30px; width:auto; margin-bottom:16px;">
+        <p style="font-size:13.5px; color:#fff; line-height:1.7; margin:0; max-width:280px;">One partner for cleaning, maintenance, security and facilities management across every space you operate.</p>
+      </div>
+      <div>
+        <div style="font-family:'Poppins',sans-serif; font-size:13px; font-weight:600; letter-spacing:1px; color:#8BC53F; margin-bottom:14px;">SERVICES</div>
+        <div style="display:flex; flex-direction:column; gap:10px; font-size:13.5px; color:#fff;">
+          <a href="cleaning.dc.html" style="color:inherit;">Cleaning</a>
+          <a href="maintenance.dc.html" style="color:inherit;">Maintenance</a>
+          <a href="security.dc.html" style="color:inherit;">Security</a>
+          <a href="facilities-management.dc.html" style="color:inherit;">Facility Management</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-family:'Poppins',sans-serif; font-size:13px; font-weight:600; letter-spacing:1px; color:#8BC53F; margin-bottom:14px;">COMPANY</div>
+        <div style="display:flex; flex-direction:column; gap:10px; font-size:13.5px; color:#fff;">
+          <a href="about-us.dc.html" style="color:inherit;">About Us</a>
+          <a href="about-us.dc.html" style="color:inherit;">Our Story</a>
+          <a href="contact.dc.html" style="color:inherit;">Careers</a>
+          <a href="contact.dc.html" style="color:inherit;">Contact</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-family:'Poppins',sans-serif; font-size:13px; font-weight:600; letter-spacing:1px; color:#8BC53F; margin-bottom:14px;">CONTACT</div>
+        <div style="display:flex; flex-direction:column; gap:10px; font-size:13.5px; color:#fff;">
+          <a href="mailto:team@the1fm.com" style="color:inherit;">team@the1fm.com</a>
+          <a href="The1 Facilities Homepage.dc.html" style="color:inherit;">www.the1fm.com</a>
+        </div>
+      </div>
+    </div>
+    <div style="max-width:1200px; margin:0 auto; padding-top:24px; display:flex; justify-content:space-between; align-items:center; color:#fff; font-size:12.5px;">
+      <div>© 2026 The 1 Facilities Management. All rights reserved.</div>
+      <div style="display:flex; gap:20px;">
+        <a href="#" style="color:inherit;">Privacy Policy</a>
+        <a href="#" style="color:inherit;">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { indicatorLeft: 12, indicatorOpacity: 1, servicesOpen: false, industriesOpen: false, openSector: 0 };
+
+  sectorData = [
+    { title: 'Healthcare & Medical Facilities', titleAr: 'مرافق الرعاية الصحية والمنشآت الطبية',
+      body: 'Hospitals • Clinics • Medical offices • Specialty care',
+      bodyAr: 'المستشفيات • العيادات • المكاتب الطبية • الرعاية المتخصصة' },
+    { title: 'Hotels & Hospitality', titleAr: 'الفنادق والضيافة',
+      body: 'Hotels • Resorts • Guest facilities • Public spaces',
+      bodyAr: 'الفنادق • المنتجعات • مرافق الضيوف • المساحات العامة' },
+    { title: 'Additional & Specialized Sectors', titleAr: 'قطاعات إضافية ومتخصصة',
+      body: 'K-12 schools • Universities • Commercial • Mixed-use',
+      bodyAr: 'مدارس من الروضة حتى الثانوية • الجامعات • التجاري • متعدد الاستخدام' }
+  ];
+
+  navContainerRef = React.createRef();
+  indTrackRef = React.createRef();
+  marqueePaused = false;
+
+  componentDidMount() {
+    let x = 0, last = null;
+    const step = (t) => {
+      const el = this.indTrackRef.current;
+      if (el) {
+        if (last !== null && !this.marqueePaused) {
+          x -= (t - last) * 0.045;
+          const half = el.scrollWidth / 2;
+          if (half > 0 && -x >= half) x += half;
+          el.style.transform = 'translateX(' + x + 'px)';
+        }
+        last = t;
+      }
+      this._raf = requestAnimationFrame(step);
+    };
+    this._raf = requestAnimationFrame(step);
+  }
+
+  componentWillUnmount() { if (this._raf) cancelAnimationFrame(this._raf); }
+
+  moveTo(e) {
+    const container = this.navContainerRef.current;
+    if (!container) return;
+    const link = e.currentTarget.querySelector('a') || e.currentTarget;
+    const itemRect = link.getBoundingClientRect();
+    const containerRect = container.getBoundingClientRect();
+    const center = itemRect.left - containerRect.left + itemRect.width / 2 - 3;
+    this.setState({ indicatorLeft: center, indicatorOpacity: 1 });
+  }
+
+  renderVals() {
+    return {
+      navContainerRef: this.navContainerRef,
+      indTrackRef: this.indTrackRef,
+      pauseMarquee: () => { this.marqueePaused = true; },
+      resumeMarquee: () => { this.marqueePaused = false; },
+      indicatorLeft: this.state.indicatorLeft,
+      indicatorOpacity: this.state.indicatorOpacity,
+      servicesOpen: this.state.servicesOpen,
+      industriesOpen: this.state.industriesOpen,
+      onHomeEnter: (e) => { this.moveTo(e); this.setState({ servicesOpen: false, industriesOpen: false }); },
+      onAboutEnter: (e) => { this.moveTo(e); this.setState({ servicesOpen: false, industriesOpen: false }); },
+      onServicesEnter: (e) => { this.moveTo(e); this.setState({ servicesOpen: true, industriesOpen: false }); },
+      onIndustriesEnter: (e) => { this.moveTo(e); this.setState({ servicesOpen: false, industriesOpen: true }); },
+      onWhyEnter: (e) => { this.moveTo(e); this.setState({ servicesOpen: false, industriesOpen: false }); },
+      onCareersEnter: (e) => { this.moveTo(e); this.setState({ servicesOpen: false, industriesOpen: false }); },
+      onContactEnter: (e) => { this.moveTo(e); this.setState({ servicesOpen: false, industriesOpen: false }); },
+      onDropdownLeave: () => {},
+      onNavLeave: () => this.setState({ indicatorLeft: 12, indicatorOpacity: 1, servicesOpen: false, industriesOpen: false }),
+      sectors: this.sectorData.map((d, i) => ({
+        idx: i, title: d.title, titleAr: d.titleAr, body: d.body, bodyAr: d.bodyAr,
+        open: this.state.openSector === i, sign: this.state.openSector === i ? '−' : '+'
+      })),
+      toggleSector: (e) => {
+        const i = Number(e.currentTarget.getAttribute('data-idx'));
+        this.setState(st => ({ openSector: st.openSector === i ? -1 : i }));
+      },
+      services: [
+        { name: 'Cleaning', href: 'cleaning.dc.html' },
+        { name: 'Maintenance & Operations', href: 'maintenance.dc.html' },
+        { name: 'Security', href: 'security.dc.html' },
+        { name: 'Facility Management', href: 'facilities-management.dc.html' },
+        { name: 'Integrated Solutions', href: 'integrated-solutions.dc.html' },
+        { name: 'Specialty Floor Care', href: 'cleaning.dc.html' },
+      ],
+      industries: ['Healthcare & Medical Facilities', 'Hotels & Hospitality', 'K-12 Schools', 'Universities', 'Commercial Property', 'Mixed-Use Facilities'],
+      markets: [
+        { num: '02', name: 'Saudi Arabia' }, { num: '03', name: 'United Arab Emirates' },
+        { num: '04', name: 'Qatar' }, { num: '05', name: 'Kuwait' },
+        { num: '06', name: 'Bahrain' }, { num: '07', name: 'Oman' },
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>
