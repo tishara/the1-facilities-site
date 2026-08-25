@@ -111,7 +111,7 @@ function HeroCta({ mobile = false }: { mobile?: boolean }) {
 function ServiceCard({ s, mobile = false }: { s: typeof SERVICES[number]; mobile?: boolean }) {
   const { onMouseEnter, onMouseLeave, mergeStyle } = useHover();
   const base: React.CSSProperties = mobile
-    ? { flex: '0 0 268px', scrollSnapAlign: 'start', display: 'flex', flexDirection: 'column', background: '#fff', padding: '24px 20px', textAlign: 'center', boxShadow: '0 10px 24px rgba(0,0,0,0.2)' }
+    ? { flex: '0 0 268px', display: 'flex', flexDirection: 'column', background: '#fff', padding: '24px 20px', textAlign: 'center', boxShadow: '0 10px 24px rgba(0,0,0,0.2)' }
     : { background: '#fff', padding: '34px 20px', textAlign: 'center', boxShadow: '0 10px 24px rgba(0,0,0,0.18)', transition: 'transform 0.25s ease, box-shadow 0.25s ease', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start', minHeight: 270 };
   const hoverStyle: React.CSSProperties = { transform: 'translateY(-8px)', boxShadow: '0 18px 34px rgba(0,0,0,0.28)' };
   return (
@@ -158,7 +158,7 @@ function LeaderCard({ l }: { l: typeof LEADERS[number] }) {
 
 function IndustryCard({ c, mobile = false }: { c: typeof INDUSTRY_CARDS[number]; mobile?: boolean }) {
   return (
-    <div style={{ position: 'relative', flex: mobile ? '0 0 260px' : '0 0 340px', height: mobile ? 360 : 470, overflow: 'hidden', scrollSnapAlign: mobile ? 'start' : undefined }}>
+    <div style={{ position: 'relative', flex: mobile ? '0 0 260px' : '0 0 340px', height: mobile ? 360 : 470, overflow: 'hidden' }}>
       <img src={`/assets/${c.img}`} alt={c.title} style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }} />
       <div style={{ position: 'absolute', inset: 0, background: `linear-gradient(180deg, rgba(17,20,18,0) 40%, rgba(17,20,18,${mobile ? 0.88 : 0.85}) 100%)` }} />
       <div style={{ position: 'absolute', left: mobile ? 18 : 22, right: mobile ? 18 : 22, bottom: mobile ? 20 : 26, textAlign: mobile ? 'center' : undefined }}>
@@ -546,7 +546,7 @@ function HomeMobile() {
           <div style={{ fontSize: 12, letterSpacing: 3, color: '#8BC53F', fontWeight: 600, marginBottom: 10 }}>WHAT WE DELIVER</div>
           <h2 style={{ fontSize: 28, fontWeight: 600, color: '#fff', margin: 0 }}>Our Services</h2>
         </div>
-        <div className="hscroll" style={{ position: 'relative', overflowX: 'auto', overflowY: 'hidden', scrollSnapType: 'x mandatory', padding: '0 20px 6px' }}>
+        <div className="hscroll" style={{ position: 'relative', overflowX: 'auto', overflowY: 'hidden', padding: '0 20px 6px' }}>
           <div style={{ display: 'flex', gap: 12, width: 'max-content', alignItems: 'stretch' }}>
             {SERVICES.map((s) => <ServiceCard key={s.title} s={s} mobile />)}
           </div>
@@ -603,7 +603,7 @@ function HomeMobile() {
           <h2 style={{ fontFamily: "'Archivo',sans-serif", fontSize: 28, fontWeight: 800, lineHeight: 1.1, margin: '0 0 14px', color: '#111412' }}>Industries We Take<br />Charge Of</h2>
           <p style={{ fontSize: 14, color: '#3C403D', lineHeight: 1.8, margin: 0 }}>We tailor our services to meet distinct sector needs, ensuring optimal cleanliness and safety. Whether it's a healthcare facility demanding strict sanitation standards, or a commercial property requiring meticulous attention to detail — discover how we cater to the specific cleaning needs across a broad range of sectors.</p>
         </div>
-        <div className="hscroll" style={{ overflowX: 'auto', overflowY: 'hidden', scrollSnapType: 'x mandatory', padding: '0 20px 6px' }}>
+        <div className="hscroll" style={{ overflowX: 'auto', overflowY: 'hidden', padding: '0 20px 6px' }}>
           <div style={{ display: 'flex', gap: 12, width: 'max-content' }}>
             {INDUSTRY_CARDS.map((c) => <IndustryCard key={c.title} c={c} mobile />)}
           </div>
@@ -616,11 +616,11 @@ function HomeMobile() {
           <div style={{ fontSize: 12, letterSpacing: 3, color: '#8BC53F', fontWeight: 600, marginBottom: 10 }}>OPERATION TEAM</div>
           <h2 style={{ fontSize: 26, fontWeight: 600, color: '#fff', margin: 0 }}>Meet Our Operations Leadership</h2>
         </div>
-        <div className="hscroll" style={{ overflowX: 'auto', overflowY: 'hidden', scrollSnapType: 'x mandatory', padding: '0 20px 6px', margin: '0 -20px' }}>
+        <div className="hscroll" style={{ overflowX: 'auto', overflowY: 'hidden', padding: '0 20px 6px', margin: '0 -20px' }}>
           <div style={{ display: 'flex', gap: 14, width: 'max-content' }}>
             {[PRESIDENT, ...LEADERS].map((l) => (
-              <div key={l.name} style={{ flex: '0 0 150px', scrollSnapAlign: 'start', textAlign: 'center' }}>
-                <img src={`/assets/${l.img}`} alt={l.name} style={{ width: '100%', aspectRatio: '4/5', objectFit: 'cover', objectPosition: 'center top', border: '2px solid #8BC53F', borderRadius: 8, display: 'block', marginBottom: 12 }} />
+              <div key={l.name} style={{ flex: '0 0 150px', textAlign: 'center' }}>
+                <img src={`/assets/${l.img}`} alt={l.name} style={{ width: 150, height: 188, objectFit: 'cover', objectPosition: 'center top', border: '2px solid #8BC53F', borderRadius: 8, display: 'block', marginBottom: 12 }} />
                 <div style={{ fontSize: 13, fontWeight: 600, color: '#fff' }}>{l.name}</div>
                 <div style={{ fontFamily: "'Noto Kufi Arabic',sans-serif", fontSize: 13, fontWeight: 600, color: '#8BC53F', marginTop: 5 }}>{l.nameAr}</div>
                 <div style={{ fontSize: 9.5, color: '#8BC53F', letterSpacing: 0.5, marginTop: 4 }}>{l.role}</div>
