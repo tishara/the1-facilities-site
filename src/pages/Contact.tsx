@@ -167,10 +167,6 @@ function ContactMobile() {
             <a href="mailto:team@the1fm.com" style={{ fontSize: 15, fontWeight: 600, color: '#111412' }}>team@the1fm.com</a>
           </div>
           <div>
-            <div style={{ fontSize: 11, letterSpacing: 1, color: '#6E736F', marginBottom: 5 }}>WEBSITE</div>
-            <Link to={ROUTES.home} style={{ fontSize: 15, fontWeight: 600, color: '#111412' }}>www.the1fm.com</Link>
-          </div>
-          <div>
             <div style={{ fontSize: 11, letterSpacing: 1, color: '#6E736F', marginBottom: 5 }}>SERVICES</div>
             <div style={{ fontSize: 13, color: '#3C403D', lineHeight: 1.8 }}>Cleaning · Maintenance · Security · Facilities Management · Integrated Solutions</div>
           </div>
