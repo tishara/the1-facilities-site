@@ -57,7 +57,11 @@ input::placeholder, textarea::placeholder {
 }
 
 .hscroll::-webkit-scrollbar { display: none; }
-.hscroll { -ms-overflow-style: none; scrollbar-width: none; }
+.hscroll {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  overscroll-behavior-x: contain;
+}
 
 /* Desktop/mobile split — mirrors the original site's 768px matchMedia breakpoint */
 .desktop-only { display: block; }
