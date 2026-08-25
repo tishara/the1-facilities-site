@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;family=Archivo:wght@100..900&amp;family=Noto+Kufi+Arabic:wght@400;600;700&amp;display=swap" rel="stylesheet">
+<style>
+  html, body { margin: 0; background: #E8E8E4; overflow-x: hidden; max-width: 100%; }
+  a { color: #8BC53F; text-decoration: none; }
+  a:hover { color: #6E9E2E; }
+  * { box-sizing: border-box; }
+  input::placeholder, textarea::placeholder { color: #9A9A94; }
+</style>
+</helmet>
+
+<div style="width:100%; max-width:390px; margin:0 auto; background:#FFFFFF; font-family:'Poppins',sans-serif; color:#111412; overflow-x:hidden; position:relative;">
+
+  <div style="position:sticky; top:0; z-index:40; background:#111412; display:flex; align-items:center; justify-content:space-between; padding:12px 16px;">
+    <a href="index.html" style="display:flex; align-items:center;"><img src="assets/the1-wordmark.png" alt="The 1 Facilities Management" style="height:26px; width:auto;"></a>
+    <div style="display:flex; align-items:center; gap:10px;">
+      <a href="contact.dc.html" style="background:#8BC53F; color:#111412; padding:10px 14px; font-size:12px; font-weight:600; letter-spacing:0.3px; transition:background 0.2s ease;" style-hover="background:#9ED84A;" style-active="background:#9ED84A;">Get In Touch</a>
+      <div onClick="{{ toggleMenu }}" style="width:40px; height:40px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:5px; cursor:pointer; border:1px solid #2C312D;">
+        <span style="width:18px; height:2px; background:#fff; display:block;"></span>
+        <span style="width:18px; height:2px; background:#8BC53F; display:block;"></span>
+        <span style="width:18px; height:2px; background:#fff; display:block;"></span>
+      </div>
+    </div>
+  </div>
+
+  <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+    <div style="position:sticky; top:64px; z-index:39; background:#111412; border-top:1px solid #22271F; padding:8px 0 18px;">
+      <sc-for list="{{ navItems }}" as="n" hint-placeholder-count="7">
+        <sc-if value="{{ n.hasChildren }}" hint-placeholder-val="{{ false }}">
+          <div onClick="{{ toggleNav }}" data-idx="{{ n.idx }}" style="display:flex; align-items:center; justify-content:space-between; padding:15px 20px; border-bottom:1px solid #1E231F; cursor:pointer;">
+            <span style="font-size:13px; letter-spacing:1.4px; font-weight:500; color:{{ n.color }};">{{ n.label }}</span>
+            <span style="font-size:16px; font-weight:400; color:#8BC53F;">{{ n.sign }}</span>
+          </div>
+        </sc-if>
+        <sc-if value="{{ n.noChildren }}" hint-placeholder-val="{{ true }}">
+          <a href="{{ n.href }}" style="display:flex; align-items:center; justify-content:space-between; padding:15px 20px; border-bottom:1px solid #1E231F;">
+            <span style="font-size:13px; letter-spacing:1.4px; font-weight:500; color:{{ n.color }};">{{ n.label }}</span>
+            <span style="font-size:16px; font-weight:400; color:#8BC53F;">→</span>
+          </a>
+        </sc-if>
+        <sc-if value="{{ n.open }}" hint-placeholder-val="{{ false }}">
+          <div style="background:#8BC53F;">
+            <sc-for list="{{ n.children }}" as="c" hint-placeholder-count="4">
+              <a href="{{ c.href }}" style="display:block; padding:13px 26px; font-size:12.5px; letter-spacing:1px; font-weight:600; color:#111412; border-bottom:1px solid rgba(255,255,255,0.2);">{{ c.label }}</a>
+            </sc-for>
+          </div>
+        </sc-if>
+      </sc-for>
+      <div style="display:flex; align-items:center; gap:18px; padding:20px 20px 0;">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="#6E736F"><path d="M22 12a10 10 0 10-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0022 12z"></path></svg>
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="#6E736F"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2 3.77-2 4 0 4.7 2.6 4.7 6.1V21h-4v-5.3c0-1.3 0-2.9-1.8-2.9s-2.1 1.4-2.1 2.8V21H9z"></path></svg>
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="#6E736F"><path d="M22.2 5.8c-.7.3-1.5.5-2.3.6.8-.5 1.4-1.3 1.7-2.3-.8.5-1.7.8-2.6 1a4.1 4.1 0 00-7 3.7A11.6 11.6 0 013 4.9a4.1 4.1 0 001.3 5.5c-.6 0-1.3-.2-1.8-.5v.1c0 2 1.4 3.6 3.3 4a4.2 4.2 0 01-1.9.1 4.1 4.1 0 003.9 2.9A8.3 8.3 0 012 18.6a11.6 11.6 0 006.3 1.8c7.5 0 11.7-6.3 11.7-11.7v-.5c.8-.6 1.5-1.3 2.2-2.4z"></path></svg>
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="#6E736F"><path d="M12 5.8a6.2 6.2 0 100 12.4 6.2 6.2 0 000-12.4zm0 10.2a4 4 0 110-8 4 4 0 010 8zM18.4 5.5a1.4 1.4 0 11-2.8 0 1.4 1.4 0 012.8 0z"></path><path d="M17 2.2H7A4.8 4.8 0 002.2 7v10A4.8 4.8 0 007 21.8h10a4.8 4.8 0 004.8-4.8V7A4.8 4.8 0 0017 2.2zm2.6 14.8a2.6 2.6 0 01-2.6 2.6H7A2.6 2.6 0 014.4 17V7A2.6 2.6 0 017 4.4h10A2.6 2.6 0 0119.6 7z"></path></svg>
+      </div>
+    </div>
+  </sc-if>
+
+  <!-- HERO -->
+  <div style="position:relative; background:#111412; overflow:hidden; padding:48px 20px 52px; clip-path:polygon(0 0, 100% 0, 100% 97%, 0 100%); text-align:center;">
+    <svg style="position:absolute; right:-60px; top:-70px; width:220px; height:220px; opacity:0.5;" viewBox="0 0 400 400"><circle cx="200" cy="200" r="200" fill="#1C201B"></circle></svg>
+    <svg style="position:absolute; left:-70px; bottom:-70px; width:180px; height:180px; opacity:0.5;" viewBox="0 0 300 300"><circle cx="150" cy="150" r="150" fill="#1C201B"></circle></svg>
+    <div style="position:relative;">
+      <div style="font-size:11.5px; color:#C9C9C9; letter-spacing:0.5px; margin-bottom:16px;"><a href="index.html" style="color:#C9C9C9;">Home</a> / Contact</div>
+      <div style="font-size:11.5px; letter-spacing:3px; font-weight:600; color:#8BC53F; margin-bottom:12px;">LET'S GET STARTED</div>
+      <h1 style="font-family:'Archivo',sans-serif; font-size:28px; font-weight:800; color:#fff; line-height:1.15; margin:0 0 14px; text-transform:uppercase;">Your Facility. One Partner.</h1>
+      <div style="font-family:'Noto Kufi Arabic',sans-serif; direction:rtl; font-size:19px; font-weight:600; color:#8BC53F; margin-bottom:18px;">منشأتك. شريك واحد.</div>
+      <p style="font-size:14px; color:#C9C9C9; line-height:1.8; margin:0;">Bring cleaning, maintenance, security, and facilities management together under one accountable team.</p>
+    </div>
+  </div>
+
+  <!-- INFO -->
+  <div style="background:#FFFFFF; padding:44px 20px 8px; text-align:center;">
+    <div style="font-size:11.5px; letter-spacing:3px; font-weight:600; color:#6E9E2E; margin-bottom:6px;">START A CONVERSATION TODAY</div>
+    <div style="font-family:'Noto Kufi Arabic',sans-serif; direction:rtl; font-size:13px; font-weight:600; color:#6E9E2E; margin-bottom:24px;">ابدأ المحادثة اليوم</div>
+    <div style="display:flex; flex-direction:column; gap:20px; margin-bottom:8px;">
+      <div>
+        <div style="font-size:11px; letter-spacing:1px; color:#6E736F; margin-bottom:5px;">EMAIL</div>
+        <a href="mailto:team@the1fm.com" style="font-size:15px; font-weight:600; color:#111412;">team@the1fm.com</a>
+      </div>
+      <div>
+        <div style="font-size:11px; letter-spacing:1px; color:#6E736F; margin-bottom:5px;">SERVICES</div>
+        <div style="font-size:13px; color:#3C403D; line-height:1.8;">Cleaning · Maintenance · Security · Facilities Management · Integrated Solutions</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FORM -->
+  <div style="background:#FFFFFF; padding:28px 20px 44px;">
+    <div style="background:#F5F4F0; padding:26px 20px;">
+      <sc-if value="{{ submitted }}" hint-placeholder-val="{{ false }}">
+        <div style="text-align:center; padding:36px 6px;">
+          <div style="width:48px; height:48px; border-radius:50%; background:#8BC53F; color:#111412; display:flex; align-items:center; justify-content:center; margin:0 auto 16px; font-size:20px;">✓</div>
+          <div style="font-family:'Archivo',sans-serif; font-size:19px; font-weight:800; color:#111412; margin-bottom:8px;">Thank you — we'll be in touch.</div>
+          <p style="font-size:13.5px; color:#3C403D; margin:0;">A member of our team will reach out to {{ submittedEmail }} shortly.</p>
+        </div>
+      </sc-if>
+      <sc-if value="{{ notSubmitted }}" hint-placeholder-val="{{ true }}">
+        <div>
+          <div style="margin-bottom:16px;">
+            <label style="display:block; font-size:12px; letter-spacing:0.5px; color:#3C403D; margin-bottom:6px;">Full Name*</label>
+            <input value="{{ name }}" onChange="{{ onNameChange }}" placeholder="Your name" style="width:100%; padding:12px 14px; border:1px solid #CFCFCA; font-size:14px; font-family:'Poppins',sans-serif; background:#fff;">
+            <sc-if value="{{ nameError }}" hint-placeholder-val="{{ false }}"><div style="color:#C0392B; font-size:12px; margin-top:5px;">Name is required</div></sc-if>
+          </div>
+          <div style="margin-bottom:16px;">
+            <label style="display:block; font-size:12px; letter-spacing:0.5px; color:#3C403D; margin-bottom:6px;">Phone</label>
+            <input value="{{ phone }}" onChange="{{ onPhoneChange }}" placeholder="+962 6 000 0000" style="width:100%; padding:12px 14px; border:1px solid #CFCFCA; font-size:14px; font-family:'Poppins',sans-serif; background:#fff;">
+          </div>
+          <div style="margin-bottom:16px;">
+            <label style="display:block; font-size:12px; letter-spacing:0.5px; color:#3C403D; margin-bottom:6px;">Email*</label>
+            <input value="{{ email }}" onChange="{{ onEmailChange }}" placeholder="you@company.com" style="width:100%; padding:12px 14px; border:1px solid #CFCFCA; font-size:14px; font-family:'Poppins',sans-serif; background:#fff;">
+            <sc-if value="{{ emailError }}" hint-placeholder-val="{{ false }}"><div style="color:#C0392B; font-size:12px; margin-top:5px;">A valid email is required</div></sc-if>
+          </div>
+          <div style="margin-bottom:22px;">
+            <label style="display:block; font-size:12px; letter-spacing:0.5px; color:#3C403D; margin-bottom:6px;">How can we help?*</label>
+            <textarea value="{{ message }}" onChange="{{ onMessageChange }}" placeholder="Tell us about your facility and needs..." style="width:100%; min-height:100px; padding:12px 14px; border:1px solid #CFCFCA; font-size:14px; font-family:'Poppins',sans-serif; background:#fff; resize:vertical;"></textarea>
+            <sc-if value="{{ messageError }}" hint-placeholder-val="{{ false }}"><div style="color:#C0392B; font-size:12px; margin-top:5px;">Please tell us a bit about your needs</div></sc-if>
+          </div>
+          <button onClick="{{ onSubmit }}" style="width:100%; background:#8BC53F; color:#111412; border:none; padding:15px; font-family:'Poppins',sans-serif; font-weight:700; font-size:13.5px; letter-spacing:0.5px; cursor:pointer; transition:background 0.25s ease;" style-hover="background:#9ED84A;">SUBMIT REQUEST</button>
+        </div>
+      </sc-if>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div style="background:#111412; padding:44px 20px 24px; text-align:center;">
+    <img src="assets/the1-wordmark.png" alt="The 1 Facilities Management" style="height:28px; width:auto; margin-bottom:14px;">
+    <p style="font-size:13.5px; color:#fff; line-height:1.7; margin:0 0 28px;">One partner for cleaning, maintenance, security and facilities management across every space you operate.</p>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:26px 18px; padding-bottom:26px;">
+      <div>
+        <div style="font-size:12.5px; font-weight:600; letter-spacing:1px; color:#8BC53F; margin-bottom:12px;">SERVICES</div>
+        <div style="display:flex; flex-direction:column; gap:10px; font-size:13.5px; color:#fff;">
+          <a href="cleaning.dc.html" style="color:inherit;">Cleaning</a>
+          <a href="maintenance.dc.html" style="color:inherit;">Maintenance</a>
+          <a href="security.dc.html" style="color:inherit;">Security</a>
+          <a href="facilities-management.dc.html" style="color:inherit;">Facility Management</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:12.5px; font-weight:600; letter-spacing:1px; color:#8BC53F; margin-bottom:12px;">COMPANY</div>
+        <div style="display:flex; flex-direction:column; gap:10px; font-size:13.5px; color:#fff;">
+          <a href="about-us.dc.html" style="color:inherit;">About Us</a>
+          <a href="our-people.dc.html" style="color:inherit;">Our People</a>
+          <a href="contact.dc.html" style="color:inherit;">Careers</a>
+          <a href="contact.dc.html" style="color:inherit;">Contact</a>
+        </div>
+      </div>
+      <div style="grid-column:1 / -1;">
+        <div style="font-size:12.5px; font-weight:600; letter-spacing:1px; color:#8BC53F; margin-bottom:12px;">CONTACT</div>
+        <div style="display:flex; flex-direction:column; align-items:center; gap:10px; font-size:13.5px; color:#fff;">
+          <a href="mailto:team@the1fm.com" style="color:inherit;">team@the1fm.com</a>
+          <a href="index.html" style="color:inherit;">www.the1fm.com</a>
+        </div>
+      </div>
+    </div>
+    <div style="border-top:1px solid #22271F; padding-top:20px; display:flex; flex-direction:column; align-items:center; gap:12px; color:#fff; font-size:12px;">
+      <div style="display:flex; gap:18px;">
+        <a href="#" style="color:inherit;">Privacy Policy</a>
+        <a href="#" style="color:inherit;">Terms of Service</a>
+      </div>
+      <div>© 2026 The 1 Facilities Management. All rights reserved.</div>
+    </div>
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = {
+    menuOpen: false, openNav: -1,
+    name: '', email: '', phone: '', message: '',
+    nameError: false, emailError: false, messageError: false,
+    submitted: false
+  };
+  ACTIVE_INDEX = 6;
+
+  navData = [
+    { label: 'HOME', href: 'index.html', children: [] },
+    { label: 'ABOUT US', href: 'about-us.dc.html', children: [] },
+    { label: 'SERVICES', href: '#', children: [
+      { label: 'Cleaning', href: 'cleaning.dc.html' },
+      { label: 'Maintenance & Operations', href: 'maintenance.dc.html' },
+      { label: 'Security', href: 'security.dc.html' },
+      { label: 'Facilities Management', href: 'facilities-management.dc.html' },
+      { label: 'Integrated Solutions', href: 'integrated-solutions.dc.html' }
+    ]},
+    { label: 'SECTORS', href: '#', children: [
+      { label: 'Healthcare & Medical', href: 'sectors.dc.html' },
+      { label: 'Hotels & Hospitality', href: 'sectors.dc.html' },
+      { label: 'Schools & Universities', href: 'sectors.dc.html' }
+    ]},
+    { label: 'WHY CHOOSE US', href: 'quality-accountability.dc.html', children: [] },
+    { label: 'CAREERS', href: 'contact.dc.html', children: [] },
+    { label: 'CONTACT', href: 'contact.dc.html', children: [] }
+  ];
+
+  renderVals() {
+    return {
+      menuOpen: this.state.menuOpen,
+      toggleMenu: () => this.setState(s => ({ menuOpen: !s.menuOpen })),
+      navItems: this.navData.map((n, i) => ({
+        idx: i, label: n.label, href: n.href, children: n.children,
+        hasChildren: n.children.length > 0,
+        noChildren: n.children.length === 0,
+        open: this.state.openNav === i && n.children.length > 0,
+        sign: n.children.length ? (this.state.openNav === i ? '−' : '+') : '→',
+        color: i === this.ACTIVE_INDEX ? '#FFFFFF' : '#C9C9C9'
+      })),
+      toggleNav: (e) => {
+        const i = Number(e.currentTarget.getAttribute('data-idx'));
+        this.setState(s => ({ openNav: s.openNav === i ? -1 : i }));
+      },
+      name: this.state.name,
+      email: this.state.email,
+      phone: this.state.phone,
+      message: this.state.message,
+      nameError: this.state.nameError,
+      emailError: this.state.emailError,
+      messageError: this.state.messageError,
+      submitted: this.state.submitted,
+      notSubmitted: !this.state.submitted,
+      submittedEmail: this.state.email,
+      onNameChange: (e) => this.setState({ name: e.target.value }),
+      onEmailChange: (e) => this.setState({ email: e.target.value }),
+      onPhoneChange: (e) => this.setState({ phone: e.target.value }),
+      onMessageChange: (e) => this.setState({ message: e.target.value }),
+      onSubmit: () => {
+        const nameError = !this.state.name.trim();
+        const emailError = !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.state.email);
+        const messageError = !this.state.message.trim();
+        if (nameError || emailError || messageError) {
+          this.setState({ nameError, emailError, messageError });
+          return;
+        }
+        this.setState({ submitted: true, nameError: false, emailError: false, messageError: false });
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>
