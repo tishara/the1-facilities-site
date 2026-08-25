@@ -53,6 +53,20 @@ function OurPeopleDesktop() {
 
         <div style={{ maxWidth: 280, margin: '0 auto', textAlign: 'center' }}>
           <div style={{ width: 140, height: 170, margin: '0 auto 14px', overflow: 'hidden' }}>
+            <img src="/assets/lead-rebhi.jpg" alt="Rebhi Zuhika" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top' }} />
+          </div>
+          <div style={{ fontFamily: "'Poppins',sans-serif", fontSize: 15, fontWeight: 600 }}>Rebhi Zuhika</div>
+          <div style={{ fontFamily: "'Noto Kufi Arabic',sans-serif", fontSize: 15, fontWeight: 600, color: '#6E9E2E', marginTop: 4 }}>ربحي زهيكة</div>
+          <div style={{ fontSize: 11.5, color: '#6E9E2E', letterSpacing: 0.5, marginTop: 6 }}>PRESIDENT</div>
+          <div style={{ fontFamily: "'Noto Kufi Arabic',sans-serif", fontSize: 11, color: '#6E9E2E' }}>الرئيس</div>
+        </div>
+
+        <div style={{ maxWidth: 600, height: 40, margin: '0 auto', position: 'relative' }}>
+          <div style={{ position: 'absolute', left: '50%', top: 0, width: 1, height: 40, background: '#CFCFCA' }} />
+        </div>
+
+        <div style={{ maxWidth: 280, margin: '0 auto', textAlign: 'center' }}>
+          <div style={{ width: 140, height: 170, margin: '0 auto 14px', overflow: 'hidden' }}>
             <img src="/assets/team-portrait-1.jpg" alt="Faris Al-Khatib" style={{ width: '200%', height: '100%', objectFit: 'cover', objectPosition: 'left top' }} />
           </div>
           <div style={{ fontFamily: "'Poppins',sans-serif", fontSize: 15, fontWeight: 600 }}>Faris Al-Khatib</div>
@@ -155,6 +169,13 @@ function OurPeopleMobile() {
           <h2 style={{ fontFamily: "'Archivo',sans-serif", fontSize: 24, fontWeight: 800, color: '#111412', margin: '0 0 10px' }}>Meet Our Operations Leadership</h2>
           <p style={{ fontSize: 13.5, color: '#3C403D', margin: '0 0 4px' }}>A leadership team built around accountability and performance.</p>
           <div style={{ fontFamily: "'Noto Kufi Arabic',sans-serif", direction: 'rtl', fontSize: 12.5, color: '#6E9E2E' }}>فريق قيادة يرتكز على المساءلة والأداء.</div>
+        </div>
+        <div style={{ width: '50%', margin: '0 auto 18px', textAlign: 'center' }}>
+          <img src="/assets/lead-rebhi.jpg" alt="Rebhi Zuhika" style={{ width: '100%', aspectRatio: '4/5', objectFit: 'cover', objectPosition: 'center top', border: '2px solid #8BC53F', borderRadius: 8, display: 'block', marginBottom: 12 }} />
+          <div style={{ fontSize: 14, fontWeight: 600, color: '#111412' }}>Rebhi Zuhika</div>
+          <div style={{ fontFamily: "'Noto Kufi Arabic',sans-serif", fontSize: 14, fontWeight: 600, color: '#6E9E2E', marginTop: 5 }}>ربحي زهيكة</div>
+          <div style={{ fontSize: 10.5, color: '#6E9E2E', letterSpacing: 0.5, marginTop: 4 }}>PRESIDENT</div>
+          <div style={{ fontFamily: "'Noto Kufi Arabic',sans-serif", fontSize: 11, color: '#6E9E2E', marginTop: 2 }}>الرئيس</div>
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '18px 14px' }}>
           {leaders.map((l) => (

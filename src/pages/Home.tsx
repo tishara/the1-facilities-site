@@ -53,6 +53,8 @@ const INDUSTRY_CARDS = [
   { img: 'industry-hotel-resort-c.jpg', title: 'Hotel & Resort Cleaning', tag: 'HOSPITALITY' },
 ];
 
+const PRESIDENT = { img: 'lead-rebhi.jpg', name: 'Rebhi Zuhika', nameAr: 'ربحي زهيكة', role: 'PRESIDENT', roleAr: 'الرئيس' };
+
 const LEADERS = [
   { img: 'lead-faris.jpg', name: 'Faris Al-Khatib', nameAr: 'فارس الخطيب', role: 'VICE PRESIDENT OF OPERATIONS', roleAr: 'نائب الرئيس للعمليات' },
   { img: 'lead-hassan.jpg', name: 'Hassan Al-Sayegh', nameAr: 'حسن الصايغ', role: 'GENERAL MANAGER', roleAr: 'المدير العام' },
@@ -379,6 +381,11 @@ function HomeDesktop() {
           <div style={{ fontFamily: "'Poppins',sans-serif", fontSize: 13, letterSpacing: 3, color: '#8BC53F', fontWeight: 600, marginBottom: 10 }}>OPERATION TEAM</div>
           <h2 style={{ fontFamily: "'Poppins',sans-serif", fontSize: 34, fontWeight: 600, color: '#fff', margin: 0 }}>Meet Our Operations Leadership</h2>
         </div>
+        <div style={{ display: 'flex', justifyContent: 'center', maxWidth: 1200, margin: '0 auto 24px' }}>
+          <div style={{ width: 'calc((1200px - 72px) / 4)' }}>
+            <LeaderCard l={PRESIDENT} />
+          </div>
+        </div>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: 24, maxWidth: 1200, margin: '0 auto' }}>
           {LEADERS.map((l) => <LeaderCard key={l.name} l={l} />)}
         </div>
@@ -612,6 +619,13 @@ function HomeMobile() {
         <div style={{ textAlign: 'center', marginBottom: 28 }}>
           <div style={{ fontSize: 12, letterSpacing: 3, color: '#8BC53F', fontWeight: 600, marginBottom: 10 }}>OPERATION TEAM</div>
           <h2 style={{ fontSize: 26, fontWeight: 600, color: '#fff', margin: 0 }}>Meet Our Operations Leadership</h2>
+        </div>
+        <div style={{ width: '50%', margin: '0 auto 18px', textAlign: 'center' }}>
+          <img src={`/assets/${PRESIDENT.img}`} alt={PRESIDENT.name} style={{ width: '100%', aspectRatio: '4/5', objectFit: 'cover', objectPosition: 'center top', border: '2px solid #8BC53F', borderRadius: 8, display: 'block', marginBottom: 12 }} />
+          <div style={{ fontSize: 14, fontWeight: 600, color: '#fff' }}>{PRESIDENT.name}</div>
+          <div style={{ fontFamily: "'Noto Kufi Arabic',sans-serif", fontSize: 14, fontWeight: 600, color: '#8BC53F', marginTop: 5 }}>{PRESIDENT.nameAr}</div>
+          <div style={{ fontSize: 10.5, color: '#8BC53F', letterSpacing: 0.5, marginTop: 4 }}>{PRESIDENT.role}</div>
+          <div style={{ fontFamily: "'Noto Kufi Arabic',sans-serif", fontSize: 11, color: '#8BC53F', marginTop: 2 }}>{PRESIDENT.roleAr}</div>
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '18px 14px' }}>
           {LEADERS.map((l) => (
