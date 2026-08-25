@@ -21,19 +21,19 @@ const SERVICES_ITEMS = [
 const SERVICES_ITEMS_HOME = [...SERVICES_ITEMS, { name: 'Specialty Floor Care', href: ROUTES.cleaning }];
 
 const SECTORS_ITEMS = [
-  { name: 'Healthcare & Medical', href: ROUTES.sectors },
-  { name: 'Hotels & Hospitality', href: ROUTES.sectors },
-  { name: 'Schools & Universities', href: ROUTES.sectors },
+  { name: 'Healthcare & Medical', href: ROUTES.sectorHealthcare },
+  { name: 'Hotels & Hospitality', href: ROUTES.sectorHospitality },
+  { name: 'Schools & Universities', href: ROUTES.sectorEducation },
 ];
 
 const INDUSTRIES_ITEMS_HOME = [
-  'Healthcare & Medical Facilities',
-  'Hotels & Hospitality',
-  'K-12 Schools',
-  'Universities',
-  'Commercial Property',
-  'Mixed-Use Facilities',
-].map((name) => ({ name, href: ROUTES.sectors }));
+  { name: 'Healthcare & Medical Facilities', href: ROUTES.sectorHealthcare },
+  { name: 'Hotels & Hospitality', href: ROUTES.sectorHospitality },
+  { name: 'K-12 Schools', href: ROUTES.sectorEducation },
+  { name: 'Universities', href: ROUTES.sectorEducation },
+  { name: 'Commercial Property', href: ROUTES.sectors },
+  { name: 'Mixed-Use Facilities', href: ROUTES.sectors },
+];
 
 const MOBILE_NAV = [
   { label: 'HOME', href: ROUTES.home, children: [] as { label: string; href: string }[] },
@@ -49,7 +49,7 @@ const MOBILE_NAV = [
     children: SECTORS_ITEMS.map((s) => ({ label: s.name, href: s.href })),
   },
   { label: 'WHY CHOOSE US', href: ROUTES.qualityAccountability, children: [] },
-  { label: 'CAREERS', href: ROUTES.contact, children: [] },
+  { label: 'CAREERS', href: ROUTES.careers, children: [] },
   { label: 'CONTACT', href: ROUTES.contact, children: [] },
 ];
 
@@ -167,7 +167,7 @@ function DesktopHeader({ activeIndex, variant = 'inner' }: HeaderProps) {
           <Link to={ROUTES.qualityAccountability} style={navLinkStyle(activeIndex === 4)}>WHY CHOOSE US</Link>
         </div>
         <div onMouseEnter={(e) => { moveTo(e); setServicesOpen(false); setSectorsOpen(false); }} style={{ position: 'relative', padding: '20px 0', whiteSpace: 'nowrap', flexShrink: 0 }}>
-          <Link to={ROUTES.contact} style={navLinkStyle(activeIndex === 5)}>CAREERS</Link>
+          <Link to={ROUTES.careers} style={navLinkStyle(activeIndex === 5)}>CAREERS</Link>
         </div>
         <div onMouseEnter={(e) => { moveTo(e); setServicesOpen(false); setSectorsOpen(false); }} style={{ position: 'relative', padding: '20px 0', whiteSpace: 'nowrap', flexShrink: 0 }}>
           <Link to={ROUTES.contact} style={navLinkStyle(activeIndex === 6)}>CONTACT</Link>

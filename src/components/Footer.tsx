@@ -36,7 +36,9 @@ export function PageFooter() {
             <div>
               <div style={colHeader()}>SECTORS &amp; REACH</div>
               <div style={linkCol}>
-                <Link to={ROUTES.sectors} style={{ color: 'inherit' }}>Sectors We Serve</Link>
+                <Link to={ROUTES.sectorHealthcare} style={{ color: 'inherit' }}>Healthcare &amp; Medical</Link>
+                <Link to={ROUTES.sectorHospitality} style={{ color: 'inherit' }}>Hotels &amp; Hospitality</Link>
+                <Link to={ROUTES.sectorEducation} style={{ color: 'inherit' }}>Schools &amp; Universities</Link>
                 <Link to={ROUTES.technology} style={{ color: 'inherit' }}>Technology</Link>
                 <Link to={ROUTES.expansionMarkets} style={{ color: 'inherit' }}>Expansion Markets</Link>
               </div>
@@ -47,7 +49,7 @@ export function PageFooter() {
                 <Link to={ROUTES.aboutUs} style={{ color: 'inherit' }}>About Us</Link>
                 <Link to={ROUTES.ourPeople} style={{ color: 'inherit' }}>Our People</Link>
                 <Link to={ROUTES.qualityAccountability} style={{ color: 'inherit' }}>Quality &amp; Accountability</Link>
-                <Link to={ROUTES.contact} style={{ color: 'inherit' }}>Careers</Link>
+                <Link to={ROUTES.careers} style={{ color: 'inherit' }}>Careers</Link>
               </div>
             </div>
             <div>
@@ -87,7 +89,7 @@ export function PageFooter() {
               <div style={{ display: 'flex', flexDirection: 'column', gap: 10, fontSize: 13.5, color: '#fff' }}>
                 <Link to={ROUTES.aboutUs} style={{ color: 'inherit' }}>About Us</Link>
                 <Link to={ROUTES.ourPeople} style={{ color: 'inherit' }}>Our People</Link>
-                <Link to={ROUTES.contact} style={{ color: 'inherit' }}>Careers</Link>
+                <Link to={ROUTES.careers} style={{ color: 'inherit' }}>Careers</Link>
                 <Link to={ROUTES.contact} style={{ color: 'inherit' }}>Contact</Link>
               </div>
             </div>
@@ -136,7 +138,7 @@ export function HomeFooter() {
               <div style={linkCol}>
                 <Link to={ROUTES.aboutUs} style={{ color: 'inherit' }}>About Us</Link>
                 <Link to={ROUTES.aboutUs} style={{ color: 'inherit' }}>Our Story</Link>
-                <Link to={ROUTES.contact} style={{ color: 'inherit' }}>Careers</Link>
+                <Link to={ROUTES.careers} style={{ color: 'inherit' }}>Careers</Link>
                 <Link to={ROUTES.contact} style={{ color: 'inherit' }}>Contact</Link>
               </div>
             </div>
@@ -176,7 +178,7 @@ export function HomeFooter() {
               <div style={{ display: 'flex', flexDirection: 'column', gap: 10, fontSize: 13.5, color: '#fff' }}>
                 <Link to={ROUTES.aboutUs} style={{ color: 'inherit' }}>About Us</Link>
                 <Link to={ROUTES.aboutUs} style={{ color: 'inherit' }}>Our Story</Link>
-                <Link to={ROUTES.contact} style={{ color: 'inherit' }}>Careers</Link>
+                <Link to={ROUTES.careers} style={{ color: 'inherit' }}>Careers</Link>
                 <Link to={ROUTES.contact} style={{ color: 'inherit' }}>Contact</Link>
               </div>
             </div>

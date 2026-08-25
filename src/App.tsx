@@ -13,6 +13,10 @@ import OurPeople from './pages/OurPeople';
 import QualityAccountability from './pages/QualityAccountability';
 import ExpansionMarkets from './pages/ExpansionMarkets';
 import Contact from './pages/Contact';
+import Careers from './pages/Careers';
+import SectorHealthcare from './pages/SectorHealthcare';
+import SectorHospitality from './pages/SectorHospitality';
+import SectorEducation from './pages/SectorEducation';
 import ScrollToTop from './components/ScrollToTop';
 
 export default function App() {
@@ -33,6 +37,10 @@ export default function App() {
         <Route path={ROUTES.qualityAccountability} element={<QualityAccountability />} />
         <Route path={ROUTES.expansionMarkets} element={<ExpansionMarkets />} />
         <Route path={ROUTES.contact} element={<Contact />} />
+        <Route path={ROUTES.careers} element={<Careers />} />
+        <Route path={ROUTES.sectorHealthcare} element={<SectorHealthcare />} />
+        <Route path={ROUTES.sectorHospitality} element={<SectorHospitality />} />
+        <Route path={ROUTES.sectorEducation} element={<SectorEducation />} />
       </Routes>
     </BrowserRouter>
   );

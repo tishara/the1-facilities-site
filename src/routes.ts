@@ -12,4 +12,8 @@ export const ROUTES = {
   qualityAccountability: '/quality-accountability',
   expansionMarkets: '/expansion-markets',
   contact: '/contact',
+  careers: '/careers',
+  sectorHealthcare: '/sectors/healthcare',
+  sectorHospitality: '/sectors/hospitality',
+  sectorEducation: '/sectors/education',
 } as const;

@@ -70,9 +70,9 @@ const PILLARS = [
 ];
 
 const SECTORS = [
-  { title: 'Healthcare & Medical Facilities', titleAr: 'مرافق الرعاية الصحية والمنشآت الطبية', body: 'Hospitals • Clinics • Medical offices • Specialty care', bodyAr: 'المستشفيات • العيادات • المكاتب الطبية • الرعاية المتخصصة' },
-  { title: 'Hotels & Hospitality', titleAr: 'الفنادق والضيافة', body: 'Hotels • Resorts • Guest facilities • Public spaces', bodyAr: 'الفنادق • المنتجعات • مرافق الضيوف • المساحات العامة' },
-  { title: 'Additional & Specialized Sectors', titleAr: 'قطاعات إضافية ومتخصصة', body: 'K-12 schools • Universities • Commercial • Mixed-use', bodyAr: 'مدارس من الروضة حتى الثانوية • الجامعات • التجاري • متعدد الاستخدام' },
+  { title: 'Healthcare & Medical Facilities', titleAr: 'مرافق الرعاية الصحية والمنشآت الطبية', body: 'Hospitals • Clinics • Medical offices • Specialty care', bodyAr: 'المستشفيات • العيادات • المكاتب الطبية • الرعاية المتخصصة', href: ROUTES.sectorHealthcare },
+  { title: 'Hotels & Hospitality', titleAr: 'الفنادق والضيافة', body: 'Hotels • Resorts • Guest facilities • Public spaces', bodyAr: 'الفنادق • المنتجعات • مرافق الضيوف • المساحات العامة', href: ROUTES.sectorHospitality },
+  { title: 'Additional & Specialized Sectors', titleAr: 'قطاعات إضافية ومتخصصة', body: 'K-12 schools • Universities • Commercial • Mixed-use', bodyAr: 'مدارس من الروضة حتى الثانوية • الجامعات • التجاري • متعدد الاستخدام', href: ROUTES.sectorEducation },
 ];
 
 const REGIONS = [
@@ -452,7 +452,8 @@ function HomeDesktop() {
                   {open && (
                     <div style={{ padding: '14px 0 4px 32px' }}>
                       <p style={{ fontSize: 13.5, color: '#3C403D', lineHeight: 1.75, margin: '0 0 6px' }}>{sec.body}</p>
-                      <p style={{ fontFamily: "'Noto Kufi Arabic',sans-serif", direction: 'rtl', textAlign: 'right', fontSize: 12.5, color: '#6E9E2E', lineHeight: 1.9, margin: 0 }}>{sec.bodyAr}</p>
+                      <p style={{ fontFamily: "'Noto Kufi Arabic',sans-serif", direction: 'rtl', textAlign: 'right', fontSize: 12.5, color: '#6E9E2E', lineHeight: 1.9, margin: '0 0 10px' }}>{sec.bodyAr}</p>
+                      <Link to={sec.href} onClick={(e) => e.stopPropagation()} style={{ fontSize: 12.5, fontWeight: 600, color: '#8BC53F' }}>Learn More &nbsp;→</Link>
                     </div>
                   )}
                 </div>
@@ -694,7 +695,8 @@ function HomeMobile() {
               {open && (
                 <div style={{ padding: '12px 0 2px 28px' }}>
                   <p style={{ fontSize: 13.5, color: '#3C403D', lineHeight: 1.75, margin: '0 0 6px' }}>{sec.body}</p>
-                  <p style={{ fontFamily: "'Noto Kufi Arabic',sans-serif", direction: 'rtl', textAlign: 'right', fontSize: 12.5, color: '#6E9E2E', lineHeight: 1.9, margin: 0 }}>{sec.bodyAr}</p>
+                  <p style={{ fontFamily: "'Noto Kufi Arabic',sans-serif", direction: 'rtl', textAlign: 'right', fontSize: 12.5, color: '#6E9E2E', lineHeight: 1.9, margin: '0 0 10px' }}>{sec.bodyAr}</p>
+                  <Link to={sec.href} onClick={(e) => e.stopPropagation()} style={{ fontSize: 12.5, fontWeight: 600, color: '#8BC53F' }}>Learn More &nbsp;→</Link>
                 </div>
               )}
             </div>
