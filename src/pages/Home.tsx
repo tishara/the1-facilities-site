@@ -381,12 +381,8 @@ function HomeDesktop() {
           <div style={{ fontFamily: "'Poppins',sans-serif", fontSize: 13, letterSpacing: 3, color: '#8BC53F', fontWeight: 600, marginBottom: 10 }}>OPERATION TEAM</div>
           <h2 style={{ fontFamily: "'Poppins',sans-serif", fontSize: 34, fontWeight: 600, color: '#fff', margin: 0 }}>Meet Our Operations Leadership</h2>
         </div>
-        <div style={{ display: 'flex', justifyContent: 'center', maxWidth: 1200, margin: '0 auto 24px' }}>
-          <div style={{ width: 'calc((1200px - 72px) / 4)' }}>
-            <LeaderCard l={PRESIDENT} />
-          </div>
-        </div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: 24, maxWidth: 1200, margin: '0 auto' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5,1fr)', gap: 20, maxWidth: 1300, margin: '0 auto' }}>
+          <LeaderCard l={PRESIDENT} />
           {LEADERS.map((l) => <LeaderCard key={l.name} l={l} />)}
         </div>
       </div>
@@ -620,23 +616,18 @@ function HomeMobile() {
           <div style={{ fontSize: 12, letterSpacing: 3, color: '#8BC53F', fontWeight: 600, marginBottom: 10 }}>OPERATION TEAM</div>
           <h2 style={{ fontSize: 26, fontWeight: 600, color: '#fff', margin: 0 }}>Meet Our Operations Leadership</h2>
         </div>
-        <div style={{ width: '50%', margin: '0 auto 18px', textAlign: 'center' }}>
-          <img src={`/assets/${PRESIDENT.img}`} alt={PRESIDENT.name} style={{ width: '100%', aspectRatio: '4/5', objectFit: 'cover', objectPosition: 'center top', border: '2px solid #8BC53F', borderRadius: 8, display: 'block', marginBottom: 12 }} />
-          <div style={{ fontSize: 14, fontWeight: 600, color: '#fff' }}>{PRESIDENT.name}</div>
-          <div style={{ fontFamily: "'Noto Kufi Arabic',sans-serif", fontSize: 14, fontWeight: 600, color: '#8BC53F', marginTop: 5 }}>{PRESIDENT.nameAr}</div>
-          <div style={{ fontSize: 10.5, color: '#8BC53F', letterSpacing: 0.5, marginTop: 4 }}>{PRESIDENT.role}</div>
-          <div style={{ fontFamily: "'Noto Kufi Arabic',sans-serif", fontSize: 11, color: '#8BC53F', marginTop: 2 }}>{PRESIDENT.roleAr}</div>
-        </div>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '18px 14px' }}>
-          {LEADERS.map((l) => (
-            <div key={l.name} style={{ textAlign: 'center' }}>
-              <img src={`/assets/${l.img}`} alt={l.name} style={{ width: '100%', aspectRatio: '4/5', objectFit: 'cover', objectPosition: 'center top', border: '2px solid #8BC53F', borderRadius: 8, display: 'block', marginBottom: 12 }} />
-              <div style={{ fontSize: 14, fontWeight: 600, color: '#fff' }}>{l.name}</div>
-              <div style={{ fontFamily: "'Noto Kufi Arabic',sans-serif", fontSize: 14, fontWeight: 600, color: '#8BC53F', marginTop: 5 }}>{l.nameAr}</div>
-              <div style={{ fontSize: 10.5, color: '#8BC53F', letterSpacing: 0.5, marginTop: 4 }}>{l.role}</div>
-              <div style={{ fontFamily: "'Noto Kufi Arabic',sans-serif", fontSize: 11, color: '#8BC53F', marginTop: 2 }}>{l.roleAr}</div>
-            </div>
-          ))}
+        <div className="hscroll" style={{ overflowX: 'auto', overflowY: 'hidden', scrollSnapType: 'x mandatory', padding: '0 20px 6px', margin: '0 -20px' }}>
+          <div style={{ display: 'flex', gap: 14, width: 'max-content' }}>
+            {[PRESIDENT, ...LEADERS].map((l) => (
+              <div key={l.name} style={{ flex: '0 0 150px', scrollSnapAlign: 'start', textAlign: 'center' }}>
+                <img src={`/assets/${l.img}`} alt={l.name} style={{ width: '100%', aspectRatio: '4/5', objectFit: 'cover', objectPosition: 'center top', border: '2px solid #8BC53F', borderRadius: 8, display: 'block', marginBottom: 12 }} />
+                <div style={{ fontSize: 13, fontWeight: 600, color: '#fff' }}>{l.name}</div>
+                <div style={{ fontFamily: "'Noto Kufi Arabic',sans-serif", fontSize: 13, fontWeight: 600, color: '#8BC53F', marginTop: 5 }}>{l.nameAr}</div>
+                <div style={{ fontSize: 9.5, color: '#8BC53F', letterSpacing: 0.5, marginTop: 4 }}>{l.role}</div>
+                <div style={{ fontFamily: "'Noto Kufi Arabic',sans-serif", fontSize: 10, color: '#8BC53F', marginTop: 2 }}>{l.roleAr}</div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 

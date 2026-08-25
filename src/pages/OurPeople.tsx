@@ -170,23 +170,18 @@ function OurPeopleMobile() {
           <p style={{ fontSize: 13.5, color: '#3C403D', margin: '0 0 4px' }}>A leadership team built around accountability and performance.</p>
           <div style={{ fontFamily: "'Noto Kufi Arabic',sans-serif", direction: 'rtl', fontSize: 12.5, color: '#6E9E2E' }}>فريق قيادة يرتكز على المساءلة والأداء.</div>
         </div>
-        <div style={{ width: '50%', margin: '0 auto 18px', textAlign: 'center' }}>
-          <img src="/assets/lead-rebhi.jpg" alt="Rebhi Zuhika" style={{ width: '100%', aspectRatio: '4/5', objectFit: 'cover', objectPosition: 'center top', border: '2px solid #8BC53F', borderRadius: 8, display: 'block', marginBottom: 12 }} />
-          <div style={{ fontSize: 14, fontWeight: 600, color: '#111412' }}>Rebhi Zuhika</div>
-          <div style={{ fontFamily: "'Noto Kufi Arabic',sans-serif", fontSize: 14, fontWeight: 600, color: '#6E9E2E', marginTop: 5 }}>ربحي زهيكة</div>
-          <div style={{ fontSize: 10.5, color: '#6E9E2E', letterSpacing: 0.5, marginTop: 4 }}>PRESIDENT</div>
-          <div style={{ fontFamily: "'Noto Kufi Arabic',sans-serif", fontSize: 11, color: '#6E9E2E', marginTop: 2 }}>الرئيس</div>
-        </div>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '18px 14px' }}>
-          {leaders.map((l) => (
-            <div key={l.name} style={{ textAlign: 'center' }}>
-              <img src={`/assets/${l.img}`} alt={l.name} style={{ width: '100%', aspectRatio: '4/5', objectFit: 'cover', objectPosition: 'center top', border: '2px solid #8BC53F', borderRadius: 8, display: 'block', marginBottom: 12 }} />
-              <div style={{ fontSize: 14, fontWeight: 600, color: '#111412' }}>{l.name}</div>
-              <div style={{ fontFamily: "'Noto Kufi Arabic',sans-serif", fontSize: 14, fontWeight: 600, color: '#6E9E2E', marginTop: 5 }}>{l.nameAr}</div>
-              <div style={{ fontSize: 10.5, color: '#6E9E2E', letterSpacing: 0.5, marginTop: 4 }}>{l.role}</div>
-              <div style={{ fontFamily: "'Noto Kufi Arabic',sans-serif", fontSize: 11, color: '#6E9E2E', marginTop: 2 }}>{l.roleAr}</div>
-            </div>
-          ))}
+        <div className="hscroll" style={{ overflowX: 'auto', overflowY: 'hidden', scrollSnapType: 'x mandatory', padding: '0 20px 6px', margin: '0 -20px' }}>
+          <div style={{ display: 'flex', gap: 14, width: 'max-content' }}>
+            {[{ img: 'lead-rebhi.jpg', name: 'Rebhi Zuhika', nameAr: 'ربحي زهيكة', role: 'PRESIDENT', roleAr: 'الرئيس' }, ...leaders].map((l) => (
+              <div key={l.name} style={{ flex: '0 0 150px', scrollSnapAlign: 'start', textAlign: 'center' }}>
+                <img src={`/assets/${l.img}`} alt={l.name} style={{ width: '100%', aspectRatio: '4/5', objectFit: 'cover', objectPosition: 'center top', border: '2px solid #8BC53F', borderRadius: 8, display: 'block', marginBottom: 12 }} />
+                <div style={{ fontSize: 13, fontWeight: 600, color: '#111412' }}>{l.name}</div>
+                <div style={{ fontFamily: "'Noto Kufi Arabic',sans-serif", fontSize: 13, fontWeight: 600, color: '#6E9E2E', marginTop: 5 }}>{l.nameAr}</div>
+                <div style={{ fontSize: 9.5, color: '#6E9E2E', letterSpacing: 0.5, marginTop: 4 }}>{l.role}</div>
+                <div style={{ fontFamily: "'Noto Kufi Arabic',sans-serif", fontSize: 10, color: '#6E9E2E', marginTop: 2 }}>{l.roleAr}</div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
