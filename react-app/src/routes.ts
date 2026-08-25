@@ -1,0 +1,15 @@
+export const ROUTES = {
+  home: '/',
+  aboutUs: '/about-us',
+  technology: '/technology',
+  sectors: '/sectors',
+  cleaning: '/cleaning',
+  maintenance: '/maintenance',
+  security: '/security',
+  facilitiesManagement: '/facilities-management',
+  integratedSolutions: '/integrated-solutions',
+  ourPeople: '/our-people',
+  qualityAccountability: '/quality-accountability',
+  expansionMarkets: '/expansion-markets',
+  contact: '/contact',
+} as const;
