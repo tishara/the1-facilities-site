@@ -76,7 +76,7 @@ function EngineeringMaintenanceDesktop() {
 
       {/* HERO */}
       <div style={{ position: 'relative', background: '#111412', overflow: 'hidden', padding: '60px 64px 100px', clipPath: 'polygon(0 0, 100% 0, 100% 94%, 0 100%)' }}>
-        <img src="/assets/maintenance-closeup.jpg" alt="Engineer servicing mechanical equipment" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', opacity: 0.5 }} />
+        <img src="/assets/engineering-hero.jpg" alt="Uniformed engineer inspecting a rooftop HVAC unit" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', opacity: 0.5 }} />
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(100deg, rgba(6,10,8,0.92) 0%, rgba(6,10,8,0.68) 55%, rgba(6,10,8,0.42) 100%)' }} />
         <div style={{ position: 'relative', maxWidth: 760, animation: 'std-rise 0.8s ease-out both' }}>
           <div style={{ fontSize: 12.5, color: '#C9C9C9', letterSpacing: 1, marginBottom: 22 }}><Link to={ROUTES.home} style={{ color: '#C9C9C9' }}>Home</Link> / Services / Engineering &amp; Maintenance</div>
@@ -92,7 +92,7 @@ function EngineeringMaintenanceDesktop() {
       <div style={{ background: '#FFFFFF', padding: '90px 64px 60px' }}>
         <div style={{ maxWidth: 1240, margin: '0 auto' }}>
           <div style={{ position: 'relative', maxWidth: 900, margin: '0 auto 60px' }}>
-            <img src="/assets/maintenance-closeup.jpg" alt="" style={{ width: '100%', height: 320, objectFit: 'cover', display: 'block' }} />
+            <img src="/assets/engineering-detail.jpg" alt="" style={{ width: '100%', height: 320, objectFit: 'cover', display: 'block' }} />
             <div style={{ marginTop: -56, marginLeft: 24, position: 'relative', background: '#111412', color: '#fff', display: 'inline-flex', flexDirection: 'column', padding: '20px 26px' }}>
               <span style={{ fontFamily: "'Archivo',sans-serif", fontSize: 30, fontWeight: 800, color: '#8BC53F' }}>10+</span>
               <span style={{ fontSize: 11.5, letterSpacing: 1, color: '#C9C9C9' }}>LICENSED TRADES ON CALL</span>
@@ -134,7 +134,7 @@ function EngineeringMaintenanceMobile() {
 
       {/* HERO */}
       <div style={{ position: 'relative', background: '#111412', overflow: 'hidden', padding: '44px 20px 52px', clipPath: 'polygon(0 0, 100% 0, 100% 97%, 0 100%)' }}>
-        <img src="/assets/maintenance-closeup.jpg" alt="Engineer servicing mechanical equipment" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', opacity: 0.5 }} />
+        <img src="/assets/engineering-hero.jpg" alt="Uniformed engineer inspecting a rooftop HVAC unit" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', opacity: 0.5 }} />
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(160deg, rgba(6,10,8,0.92) 0%, rgba(6,10,8,0.68) 55%, rgba(6,10,8,0.45) 100%)' }} />
         <div style={{ position: 'relative' }}>
           <div style={{ fontSize: 11.5, color: '#C9C9C9', letterSpacing: 0.5, marginBottom: 16 }}><Link to={ROUTES.home} style={{ color: '#C9C9C9' }}>Home</Link> / Services / Engineering</div>
@@ -148,7 +148,7 @@ function EngineeringMaintenanceMobile() {
 
       {/* IMAGE + BADGE */}
       <div style={{ background: '#FFFFFF', padding: '44px 20px 0' }}>
-        <img src="/assets/maintenance-closeup.jpg" alt="" style={{ width: '100%', height: 200, objectFit: 'cover', display: 'block' }} />
+        <img src="/assets/engineering-detail.jpg" alt="" style={{ width: '100%', height: 200, objectFit: 'cover', display: 'block' }} />
         <div style={{ marginTop: -36, marginLeft: 14, position: 'relative', background: '#111412', color: '#fff', display: 'inline-flex', flexDirection: 'column', padding: '14px 20px' }}>
           <span style={{ fontFamily: "'Archivo',sans-serif", fontSize: 24, fontWeight: 800, color: '#8BC53F' }}>10+</span>
           <span style={{ fontSize: 9.5, letterSpacing: 0.8, color: '#C9C9C9' }}>LICENSED TRADES ON CALL</span>
