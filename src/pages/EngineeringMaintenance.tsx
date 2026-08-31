@@ -4,27 +4,56 @@ import { PageFooter } from '../components/Footer';
 import { useHover } from '../hooks/useHover';
 import { ROUTES } from '../routes';
 
-const TEAM_GROUPS = [
+const SERVICES_LIST = [
   {
-    title: 'Licensed Engineers', titleAr: 'مهندسون مرخّصون',
-    body: 'Certified professionals responsible for your building’s critical mechanical systems.',
-    bodyAr: 'محترفون معتمدون مسؤولون عن الأنظمة الميكانيكية الحيوية في مبناك.',
-    roles: ['Boiler Operators', 'Stationary Engineers', 'Building Engineers'],
-    icon: <svg width="26" height="26" viewBox="0 0 32 32" fill="none" stroke="#B9DE7C" strokeWidth={1.6}><path d="M16 4l3 5.5 6-1.5-1.5 6L29 17l-5.5 3 1.5 6-6-1.5L16 30l-3-5.5-6 1.5 1.5-6L3 17l5.5-3-1.5-6 6 1.5z" strokeLinejoin="round" /><circle cx={16} cy={17} r={4} /></svg>,
+    num: '01', title: 'Boiler Operations', titleAr: 'تشغيل الغلايات',
+    body: 'Certified operation and monitoring of boiler systems, keeping heating and hot-water supply running safely and efficiently.',
+    bodyAr: 'تشغيل ومراقبة معتمدة لأنظمة الغلايات لضمان تشغيل آمن وفعّال لإمدادات التدفئة والمياه الساخنة.',
   },
   {
-    title: 'Skilled Trades On Site', titleAr: 'حرفيون مهرة في الموقع',
-    body: 'Hands-on technicians for every trade your facility relies on, day to day.',
-    bodyAr: 'فنيون ميدانيون لكل حرفة يعتمد عليها مبناك يومياً.',
-    roles: ['HVAC Technicians', 'Electricians', 'Plumbers', 'General Maintenance Technicians'],
-    icon: <svg width="26" height="26" viewBox="0 0 32 32" fill="none" stroke="#B9DE7C" strokeWidth={1.6}><path d="M23 9a5.5 5.5 0 01-7.1 5.3L8 22.2l-2.2-2.2 7.9-7.9A5.5 5.5 0 0119 4.5l-3.5 3.5 2 2L21 6.5A5.5 5.5 0 0123 9z" strokeLinecap="round" strokeLinejoin="round" /></svg>,
+    num: '02', title: 'Stationary Engineering', titleAr: 'الهندسة الثابتة',
+    body: "Round-the-clock oversight of your building's core mechanical plant, from central systems to critical equipment.",
+    bodyAr: 'إشراف مستمر على المنظومة الميكانيكية الأساسية للمبنى، من الأنظمة المركزية إلى المعدات الحيوية.',
   },
   {
-    title: 'Proactive & Responsive Coverage', titleAr: 'تغطية استباقية وسريعة الاستجابة',
-    body: 'Scheduled care and rapid response, so systems keep running without surprises.',
-    bodyAr: 'عناية دورية واستجابة سريعة تضمن استمرار عمل الأنظمة دون مفاجآت.',
-    roles: ['Preventive Maintenance', 'Mechanical Systems Support', 'Emergency Maintenance'],
-    icon: <svg width="26" height="26" viewBox="0 0 32 32" fill="none" stroke="#B9DE7C" strokeWidth={1.6}><circle cx={16} cy={17} r={10} /><path d="M16 11v6l5 3" strokeLinecap="round" strokeLinejoin="round" /><path d="M12 3h8" strokeLinecap="round" /></svg>,
+    num: '03', title: 'HVAC Services', titleAr: 'خدمات التكييف والتهوية',
+    body: 'Installation, servicing and repair of heating, ventilation and air conditioning systems that keep every space comfortable.',
+    bodyAr: 'تركيب وصيانة وإصلاح أنظمة التدفئة والتهوية وتكييف الهواء للحفاظ على راحة كل مساحة.',
+  },
+  {
+    num: '04', title: 'Electrical Services', titleAr: 'الخدمات الكهربائية',
+    body: 'Licensed electrical maintenance, repairs and inspections that keep power systems safe and code-compliant.',
+    bodyAr: 'صيانة وإصلاحات وفحوصات كهربائية مرخّصة تحافظ على سلامة أنظمة الطاقة ومطابقتها للأنظمة.',
+  },
+  {
+    num: '05', title: 'Plumbing Services', titleAr: 'خدمات السباكة',
+    body: 'Repair and maintenance of water, drainage and fixture systems, preventing leaks and unplanned downtime.',
+    bodyAr: 'إصلاح وصيانة أنظمة المياه والصرف والتجهيزات لمنع التسريبات وتعطل الخدمة.',
+  },
+  {
+    num: '06', title: 'Building Engineering', titleAr: 'هندسة المباني',
+    body: 'Engineering oversight that keeps every core building system — mechanical, electrical and structural — working as one.',
+    bodyAr: 'إشراف هندسي يحافظ على عمل جميع أنظمة المبنى الأساسية معًا بكفاءة.',
+  },
+  {
+    num: '07', title: 'General Maintenance', titleAr: 'الصيانة العامة',
+    body: 'Day-to-day repairs and upkeep across every space, handled by technicians who know your facility.',
+    bodyAr: 'إصلاحات وصيانة يومية في جميع المساحات، ينفذها فنيون على دراية كاملة بمنشأتك.',
+  },
+  {
+    num: '08', title: 'Preventive Maintenance', titleAr: 'الصيانة الوقائية',
+    body: 'Scheduled inspections and servicing that catch issues before they become costly failures.',
+    bodyAr: 'فحوصات وصيانة دورية مجدولة تكتشف المشكلات قبل أن تتحول إلى أعطال مكلفة.',
+  },
+  {
+    num: '09', title: 'Mechanical Systems Support', titleAr: 'دعم الأنظمة الميكانيكية',
+    body: 'Ongoing servicing of pumps, motors and mechanical equipment, keeping operations running smoothly.',
+    bodyAr: 'صيانة مستمرة للمضخات والمحركات والمعدات الميكانيكية لضمان سير العمليات بسلاسة.',
+  },
+  {
+    num: '10', title: 'Emergency Maintenance', titleAr: 'الصيانة الطارئة',
+    body: 'Rapid-response repair teams on call around the clock for urgent system failures.',
+    bodyAr: 'فرق إصلاح سريعة الاستجابة جاهزة على مدار الساعة لمعالجة الأعطال الطارئة.',
   },
 ];
 
@@ -41,35 +70,24 @@ function CtaButton({ mobile = false }: { mobile?: boolean }) {
   );
 }
 
-function RoleChip({ label, mobile = false }: { label: string; mobile?: boolean }) {
+function ServiceItem({ s, mobile = false }: { s: typeof SERVICES_LIST[number]; mobile?: boolean }) {
   return (
-    <span style={{ display: 'inline-block', border: '1px solid #E4E2DC', borderRadius: 20, padding: mobile ? '6px 12px' : '7px 14px', fontSize: mobile ? 11.5 : 12.5, fontWeight: 500, color: '#3C403D' }}>
-      {label}
-    </span>
-  );
-}
-
-function TeamGroupCard({ g, mobile = false }: { g: typeof TEAM_GROUPS[number]; mobile?: boolean }) {
-  const { onMouseEnter, onMouseLeave, mergeStyle } = useHover();
-  const base: React.CSSProperties = { border: '1px solid #E4E2DC', borderRadius: 10, padding: mobile ? '26px 22px' : '34px 30px', background: '#fff', transition: 'transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease' };
-  const hoverStyle: React.CSSProperties = { transform: 'translateY(-6px)', boxShadow: '0 16px 30px rgba(0,0,0,0.1)', borderColor: '#8BC53F' };
-  return (
-    <div onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} style={mobile ? base : mergeStyle(base, hoverStyle)}>
-      <div style={{ width: 48, height: 48, borderRadius: '50%', background: '#111412', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 18 }}>
-        {g.icon}
+    <div style={{ borderTop: '1px solid #E4E2DC', padding: mobile ? '18px 0' : '20px 0' }}>
+      <div style={{ display: 'flex', alignItems: 'baseline', gap: mobile ? 12 : 14 }}>
+        <span style={{ fontFamily: "'Archivo',sans-serif", fontSize: mobile ? 13 : 14, fontWeight: 800, color: '#8BC53F', flexShrink: 0 }}>{s.num}</span>
+        <span style={{ fontSize: mobile ? 14.5 : 15.5, color: '#111412', fontWeight: 600 }}>{s.title}</span>
       </div>
-      <div style={{ fontFamily: "'Poppins',sans-serif", fontSize: mobile ? 15.5 : 17, fontWeight: 600, marginBottom: 4 }}>{g.title}</div>
-      <div style={{ fontFamily: "'Noto Kufi Arabic',sans-serif", direction: 'rtl', fontSize: mobile ? 13 : 14, fontWeight: 600, color: '#6E9E2E', marginBottom: 12 }}>{g.titleAr}</div>
-      <p style={{ fontSize: mobile ? 13 : 13.5, color: '#3C403D', lineHeight: 1.7, margin: '0 0 4px' }}>{g.body}</p>
-      <p style={{ fontFamily: "'Noto Kufi Arabic',sans-serif", direction: 'rtl', fontSize: mobile ? 11.5 : 12.5, color: '#6E9E2E', lineHeight: 1.9, margin: '0 0 18px' }}>{g.bodyAr}</p>
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
-        {g.roles.map((r) => <RoleChip key={r} label={r} mobile={mobile} />)}
-      </div>
+      <div style={{ fontFamily: "'Noto Kufi Arabic',sans-serif", direction: 'rtl', textAlign: 'right', fontSize: mobile ? 12.5 : 13, fontWeight: 600, color: '#6E9E2E', margin: mobile ? '6px 0 6px' : '8px 0 8px' }}>{s.titleAr}</div>
+      <p style={{ fontSize: mobile ? 12.5 : 13.5, color: '#3C403D', lineHeight: 1.7, margin: `0 0 ${mobile ? 4 : 6}px ${mobile ? 24 : 28}px` }}>{s.body}</p>
+      <p style={{ fontFamily: "'Noto Kufi Arabic',sans-serif", direction: 'rtl', textAlign: 'right', fontSize: mobile ? 11.5 : 12, color: '#6E9E2E', lineHeight: 1.9, margin: `0 0 0 ${mobile ? 24 : 28}px` }}>{s.bodyAr}</p>
     </div>
   );
 }
 
 function EngineeringMaintenanceDesktop() {
+  const leftCol = SERVICES_LIST.slice(0, 5);
+  const rightCol = SERVICES_LIST.slice(5);
+
   return (
     <div style={{ fontFamily: "'Poppins', sans-serif", color: '#111412', overflowX: 'auto', minWidth: 1360 }}>
       <Header activeIndex={2} variant="inner" />
@@ -81,31 +99,32 @@ function EngineeringMaintenanceDesktop() {
         <div style={{ position: 'relative', maxWidth: 760, animation: 'std-rise 0.8s ease-out both' }}>
           <div style={{ fontSize: 12.5, color: '#C9C9C9', letterSpacing: 1, marginBottom: 22 }}><Link to={ROUTES.home} style={{ color: '#C9C9C9' }}>Home</Link> / Services / Engineering &amp; Maintenance</div>
           <div style={{ fontFamily: "'Poppins',sans-serif", fontSize: 12, letterSpacing: 3, fontWeight: 600, color: '#8BC53F', marginBottom: 16 }}>ENGINEERING &amp; MAINTENANCE</div>
-          <h1 style={{ fontFamily: "'Archivo',sans-serif", fontSize: 48, fontWeight: 800, color: '#fff', lineHeight: 1.1, margin: '0 0 18px', textTransform: 'uppercase' }}>The Engineers Behind Every System.</h1>
-          <div style={{ fontFamily: "'Noto Kufi Arabic',sans-serif", direction: 'rtl', fontSize: 26, fontWeight: 600, color: '#8BC53F', marginBottom: 22 }}>المهندسون وراء كل نظام.</div>
-          <p style={{ fontSize: 15, color: '#C9C9C9', lineHeight: 1.8, maxWidth: 500, margin: '0 0 8px' }}>Licensed engineers and skilled trades keeping HVAC, electrical, plumbing and mechanical systems running — with the same accountability as everything else we do.</p>
-          <p style={{ fontFamily: "'Noto Kufi Arabic',sans-serif", direction: 'rtl', fontSize: 13.5, color: '#B9DE7C', lineHeight: 1.9, maxWidth: 500, margin: 0 }}>فريق من المهندسين المرخّصين والفنيين المهرة يحافظون على تشغيل أنظمة التكييف والكهرباء والسباكة والأنظمة الميكانيكية، بنفس معايير المساءلة في كل ما نقدمه.</p>
+          <h1 style={{ fontFamily: "'Archivo',sans-serif", fontSize: 48, fontWeight: 800, color: '#fff', lineHeight: 1.1, margin: '0 0 18px', textTransform: 'uppercase' }}>Every System. Fully Covered.</h1>
+          <div style={{ fontFamily: "'Noto Kufi Arabic',sans-serif", direction: 'rtl', fontSize: 26, fontWeight: 600, color: '#8BC53F', marginBottom: 22 }}>تغطية كاملة لكل نظام.</div>
+          <p style={{ fontSize: 15, color: '#C9C9C9', lineHeight: 1.8, maxWidth: 520, margin: '0 0 8px' }}>From boiler operations to emergency repairs, one specialized service line covers every mechanical, electrical and structural system in your facility.</p>
+          <p style={{ fontFamily: "'Noto Kufi Arabic',sans-serif", direction: 'rtl', fontSize: 13.5, color: '#B9DE7C', lineHeight: 1.9, maxWidth: 520, margin: 0 }}>من تشغيل الغلايات إلى الإصلاحات الطارئة، تغطي خدماتنا المتخصصة كل نظام ميكانيكي وكهربائي وإنشائي في منشأتك.</p>
         </div>
       </div>
 
       {/* IMAGE + BADGE */}
-      <div style={{ background: '#FFFFFF', padding: '90px 64px 60px' }}>
+      <div style={{ background: '#FFFFFF', padding: '90px 64px 70px' }}>
         <div style={{ maxWidth: 1240, margin: '0 auto' }}>
           <div style={{ position: 'relative', maxWidth: 900, margin: '0 auto 60px' }}>
             <img src="/assets/engineering-detail.jpg" alt="" style={{ width: '100%', height: 320, objectFit: 'cover', display: 'block' }} />
             <div style={{ marginTop: -56, marginLeft: 24, position: 'relative', background: '#111412', color: '#fff', display: 'inline-flex', flexDirection: 'column', padding: '20px 26px' }}>
-              <span style={{ fontFamily: "'Archivo',sans-serif", fontSize: 30, fontWeight: 800, color: '#8BC53F' }}>10+</span>
-              <span style={{ fontSize: 11.5, letterSpacing: 1, color: '#C9C9C9' }}>LICENSED TRADES ON CALL</span>
+              <span style={{ fontFamily: "'Archivo',sans-serif", fontSize: 30, fontWeight: 800, color: '#8BC53F' }}>10</span>
+              <span style={{ fontSize: 11.5, letterSpacing: 1, color: '#C9C9C9' }}>SPECIALIZED SERVICES</span>
             </div>
           </div>
 
           <div style={{ textAlign: 'center', maxWidth: 680, margin: '0 auto 50px' }}>
-            <div style={{ fontFamily: "'Poppins',sans-serif", fontSize: 12, letterSpacing: 3, fontWeight: 600, color: '#6E9E2E', marginBottom: 12 }}>WHO'S ON YOUR TEAM</div>
-            <h2 style={{ fontFamily: "'Archivo',sans-serif", fontSize: 32, fontWeight: 800, margin: 0, color: '#111412', textTransform: 'uppercase' }}>Every Trade, One Accountable Team.</h2>
+            <div style={{ fontFamily: "'Poppins',sans-serif", fontSize: 12, letterSpacing: 3, fontWeight: 600, color: '#6E9E2E', marginBottom: 12 }}>WHAT WE DELIVER</div>
+            <h2 style={{ fontFamily: "'Archivo',sans-serif", fontSize: 32, fontWeight: 800, margin: 0, color: '#111412', textTransform: 'uppercase' }}>Ten Services. One Accountable Partner.</h2>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 28 }}>
-            {TEAM_GROUPS.map((g) => <TeamGroupCard key={g.title} g={g} />)}
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0 60px', maxWidth: 1040, margin: '0 auto' }}>
+            <div>{leftCol.map((s) => <ServiceItem key={s.num} s={s} />)}</div>
+            <div>{rightCol.map((s) => <ServiceItem key={s.num} s={s} />)}</div>
           </div>
         </div>
       </div>
@@ -118,7 +137,7 @@ function EngineeringMaintenanceDesktop() {
 
       {/* CTA */}
       <div style={{ background: '#2A2E2A', padding: '90px 64px', textAlign: 'center' }}>
-        <h2 style={{ fontFamily: "'Poppins',sans-serif", fontSize: 28, fontWeight: 700, color: '#fff', letterSpacing: 0.5, textTransform: 'uppercase', margin: '0 0 26px' }}>Ready to bring licensed engineers to your facility?</h2>
+        <h2 style={{ fontFamily: "'Poppins',sans-serif", fontSize: 28, fontWeight: 700, color: '#fff', letterSpacing: 0.5, textTransform: 'uppercase', margin: '0 0 26px' }}>Ready for one partner across every system?</h2>
         <CtaButton />
       </div>
 
@@ -139,10 +158,10 @@ function EngineeringMaintenanceMobile() {
         <div style={{ position: 'relative' }}>
           <div style={{ fontSize: 11.5, color: '#C9C9C9', letterSpacing: 0.5, marginBottom: 16 }}><Link to={ROUTES.home} style={{ color: '#C9C9C9' }}>Home</Link> / Services / Engineering</div>
           <div style={{ fontSize: 11.5, letterSpacing: 3, fontWeight: 600, color: '#8BC53F', marginBottom: 12 }}>ENGINEERING &amp; MAINTENANCE</div>
-          <h1 style={{ fontFamily: "'Archivo',sans-serif", fontSize: 27, fontWeight: 800, color: '#fff', lineHeight: 1.18, margin: '0 0 14px', textTransform: 'uppercase' }}>The Engineers Behind Every System.</h1>
-          <div style={{ fontFamily: "'Noto Kufi Arabic',sans-serif", direction: 'rtl', fontSize: 18, fontWeight: 600, color: '#8BC53F', marginBottom: 16 }}>المهندسون وراء كل نظام.</div>
-          <p style={{ fontSize: 13.5, color: '#C9C9C9', lineHeight: 1.8, margin: '0 0 8px' }}>Licensed engineers and skilled trades keeping HVAC, electrical, plumbing and mechanical systems running — with the same accountability as everything else we do.</p>
-          <p style={{ fontFamily: "'Noto Kufi Arabic',sans-serif", direction: 'rtl', fontSize: 12, color: '#B9DE7C', lineHeight: 1.9, margin: 0 }}>فريق من المهندسين المرخّصين والفنيين المهرة يحافظون على تشغيل أنظمة التكييف والكهرباء والسباكة والأنظمة الميكانيكية.</p>
+          <h1 style={{ fontFamily: "'Archivo',sans-serif", fontSize: 27, fontWeight: 800, color: '#fff', lineHeight: 1.18, margin: '0 0 14px', textTransform: 'uppercase' }}>Every System. Fully Covered.</h1>
+          <div style={{ fontFamily: "'Noto Kufi Arabic',sans-serif", direction: 'rtl', fontSize: 18, fontWeight: 600, color: '#8BC53F', marginBottom: 16 }}>تغطية كاملة لكل نظام.</div>
+          <p style={{ fontSize: 13.5, color: '#C9C9C9', lineHeight: 1.8, margin: '0 0 8px' }}>From boiler operations to emergency repairs, one specialized service line covers every mechanical, electrical and structural system in your facility.</p>
+          <p style={{ fontFamily: "'Noto Kufi Arabic',sans-serif", direction: 'rtl', fontSize: 12, color: '#B9DE7C', lineHeight: 1.9, margin: 0 }}>من تشغيل الغلايات إلى الإصلاحات الطارئة، تغطي خدماتنا المتخصصة كل نظام في منشأتك.</p>
         </div>
       </div>
 
@@ -150,19 +169,19 @@ function EngineeringMaintenanceMobile() {
       <div style={{ background: '#FFFFFF', padding: '44px 20px 0' }}>
         <img src="/assets/engineering-detail.jpg" alt="" style={{ width: '100%', height: 200, objectFit: 'cover', display: 'block' }} />
         <div style={{ marginTop: -36, marginLeft: 14, position: 'relative', background: '#111412', color: '#fff', display: 'inline-flex', flexDirection: 'column', padding: '14px 20px' }}>
-          <span style={{ fontFamily: "'Archivo',sans-serif", fontSize: 24, fontWeight: 800, color: '#8BC53F' }}>10+</span>
-          <span style={{ fontSize: 9.5, letterSpacing: 0.8, color: '#C9C9C9' }}>LICENSED TRADES ON CALL</span>
+          <span style={{ fontFamily: "'Archivo',sans-serif", fontSize: 24, fontWeight: 800, color: '#8BC53F' }}>10</span>
+          <span style={{ fontSize: 9.5, letterSpacing: 0.8, color: '#C9C9C9' }}>SPECIALIZED SERVICES</span>
         </div>
       </div>
 
-      {/* TEAM GROUPS */}
+      {/* SERVICES LIST */}
       <div style={{ background: '#FFFFFF', padding: '30px 20px 44px' }}>
-        <div style={{ textAlign: 'center', marginBottom: 26 }}>
-          <div style={{ fontSize: 11.5, letterSpacing: 3, fontWeight: 600, color: '#6E9E2E', marginBottom: 10 }}>WHO'S ON YOUR TEAM</div>
-          <h2 style={{ fontFamily: "'Archivo',sans-serif", fontSize: 22, fontWeight: 800, margin: 0, color: '#111412', textTransform: 'uppercase', lineHeight: 1.3 }}>Every Trade, One Accountable Team.</h2>
+        <div style={{ textAlign: 'center', marginBottom: 20 }}>
+          <div style={{ fontSize: 11.5, letterSpacing: 3, fontWeight: 600, color: '#6E9E2E', marginBottom: 10 }}>WHAT WE DELIVER</div>
+          <h2 style={{ fontFamily: "'Archivo',sans-serif", fontSize: 21, fontWeight: 800, margin: 0, color: '#111412', textTransform: 'uppercase', lineHeight: 1.3 }}>Ten Services. One Accountable Partner.</h2>
         </div>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
-          {TEAM_GROUPS.map((g) => <TeamGroupCard key={g.title} g={g} mobile />)}
+        <div>
+          {SERVICES_LIST.map((s) => <ServiceItem key={s.num} s={s} mobile />)}
         </div>
       </div>
 
@@ -174,7 +193,7 @@ function EngineeringMaintenanceMobile() {
 
       {/* CTA */}
       <div style={{ background: '#2A2E2A', padding: '52px 20px', textAlign: 'center' }}>
-        <h2 style={{ fontFamily: "'Poppins',sans-serif", fontSize: 20, fontWeight: 700, color: '#fff', letterSpacing: 0.3, textTransform: 'uppercase', margin: '0 0 22px', lineHeight: 1.35 }}>Ready to bring licensed engineers to your facility?</h2>
+        <h2 style={{ fontFamily: "'Poppins',sans-serif", fontSize: 19, fontWeight: 700, color: '#fff', letterSpacing: 0.3, textTransform: 'uppercase', margin: '0 0 22px', lineHeight: 1.35 }}>Ready for one partner across every system?</h2>
         <CtaButton mobile />
       </div>
 
