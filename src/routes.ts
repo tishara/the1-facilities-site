@@ -5,6 +5,7 @@ export const ROUTES = {
   sectors: '/sectors',
   cleaning: '/cleaning',
   maintenance: '/maintenance',
+  engineeringMaintenance: '/engineering-maintenance',
   security: '/security',
   facilitiesManagement: '/facilities-management',
   integratedSolutions: '/integrated-solutions',

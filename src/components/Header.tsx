@@ -13,6 +13,7 @@ interface HeaderProps {
 const SERVICES_ITEMS = [
   { name: 'Cleaning', href: ROUTES.cleaning },
   { name: 'Maintenance & Operations', href: ROUTES.maintenance },
+  { name: 'Engineering & Maintenance', href: ROUTES.engineeringMaintenance },
   { name: 'Security', href: ROUTES.security },
   { name: 'Facilities Management', href: ROUTES.facilitiesManagement },
   { name: 'Integrated Solutions', href: ROUTES.integratedSolutions },

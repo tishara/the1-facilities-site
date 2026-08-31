@@ -19,6 +19,12 @@ const SERVICES = [
     icon: <svg width="30" height="30" viewBox="0 0 32 32" fill="none" stroke="#B9DE7C" strokeWidth={1.6}><circle cx="16" cy="16" r="4" /><path d="M16 6v3M16 23v3M6 16h3M23 16h3M9 9l2 2M21 21l2 2M23 9l-2 2M9 23l2-2" strokeLinecap="round" /></svg>,
   },
   {
+    title: 'Engineering & Maintenance', titleAr: 'الهندسة والصيانة الفنية',
+    body: "Licensed engineers and skilled trades — HVAC, electrical, plumbing and mechanical — keeping your building's critical systems running around the clock.",
+    href: ROUTES.engineeringMaintenance,
+    icon: <svg width="30" height="30" viewBox="0 0 32 32" fill="none" stroke="#B9DE7C" strokeWidth={1.6}><path d="M23 9a5.5 5.5 0 01-7.1 5.3L8 22.2l-2.2-2.2 7.9-7.9A5.5 5.5 0 0119 4.5l-3.5 3.5 2 2L21 6.5A5.5 5.5 0 0123 9z" strokeLinecap="round" strokeLinejoin="round" /></svg>,
+  },
+  {
     title: 'Security', titleAr: 'الأمن',
     body: "Trained security personnel protect your building, residence or event, with coverage for multi-location clients across every site we serve.",
     href: ROUTES.security,
@@ -112,7 +118,7 @@ function ServiceCard({ s, mobile = false }: { s: typeof SERVICES[number]; mobile
   const { onMouseEnter, onMouseLeave, mergeStyle } = useHover();
   const base: React.CSSProperties = mobile
     ? { flex: '0 0 268px', display: 'flex', flexDirection: 'column', background: '#fff', padding: '24px 20px', textAlign: 'center', boxShadow: '0 10px 24px rgba(0,0,0,0.2)' }
-    : { background: '#fff', padding: '34px 20px', textAlign: 'center', boxShadow: '0 10px 24px rgba(0,0,0,0.18)', transition: 'transform 0.25s ease, box-shadow 0.25s ease', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start', minHeight: 270 };
+    : { flex: '0 1 260px', width: 260, background: '#fff', padding: '34px 20px', textAlign: 'center', boxShadow: '0 10px 24px rgba(0,0,0,0.18)', transition: 'transform 0.25s ease, box-shadow 0.25s ease', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start', minHeight: 270 };
   const hoverStyle: React.CSSProperties = { transform: 'translateY(-8px)', boxShadow: '0 18px 34px rgba(0,0,0,0.28)' };
   return (
     <div style={mobile ? base : mergeStyle(base, hoverStyle)} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
@@ -302,7 +308,7 @@ function HomeDesktop() {
           <div style={{ fontFamily: "'Poppins',sans-serif", fontSize: 13, letterSpacing: 3, color: '#8BC53F', fontWeight: 600, marginBottom: 12 }}>• WHAT WE DELIVER</div>
           <h2 style={{ fontFamily: "'Poppins',sans-serif", fontSize: 38, fontWeight: 600, color: '#fff', margin: 0 }}>Our Services</h2>
         </div>
-        <div style={{ position: 'relative', display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 26, maxWidth: 1000, margin: '0 auto', paddingBottom: 70, transform: 'translateY(30px)', zIndex: 2 }}>
+        <div style={{ position: 'relative', display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 26, maxWidth: 1160, margin: '0 auto', paddingBottom: 70, transform: 'translateY(30px)', zIndex: 2 }}>
           {SERVICES.map((s) => <ServiceCard key={s.title} s={s} />)}
         </div>
       </div>

@@ -28,6 +28,7 @@ export function PageFooter() {
               <div style={linkCol}>
                 <Link to={ROUTES.cleaning} style={{ color: 'inherit' }}>Cleaning</Link>
                 <Link to={ROUTES.maintenance} style={{ color: 'inherit' }}>Maintenance &amp; Operations</Link>
+                <Link to={ROUTES.engineeringMaintenance} style={{ color: 'inherit' }}>Engineering &amp; Maintenance</Link>
                 <Link to={ROUTES.security} style={{ color: 'inherit' }}>Security</Link>
                 <Link to={ROUTES.facilitiesManagement} style={{ color: 'inherit' }}>Facilities Management</Link>
                 <Link to={ROUTES.integratedSolutions} style={{ color: 'inherit' }}>Integrated Solutions</Link>
@@ -80,6 +81,7 @@ export function PageFooter() {
               <div style={{ display: 'flex', flexDirection: 'column', gap: 10, fontSize: 13.5, color: '#fff' }}>
                 <Link to={ROUTES.cleaning} style={{ color: 'inherit' }}>Cleaning</Link>
                 <Link to={ROUTES.maintenance} style={{ color: 'inherit' }}>Maintenance</Link>
+                <Link to={ROUTES.engineeringMaintenance} style={{ color: 'inherit' }}>Engineering</Link>
                 <Link to={ROUTES.security} style={{ color: 'inherit' }}>Security</Link>
                 <Link to={ROUTES.facilitiesManagement} style={{ color: 'inherit' }}>Facility Management</Link>
               </div>
@@ -129,6 +131,7 @@ export function HomeFooter() {
               <div style={linkCol}>
                 <Link to={ROUTES.cleaning} style={{ color: 'inherit' }}>Cleaning</Link>
                 <Link to={ROUTES.maintenance} style={{ color: 'inherit' }}>Maintenance</Link>
+                <Link to={ROUTES.engineeringMaintenance} style={{ color: 'inherit' }}>Engineering</Link>
                 <Link to={ROUTES.security} style={{ color: 'inherit' }}>Security</Link>
                 <Link to={ROUTES.facilitiesManagement} style={{ color: 'inherit' }}>Facility Management</Link>
               </div>
@@ -169,6 +172,7 @@ export function HomeFooter() {
               <div style={{ display: 'flex', flexDirection: 'column', gap: 10, fontSize: 13.5, color: '#fff' }}>
                 <Link to={ROUTES.cleaning} style={{ color: 'inherit' }}>Cleaning</Link>
                 <Link to={ROUTES.maintenance} style={{ color: 'inherit' }}>Maintenance</Link>
+                <Link to={ROUTES.engineeringMaintenance} style={{ color: 'inherit' }}>Engineering</Link>
                 <Link to={ROUTES.security} style={{ color: 'inherit' }}>Security</Link>
                 <Link to={ROUTES.facilitiesManagement} style={{ color: 'inherit' }}>Facility Management</Link>
               </div>
