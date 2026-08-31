@@ -71,8 +71,6 @@ function OurPeopleDesktop() {
           </div>
           <div style={{ fontFamily: "'Poppins',sans-serif", fontSize: 15, fontWeight: 600 }}>Faris Al-Khatib</div>
           <div style={{ fontFamily: "'Noto Kufi Arabic',sans-serif", fontSize: 15, fontWeight: 600, color: '#6E9E2E', marginTop: 4 }}>فارس الخطيب</div>
-          <div style={{ fontSize: 11.5, color: '#6E9E2E', letterSpacing: 0.5, marginTop: 6 }}>VICE PRESIDENT OF OPERATIONS</div>
-          <div style={{ fontFamily: "'Noto Kufi Arabic',sans-serif", fontSize: 11, color: '#6E9E2E' }}>نائب الرئيس للعمليات</div>
         </div>
 
         <div style={{ maxWidth: 600, height: 40, margin: '0 auto', position: 'relative' }}>
@@ -90,8 +88,6 @@ function OurPeopleDesktop() {
             </div>
             <div style={{ fontFamily: "'Poppins',sans-serif", fontSize: 14, fontWeight: 600 }}>Hassan Al-Sayegh</div>
             <div style={{ fontFamily: "'Noto Kufi Arabic',sans-serif", fontSize: 14, fontWeight: 600, color: '#6E9E2E', marginTop: 4 }}>حسن الصايغ</div>
-            <div style={{ fontSize: 11, color: '#6E9E2E', letterSpacing: 0.5, marginTop: 6 }}>GENERAL MANAGER</div>
-            <div style={{ fontFamily: "'Noto Kufi Arabic',sans-serif", fontSize: 10.5, color: '#6E9E2E' }}>المدير العام</div>
           </div>
           <div>
             <div style={{ width: 120, height: 150, margin: '0 auto 14px', overflow: 'hidden' }}>
@@ -99,8 +95,6 @@ function OurPeopleDesktop() {
             </div>
             <div style={{ fontFamily: "'Poppins',sans-serif", fontSize: 14, fontWeight: 600 }}>Omar Al-Rashid</div>
             <div style={{ fontFamily: "'Noto Kufi Arabic',sans-serif", fontSize: 14, fontWeight: 600, color: '#6E9E2E', marginTop: 4 }}>عمر الراشد</div>
-            <div style={{ fontSize: 11, color: '#6E9E2E', letterSpacing: 0.5, marginTop: 6 }}>QUALITY &amp; TRAINING MANAGER</div>
-            <div style={{ fontFamily: "'Noto Kufi Arabic',sans-serif", fontSize: 10.5, color: '#6E9E2E' }}>مدير الجودة والتدريب</div>
           </div>
           <div>
             <div style={{ width: 120, height: 150, margin: '0 auto 14px', overflow: 'hidden' }}>
@@ -108,8 +102,6 @@ function OurPeopleDesktop() {
             </div>
             <div style={{ fontFamily: "'Poppins',sans-serif", fontSize: 14, fontWeight: 600 }}>Sami Al-Najjar</div>
             <div style={{ fontFamily: "'Noto Kufi Arabic',sans-serif", fontSize: 14, fontWeight: 600, color: '#6E9E2E', marginTop: 4 }}>سامي النجار</div>
-            <div style={{ fontSize: 11, color: '#6E9E2E', letterSpacing: 0.5, marginTop: 6 }}>CLIENT SERVICES MANAGER</div>
-            <div style={{ fontFamily: "'Noto Kufi Arabic',sans-serif", fontSize: 10.5, color: '#6E9E2E' }}>مدير خدمات العملاء</div>
           </div>
         </div>
       </div>
@@ -177,8 +169,12 @@ function OurPeopleMobile() {
                 <img src={`/assets/${l.img}`} alt={l.name} style={{ width: 150, height: 188, objectFit: 'cover', objectPosition: 'center top', border: '2px solid #8BC53F', borderRadius: 8, display: 'block', marginBottom: 12 }} />
                 <div style={{ fontSize: 13, fontWeight: 600, color: '#111412' }}>{l.name}</div>
                 <div style={{ fontFamily: "'Noto Kufi Arabic',sans-serif", fontSize: 13, fontWeight: 600, color: '#6E9E2E', marginTop: 5 }}>{l.nameAr}</div>
-                <div style={{ fontSize: 9.5, color: '#6E9E2E', letterSpacing: 0.5, marginTop: 4 }}>{l.role}</div>
-                <div style={{ fontFamily: "'Noto Kufi Arabic',sans-serif", fontSize: 10, color: '#6E9E2E', marginTop: 2 }}>{l.roleAr}</div>
+                {l.role === 'PRESIDENT' && (
+                  <>
+                    <div style={{ fontSize: 9.5, color: '#6E9E2E', letterSpacing: 0.5, marginTop: 4 }}>{l.role}</div>
+                    <div style={{ fontFamily: "'Noto Kufi Arabic',sans-serif", fontSize: 10, color: '#6E9E2E', marginTop: 2 }}>{l.roleAr}</div>
+                  </>
+                )}
               </div>
             ))}
           </div>

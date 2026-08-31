@@ -127,7 +127,7 @@ function ServiceCard({ s, mobile = false }: { s: typeof SERVICES[number]; mobile
   );
 }
 
-function LeaderCard({ l }: { l: typeof LEADERS[number] }) {
+function LeaderCard({ l, showRole = true }: { l: typeof LEADERS[number]; showRole?: boolean }) {
   const card = useHover();
   const img = useHover();
   return (
@@ -150,8 +150,12 @@ function LeaderCard({ l }: { l: typeof LEADERS[number] }) {
       </div>
       <div style={{ fontFamily: "'Poppins',sans-serif", fontSize: 15, fontWeight: 600, color: '#fff' }}>{l.name}</div>
       <div style={{ fontFamily: "'Noto Kufi Arabic',sans-serif", fontSize: 16, fontWeight: 600, color: '#8BC53F', marginTop: 6 }}>{l.nameAr}</div>
-      <div style={{ fontSize: 12, color: '#8BC53F', letterSpacing: 0.5, marginTop: 4 }}>{l.role}</div>
-      <div style={{ fontFamily: "'Noto Kufi Arabic',sans-serif", fontSize: 12, color: '#8BC53F', marginTop: 2 }}>{l.roleAr}</div>
+      {showRole && (
+        <>
+          <div style={{ fontSize: 12, color: '#8BC53F', letterSpacing: 0.5, marginTop: 4 }}>{l.role}</div>
+          <div style={{ fontFamily: "'Noto Kufi Arabic',sans-serif", fontSize: 12, color: '#8BC53F', marginTop: 2 }}>{l.roleAr}</div>
+        </>
+      )}
     </div>
   );
 }
@@ -383,7 +387,7 @@ function HomeDesktop() {
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5,1fr)', gap: 20, maxWidth: 1300, margin: '0 auto' }}>
           <LeaderCard l={PRESIDENT} />
-          {LEADERS.map((l) => <LeaderCard key={l.name} l={l} />)}
+          {LEADERS.map((l) => <LeaderCard key={l.name} l={l} showRole={false} />)}
         </div>
       </div>
 
@@ -624,8 +628,12 @@ function HomeMobile() {
                 <img src={`/assets/${l.img}`} alt={l.name} style={{ width: 150, height: 188, objectFit: 'cover', objectPosition: 'center top', border: '2px solid #8BC53F', borderRadius: 8, display: 'block', marginBottom: 12 }} />
                 <div style={{ fontSize: 13, fontWeight: 600, color: '#fff' }}>{l.name}</div>
                 <div style={{ fontFamily: "'Noto Kufi Arabic',sans-serif", fontSize: 13, fontWeight: 600, color: '#8BC53F', marginTop: 5 }}>{l.nameAr}</div>
-                <div style={{ fontSize: 9.5, color: '#8BC53F', letterSpacing: 0.5, marginTop: 4 }}>{l.role}</div>
-                <div style={{ fontFamily: "'Noto Kufi Arabic',sans-serif", fontSize: 10, color: '#8BC53F', marginTop: 2 }}>{l.roleAr}</div>
+                {l === PRESIDENT && (
+                  <>
+                    <div style={{ fontSize: 9.5, color: '#8BC53F', letterSpacing: 0.5, marginTop: 4 }}>{l.role}</div>
+                    <div style={{ fontFamily: "'Noto Kufi Arabic',sans-serif", fontSize: 10, color: '#8BC53F', marginTop: 2 }}>{l.roleAr}</div>
+                  </>
+                )}
               </div>
             ))}
           </div>
