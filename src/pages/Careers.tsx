@@ -232,6 +232,10 @@ function CareersDesktop() {
                 <a href="mailto:team@the1fm.com" style={{ fontSize: 16, fontWeight: 600, color: '#111412' }}>team@the1fm.com</a>
               </div>
               <div>
+                <div style={{ fontSize: 12, letterSpacing: 1, color: '#6E736F', marginBottom: 6 }}>PHONE</div>
+                <a href="tel:+962791688100" style={{ fontSize: 16, fontWeight: 600, color: '#111412' }}>+962 79 168 8100</a>
+              </div>
+              <div>
                 <div style={{ fontSize: 12, letterSpacing: 1, color: '#6E736F', marginBottom: 6 }}>TEAMS HIRING</div>
                 <div style={{ fontSize: 14, color: '#3C403D', lineHeight: 1.8 }}>Cleaning · Maintenance &amp; Operations · Security · Facilities Management · Corporate &amp; Support</div>
               </div>
@@ -344,6 +348,10 @@ function CareersMobile() {
           <div>
             <div style={{ fontSize: 11, letterSpacing: 1, color: '#6E736F', marginBottom: 5 }}>EMAIL</div>
             <a href="mailto:team@the1fm.com" style={{ fontSize: 15, fontWeight: 600, color: '#111412' }}>team@the1fm.com</a>
+          </div>
+          <div>
+            <div style={{ fontSize: 11, letterSpacing: 1, color: '#6E736F', marginBottom: 5 }}>PHONE</div>
+            <a href="tel:+962791688100" style={{ fontSize: 15, fontWeight: 600, color: '#111412' }}>+962 79 168 8100</a>
           </div>
           <div>
             <div style={{ fontSize: 11, letterSpacing: 1, color: '#6E736F', marginBottom: 5 }}>TEAMS HIRING</div>

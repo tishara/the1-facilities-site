@@ -85,6 +85,10 @@ function ContactDesktop() {
                 <a href="mailto:team@the1fm.com" style={{ fontSize: 16, fontWeight: 600, color: '#111412' }}>team@the1fm.com</a>
               </div>
               <div>
+                <div style={{ fontSize: 12, letterSpacing: 1, color: '#6E736F', marginBottom: 6 }}>PHONE</div>
+                <a href="tel:+962791688100" style={{ fontSize: 16, fontWeight: 600, color: '#111412' }}>+962 79 168 8100</a>
+              </div>
+              <div>
                 <div style={{ fontSize: 12, letterSpacing: 1, color: '#6E736F', marginBottom: 6 }}>WEBSITE</div>
                 <Link to={ROUTES.home} style={{ fontSize: 16, fontWeight: 600, color: '#111412' }}>www.the1fm.com</Link>
               </div>
@@ -165,6 +169,10 @@ function ContactMobile() {
           <div>
             <div style={{ fontSize: 11, letterSpacing: 1, color: '#6E736F', marginBottom: 5 }}>EMAIL</div>
             <a href="mailto:team@the1fm.com" style={{ fontSize: 15, fontWeight: 600, color: '#111412' }}>team@the1fm.com</a>
+          </div>
+          <div>
+            <div style={{ fontSize: 11, letterSpacing: 1, color: '#6E736F', marginBottom: 5 }}>PHONE</div>
+            <a href="tel:+962791688100" style={{ fontSize: 15, fontWeight: 600, color: '#111412' }}>+962 79 168 8100</a>
           </div>
           <div>
             <div style={{ fontSize: 11, letterSpacing: 1, color: '#6E736F', marginBottom: 5 }}>SERVICES</div>

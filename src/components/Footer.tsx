@@ -57,6 +57,7 @@ export function PageFooter() {
               <div style={colHeader()}>CONTACT</div>
               <div style={linkCol}>
                 <a href="mailto:team@the1fm.com" style={{ color: 'inherit' }}>team@the1fm.com</a>
+                <a href="tel:+962791688100" style={{ color: 'inherit' }}>+962 79 168 8100</a>
                 <Link to={ROUTES.contact} style={{ color: 'inherit' }}>Contact Us</Link>
               </div>
             </div>
@@ -99,6 +100,7 @@ export function PageFooter() {
               <div style={{ fontSize: 12.5, fontWeight: 600, letterSpacing: 1, color: '#8BC53F', marginBottom: 12 }}>CONTACT</div>
               <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 10, fontSize: 13.5, color: '#fff' }}>
                 <a href="mailto:team@the1fm.com" style={{ color: 'inherit' }}>team@the1fm.com</a>
+                <a href="tel:+962791688100" style={{ color: 'inherit' }}>+962 79 168 8100</a>
               </div>
             </div>
           </div>
@@ -149,6 +151,7 @@ export function HomeFooter() {
               <div style={colHeader()}>CONTACT</div>
               <div style={linkCol}>
                 <a href="mailto:team@the1fm.com" style={{ color: 'inherit' }}>team@the1fm.com</a>
+                <a href="tel:+962791688100" style={{ color: 'inherit' }}>+962 79 168 8100</a>
               </div>
             </div>
           </div>
@@ -190,6 +193,7 @@ export function HomeFooter() {
               <div style={{ fontSize: 12.5, fontWeight: 600, letterSpacing: 1, color: '#8BC53F', marginBottom: 12 }}>CONTACT</div>
               <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 10, fontSize: 13.5, color: '#fff' }}>
                 <a href="mailto:team@the1fm.com" style={{ color: 'inherit' }}>team@the1fm.com</a>
+                <a href="tel:+962791688100" style={{ color: 'inherit' }}>+962 79 168 8100</a>
               </div>
             </div>
           </div>
