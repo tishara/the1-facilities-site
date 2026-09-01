@@ -61,13 +61,6 @@ const INDUSTRY_CARDS = [
 
 const PRESIDENT = { img: 'lead-rebhi.jpg', name: 'Rebhi Zuhika', nameAr: 'ربحي زهيكة', role: 'PRESIDENT', roleAr: 'الرئيس' };
 
-const LEADERS = [
-  { img: 'lead-faris.jpg', name: 'Faris Al-Khatib', nameAr: 'فارس الخطيب', role: 'VICE PRESIDENT OF OPERATIONS', roleAr: 'نائب الرئيس للعمليات' },
-  { img: 'lead-hassan.jpg', name: 'Hassan Al-Sayegh', nameAr: 'حسن الصايغ', role: 'GENERAL MANAGER', roleAr: 'المدير العام' },
-  { img: 'lead-omar.jpg', name: 'Omar Al-Rashid', nameAr: 'عمر الراشد', role: 'QUALITY & TRAINING MANAGER', roleAr: 'مدير الجودة والتدريب' },
-  { img: 'lead-sami.jpg', name: 'Sami Al-Najjar', nameAr: 'سامي النجار', role: 'CLIENT SERVICES MANAGER', roleAr: 'مدير خدمات العملاء' },
-];
-
 const PILLARS = [
   { num: '01', title: 'Live Data & Dashboards', titleAr: 'بيانات مباشرة ولوحات أداء', body: 'See activity, completion and performance across every facility.', bodyAr: 'تابع النشاط والإنجاز والأداء في جميع المنشآت.' },
   { num: '02', title: 'Digital Inspections', titleAr: 'فحوصات رقمية', body: 'Standardized mobile inspections create measurable quality records.', bodyAr: 'فحوصات موحدة عبر الأجهزة المحمولة توثّق الجودة بوضوح.' },
@@ -129,39 +122,6 @@ function ServiceCard({ s, mobile = false }: { s: typeof SERVICES[number]; mobile
       <div style={{ fontFamily: "'Noto Kufi Arabic',sans-serif", direction: 'rtl', fontSize: 14, fontWeight: 600, color: '#6E9E2E', marginBottom: 10 }}>{s.titleAr}</div>
       <p style={{ fontSize: 13, color: '#3C403D', lineHeight: 1.6, margin: '0 0 14px' }}>{s.body}</p>
       <Link to={s.href} style={{ fontSize: 12.5, fontWeight: 600, color: '#8BC53F', marginTop: 'auto' }}>Learn More &nbsp;→</Link>
-    </div>
-  );
-}
-
-function LeaderCard({ l, showRole = true }: { l: typeof LEADERS[number]; showRole?: boolean }) {
-  const card = useHover();
-  const img = useHover();
-  return (
-    <div style={{ textAlign: 'center' }}>
-      <div
-        onMouseEnter={card.onMouseEnter}
-        onMouseLeave={card.onMouseLeave}
-        style={card.mergeStyle({ overflow: 'hidden', borderRadius: 8, marginBottom: 16, transition: 'transform 0.35s ease, box-shadow 0.35s ease' }, { transform: 'translateY(-6px)', boxShadow: '0 18px 34px rgba(0,0,0,0.45)' })}
-      >
-        <img
-          src={`/assets/${l.img}`}
-          alt={l.name}
-          onMouseEnter={img.onMouseEnter}
-          onMouseLeave={img.onMouseLeave}
-          style={img.mergeStyle(
-            { width: '100%', aspectRatio: '4/5', objectFit: 'cover', objectPosition: 'center top', border: '2px solid #8BC53F', borderRadius: 8, display: 'block', transition: 'transform 0.5s ease, filter 0.5s ease' },
-            { transform: 'scale(1.07)', filter: 'saturate(1.15) contrast(1.05)' }
-          )}
-        />
-      </div>
-      <div style={{ fontFamily: "'Poppins',sans-serif", fontSize: 15, fontWeight: 600, color: '#fff' }}>{l.name}</div>
-      <div style={{ fontFamily: "'Noto Kufi Arabic',sans-serif", fontSize: 16, fontWeight: 600, color: '#8BC53F', marginTop: 6 }}>{l.nameAr}</div>
-      {showRole && (
-        <>
-          <div style={{ fontSize: 12, color: '#8BC53F', letterSpacing: 0.5, marginTop: 4 }}>{l.role}</div>
-          <div style={{ fontFamily: "'Noto Kufi Arabic',sans-serif", fontSize: 12, color: '#8BC53F', marginTop: 2 }}>{l.roleAr}</div>
-        </>
-      )}
     </div>
   );
 }
@@ -387,13 +347,29 @@ function HomeDesktop() {
 
       {/* LEADERSHIP */}
       <div style={{ background: '#111412', padding: '90px 64px' }}>
-        <div style={{ textAlign: 'center', maxWidth: 640, margin: '0 auto 50px' }}>
-          <div style={{ fontFamily: "'Poppins',sans-serif", fontSize: 13, letterSpacing: 3, color: '#8BC53F', fontWeight: 600, marginBottom: 10 }}>OPERATION TEAM</div>
-          <h2 style={{ fontFamily: "'Poppins',sans-serif", fontSize: 34, fontWeight: 600, color: '#fff', margin: 0 }}>Meet Our Operations Leadership</h2>
-        </div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5,1fr)', gap: 20, maxWidth: 1300, margin: '0 auto' }}>
-          <LeaderCard l={PRESIDENT} />
-          {LEADERS.map((l) => <LeaderCard key={l.name} l={l} showRole={false} />)}
+        <div style={{ display: 'grid', gridTemplateColumns: '360px 1fr', alignItems: 'center', gap: 70, maxWidth: 1040, margin: '0 auto' }}>
+          <div
+            style={{ overflow: 'hidden', borderRadius: 10, position: 'relative', boxShadow: '0 24px 60px rgba(0,0,0,0.5)' }}
+          >
+            <img
+              src="/assets/lead-rebhi.jpg"
+              alt="Rebhi Zuhika"
+              style={{ width: '100%', aspectRatio: '4/5', objectFit: 'cover', objectPosition: 'center top', border: '2px solid #8BC53F', borderRadius: 10, display: 'block' }}
+            />
+          </div>
+          <div>
+            <div style={{ fontFamily: "'Poppins',sans-serif", fontSize: 13, letterSpacing: 3, color: '#8BC53F', fontWeight: 600, marginBottom: 16 }}>OPERATION TEAM</div>
+            <h2 style={{ fontFamily: "'Archivo',sans-serif", fontSize: 38, fontWeight: 800, color: '#fff', margin: '0 0 18px', lineHeight: 1.15 }}>Meet Our Operations Leadership</h2>
+            <div style={{ width: 56, height: 3, background: '#8BC53F', marginBottom: 24 }} />
+            <div style={{ fontFamily: "'Poppins',sans-serif", fontSize: 26, fontWeight: 700, color: '#fff' }}>{PRESIDENT.name}</div>
+            <div style={{ fontFamily: "'Noto Kufi Arabic',sans-serif", fontSize: 22, fontWeight: 600, color: '#8BC53F', marginTop: 6 }}>{PRESIDENT.nameAr}</div>
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, marginTop: 18, padding: '7px 16px', border: '1px solid #8BC53F', borderRadius: 50 }}>
+              <span style={{ fontSize: 12, letterSpacing: 1.5, color: '#8BC53F', fontWeight: 600 }}>{PRESIDENT.role}</span>
+              <span style={{ fontFamily: "'Noto Kufi Arabic',sans-serif", fontSize: 12, color: '#8BC53F', fontWeight: 600 }}>{PRESIDENT.roleAr}</span>
+            </div>
+            <p style={{ fontSize: 14.5, color: '#C9C9C9', lineHeight: 1.9, maxWidth: 440, margin: '24px 0 0' }}>Setting the standard for accountability and hands-on leadership across every market The 1 serves.</p>
+            <p style={{ fontFamily: "'Noto Kufi Arabic',sans-serif", direction: 'rtl', fontSize: 13.5, color: '#B9DE7C', lineHeight: 1.9, maxWidth: 440, margin: '8px 0 0' }}>يضع معايير المساءلة والقيادة الميدانية في كل سوق تخدمه شركة The 1.</p>
+          </div>
         </div>
       </div>
 
@@ -627,22 +603,15 @@ function HomeMobile() {
           <div style={{ fontSize: 12, letterSpacing: 3, color: '#8BC53F', fontWeight: 600, marginBottom: 10 }}>OPERATION TEAM</div>
           <h2 style={{ fontSize: 26, fontWeight: 600, color: '#fff', margin: 0 }}>Meet Our Operations Leadership</h2>
         </div>
-        <div className="hscroll" style={{ overflowX: 'auto', overflowY: 'hidden', padding: '0 20px 6px', margin: '0 -20px' }}>
-          <div style={{ display: 'flex', gap: 14, width: 'max-content' }}>
-            {[PRESIDENT, ...LEADERS].map((l) => (
-              <div key={l.name} style={{ flex: '0 0 150px', textAlign: 'center' }}>
-                <img src={`/assets/${l.img}`} alt={l.name} style={{ width: 150, height: 188, objectFit: 'cover', objectPosition: 'center top', border: '2px solid #8BC53F', borderRadius: 8, display: 'block', marginBottom: 12 }} />
-                <div style={{ fontSize: 13, fontWeight: 600, color: '#fff' }}>{l.name}</div>
-                <div style={{ fontFamily: "'Noto Kufi Arabic',sans-serif", fontSize: 13, fontWeight: 600, color: '#8BC53F', marginTop: 5 }}>{l.nameAr}</div>
-                {l === PRESIDENT && (
-                  <>
-                    <div style={{ fontSize: 9.5, color: '#8BC53F', letterSpacing: 0.5, marginTop: 4 }}>{l.role}</div>
-                    <div style={{ fontFamily: "'Noto Kufi Arabic',sans-serif", fontSize: 10, color: '#8BC53F', marginTop: 2 }}>{l.roleAr}</div>
-                  </>
-                )}
-              </div>
-            ))}
+        <div style={{ maxWidth: 300, margin: '0 auto', textAlign: 'center' }}>
+          <img src={`/assets/${PRESIDENT.img}`} alt={PRESIDENT.name} style={{ width: '100%', aspectRatio: '4/5', objectFit: 'cover', objectPosition: 'center top', border: '2px solid #8BC53F', borderRadius: 10, display: 'block', marginBottom: 18, boxShadow: '0 18px 40px rgba(0,0,0,0.5)' }} />
+          <div style={{ fontFamily: "'Poppins',sans-serif", fontSize: 21, fontWeight: 700, color: '#fff' }}>{PRESIDENT.name}</div>
+          <div style={{ fontFamily: "'Noto Kufi Arabic',sans-serif", fontSize: 18, fontWeight: 600, color: '#8BC53F', marginTop: 5 }}>{PRESIDENT.nameAr}</div>
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, marginTop: 14, padding: '6px 14px', border: '1px solid #8BC53F', borderRadius: 50 }}>
+            <span style={{ fontSize: 11, letterSpacing: 1.2, color: '#8BC53F', fontWeight: 600 }}>{PRESIDENT.role}</span>
+            <span style={{ fontFamily: "'Noto Kufi Arabic',sans-serif", fontSize: 11, color: '#8BC53F', fontWeight: 600 }}>{PRESIDENT.roleAr}</span>
           </div>
+          <p style={{ fontSize: 13, color: '#C9C9C9', lineHeight: 1.8, margin: '18px 0 0' }}>Setting the standard for accountability and hands-on leadership across every market The 1 serves.</p>
         </div>
       </div>
 
