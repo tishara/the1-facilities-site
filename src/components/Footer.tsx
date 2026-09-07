@@ -27,7 +27,6 @@ export function PageFooter() {
               <div style={colHeader()}>SERVICES</div>
               <div style={linkCol}>
                 <Link to={ROUTES.cleaning} style={{ color: 'inherit' }}>Cleaning</Link>
-                <Link to={ROUTES.maintenance} style={{ color: 'inherit' }}>Maintenance &amp; Operations</Link>
                 <Link to={ROUTES.engineeringMaintenance} style={{ color: 'inherit' }}>Engineering &amp; Maintenance</Link>
                 <Link to={ROUTES.security} style={{ color: 'inherit' }}>Security</Link>
                 <Link to={ROUTES.facilitiesManagement} style={{ color: 'inherit' }}>Facilities Management</Link>
@@ -81,7 +80,6 @@ export function PageFooter() {
               <div style={{ fontSize: 12.5, fontWeight: 600, letterSpacing: 1, color: '#8BC53F', marginBottom: 12 }}>SERVICES</div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 10, fontSize: 13.5, color: '#fff' }}>
                 <Link to={ROUTES.cleaning} style={{ color: 'inherit' }}>Cleaning</Link>
-                <Link to={ROUTES.maintenance} style={{ color: 'inherit' }}>Maintenance</Link>
                 <Link to={ROUTES.engineeringMaintenance} style={{ color: 'inherit' }}>Engineering</Link>
                 <Link to={ROUTES.security} style={{ color: 'inherit' }}>Security</Link>
                 <Link to={ROUTES.facilitiesManagement} style={{ color: 'inherit' }}>Facility Management</Link>
@@ -132,7 +130,6 @@ export function HomeFooter() {
               <div style={colHeader()}>SERVICES</div>
               <div style={linkCol}>
                 <Link to={ROUTES.cleaning} style={{ color: 'inherit' }}>Cleaning</Link>
-                <Link to={ROUTES.maintenance} style={{ color: 'inherit' }}>Maintenance</Link>
                 <Link to={ROUTES.engineeringMaintenance} style={{ color: 'inherit' }}>Engineering</Link>
                 <Link to={ROUTES.security} style={{ color: 'inherit' }}>Security</Link>
                 <Link to={ROUTES.facilitiesManagement} style={{ color: 'inherit' }}>Facility Management</Link>
@@ -174,7 +171,6 @@ export function HomeFooter() {
               <div style={{ fontSize: 12.5, fontWeight: 600, letterSpacing: 1, color: '#8BC53F', marginBottom: 12 }}>SERVICES</div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 10, fontSize: 13.5, color: '#fff' }}>
                 <Link to={ROUTES.cleaning} style={{ color: 'inherit' }}>Cleaning</Link>
-                <Link to={ROUTES.maintenance} style={{ color: 'inherit' }}>Maintenance</Link>
                 <Link to={ROUTES.engineeringMaintenance} style={{ color: 'inherit' }}>Engineering</Link>
                 <Link to={ROUTES.security} style={{ color: 'inherit' }}>Security</Link>
                 <Link to={ROUTES.facilitiesManagement} style={{ color: 'inherit' }}>Facility Management</Link>

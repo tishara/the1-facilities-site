@@ -5,7 +5,6 @@ import AboutUs from './pages/AboutUs';
 import Technology from './pages/Technology';
 import Sectors from './pages/Sectors';
 import Cleaning from './pages/Cleaning';
-import Maintenance from './pages/Maintenance';
 import EngineeringMaintenance from './pages/EngineeringMaintenance';
 import Security from './pages/Security';
 import FacilitiesManagement from './pages/FacilitiesManagement';
@@ -30,7 +29,6 @@ export default function App() {
         <Route path={ROUTES.technology} element={<Technology />} />
         <Route path={ROUTES.sectors} element={<Sectors />} />
         <Route path={ROUTES.cleaning} element={<Cleaning />} />
-        <Route path={ROUTES.maintenance} element={<Maintenance />} />
         <Route path={ROUTES.engineeringMaintenance} element={<EngineeringMaintenance />} />
         <Route path={ROUTES.security} element={<Security />} />
         <Route path={ROUTES.facilitiesManagement} element={<FacilitiesManagement />} />
