@@ -78,7 +78,7 @@ const CLIENTS = [
   { img: 'client-ikea-trim.png', alt: 'IKEA', h: 42 },
   { img: 'client-ge-trim.png', alt: 'General Electric', h: 53 },
   { img: 'client-chevron-trim.png', alt: 'Chevron', h: 31 },
-  { img: 'client-citi-trim.png', alt: 'Citi', h: 69 },
+  { img: 'client-citi-trim.png', alt: 'Citi', h: 50 },
   { img: 'client-hilton-trim.png', alt: 'Hilton Worldwide', h: 42 },
   { img: 'client-amazon-trim.png', alt: 'Amazon', h: 37 },
 ];
@@ -704,7 +704,7 @@ function HomeMobile() {
           <img src="/assets/client-ikea-trim.png" alt="IKEA" style={{ maxWidth: '100%', height: 29, objectFit: 'contain' }} />
           <img src="/assets/client-ge-trim.png" alt="General Electric" style={{ maxWidth: '100%', height: 37, objectFit: 'contain' }} />
           <img src="/assets/client-chevron-trim.png" alt="Chevron" style={{ maxWidth: '100%', height: 22, objectFit: 'contain' }} />
-          <img src="/assets/client-citi-trim.png" alt="Citi" style={{ maxWidth: '100%', height: 48, objectFit: 'contain' }} />
+          <img src="/assets/client-citi-trim.png" alt="Citi" style={{ maxWidth: '100%', height: 35, objectFit: 'contain' }} />
           <img src="/assets/client-hilton-trim.png" alt="Hilton Worldwide" style={{ maxWidth: '100%', height: 29, objectFit: 'contain' }} />
           <img src="/assets/client-amazon-trim.png" alt="Amazon" style={{ maxWidth: '100%', height: 26, objectFit: 'contain' }} />
         </div>

@@ -20,7 +20,7 @@ const CLIENTS = [
   { img: 'client-ikea-trim.png', alt: 'IKEA', h: 35, mh: 29 },
   { img: 'client-ge-trim.png', alt: 'General Electric', h: 44, mh: 37 },
   { img: 'client-chevron-trim.png', alt: 'Chevron', h: 26, mh: 22 },
-  { img: 'client-citi-trim.png', alt: 'Citi', h: 57, mh: 48 },
+  { img: 'client-citi-trim.png', alt: 'Citi', h: 41, mh: 35 },
   { img: 'client-hilton-trim.png', alt: 'Hilton Worldwide', h: 35, mh: 29 },
   { img: 'client-amazon-trim.png', alt: 'Amazon', h: 31, mh: 26 },
 ];
