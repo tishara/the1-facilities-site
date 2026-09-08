@@ -75,12 +75,12 @@ const REGIONS = [
 ];
 
 const CLIENTS = [
-  { img: 'client-meijer-trim.png', alt: 'Meijer', h: 52 },
-  { img: 'client-target-trim.png', alt: 'Target', h: 48 },
-  { img: 'client-annarbor-trim-c.png', alt: 'Ann Arbor Public Schools', h: 70 },
-  { img: 'client-emu.webp', alt: 'Eastern Michigan University', h: 48 },
-  { img: 'client-umich-trim.png', alt: 'University of Michigan', h: 44 },
-  { img: 'client-trinity-trim.png', alt: 'Trinity Health', h: 74 },
+  { img: 'client-ikea-trim.png', alt: 'IKEA', h: 42 },
+  { img: 'client-ge-trim.png', alt: 'General Electric', h: 53 },
+  { img: 'client-chevron-trim.png', alt: 'Chevron', h: 31 },
+  { img: 'client-citi-trim.png', alt: 'Citi', h: 69 },
+  { img: 'client-hilton-trim.png', alt: 'Hilton Worldwide', h: 42 },
+  { img: 'client-amazon-trim.png', alt: 'Amazon', h: 37 },
 ];
 
 function HeroCta({ mobile = false }: { mobile?: boolean }) {
@@ -701,12 +701,12 @@ function HomeMobile() {
           <h2 style={{ fontFamily: "'Archivo',sans-serif", fontSize: 26, fontWeight: 800, color: '#111412', margin: 0 }}>Proven At Scale</h2>
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '24px 18px', alignItems: 'center', justifyItems: 'center' }}>
-          <img src="/assets/client-meijer-trim.png" alt="Meijer" style={{ maxWidth: '100%', height: 38, objectFit: 'contain' }} />
-          <img src="/assets/client-target-trim.png" alt="Target" style={{ maxWidth: '100%', height: 34, objectFit: 'contain' }} />
-          <img src="/assets/client-annarbor-trim-c.png" alt="Ann Arbor Public Schools" style={{ maxWidth: '100%', height: 50, objectFit: 'contain' }} />
-          <img src="/assets/client-emu.webp" alt="Eastern Michigan University" style={{ maxWidth: '100%', height: 32, objectFit: 'contain' }} />
-          <img src="/assets/client-umich-trim.png" alt="University of Michigan" style={{ maxWidth: '100%', height: 30, objectFit: 'contain' }} />
-          <img src="/assets/client-trinity-trim.png" alt="Trinity Health" style={{ maxWidth: '100%', height: 48, objectFit: 'contain' }} />
+          <img src="/assets/client-ikea-trim.png" alt="IKEA" style={{ maxWidth: '100%', height: 29, objectFit: 'contain' }} />
+          <img src="/assets/client-ge-trim.png" alt="General Electric" style={{ maxWidth: '100%', height: 37, objectFit: 'contain' }} />
+          <img src="/assets/client-chevron-trim.png" alt="Chevron" style={{ maxWidth: '100%', height: 22, objectFit: 'contain' }} />
+          <img src="/assets/client-citi-trim.png" alt="Citi" style={{ maxWidth: '100%', height: 48, objectFit: 'contain' }} />
+          <img src="/assets/client-hilton-trim.png" alt="Hilton Worldwide" style={{ maxWidth: '100%', height: 29, objectFit: 'contain' }} />
+          <img src="/assets/client-amazon-trim.png" alt="Amazon" style={{ maxWidth: '100%', height: 26, objectFit: 'contain' }} />
         </div>
       </div>
 

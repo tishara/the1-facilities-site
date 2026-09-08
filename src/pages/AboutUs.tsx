@@ -17,12 +17,12 @@ const SCALE_STATS = [
 ];
 
 const CLIENTS = [
-  { img: 'client-meijer-trim.png', alt: 'Meijer', h: 44, mh: 38 },
-  { img: 'client-target-trim.png', alt: 'Target', h: 40, mh: 34 },
-  { img: 'client-annarbor-trim-c.png', alt: 'Ann Arbor Public Schools', h: 58, mh: 50 },
-  { img: 'client-emu.webp', alt: 'Eastern Michigan University', h: 40, mh: 32 },
-  { img: 'client-umich-trim.png', alt: 'University of Michigan', h: 38, mh: 30 },
-  { img: 'client-trinity-trim.png', alt: 'Trinity Health', h: 60, mh: 48 },
+  { img: 'client-ikea-trim.png', alt: 'IKEA', h: 35, mh: 29 },
+  { img: 'client-ge-trim.png', alt: 'General Electric', h: 44, mh: 37 },
+  { img: 'client-chevron-trim.png', alt: 'Chevron', h: 26, mh: 22 },
+  { img: 'client-citi-trim.png', alt: 'Citi', h: 57, mh: 48 },
+  { img: 'client-hilton-trim.png', alt: 'Hilton Worldwide', h: 35, mh: 29 },
+  { img: 'client-amazon-trim.png', alt: 'Amazon', h: 31, mh: 26 },
 ];
 
 function CtaButton({ mobile = false }: { mobile?: boolean }) {
