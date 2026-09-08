@@ -82,25 +82,25 @@ function CtaButton({ mobile = false }: { mobile?: boolean }) {
   );
 }
 
-function ServiceCard({ s, mobile = false, spanFull = false }: { s: typeof SERVICES[number]; mobile?: boolean; spanFull?: boolean }) {
+function ServiceCard({ s, mobile = false }: { s: typeof SERVICES[number]; mobile?: boolean }) {
   const { onMouseEnter, onMouseLeave, mergeStyle } = useHover();
   const base: React.CSSProperties = {
     background: '#fff', padding: mobile ? '22px 16px' : '28px 20px', textAlign: 'center',
     boxShadow: '0 10px 24px rgba(0,0,0,0.1)', display: 'flex', flexDirection: 'column', alignItems: 'center',
     transition: 'transform 0.25s ease, box-shadow 0.25s ease',
-    ...(spanFull ? { gridColumn: '1 / -1', flexDirection: 'row', textAlign: 'left', alignItems: 'flex-start', gap: 16 } : {}),
+    ...(mobile ? { flex: '0 0 232px', width: 232 } : {}),
   };
   const hoverStyle: React.CSSProperties = { transform: 'translateY(-6px)', boxShadow: '0 16px 30px rgba(0,0,0,0.18)' };
-  const iconWrap: React.CSSProperties = { width: mobile ? 46 : 52, height: mobile ? 46 : 52, borderRadius: '50%', background: '#111412', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, ...(spanFull ? {} : { marginBottom: mobile ? 12 : 14 }) };
+  const iconWrap: React.CSSProperties = { width: mobile ? 46 : 52, height: mobile ? 46 : 52, borderRadius: '50%', background: '#111412', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, marginBottom: mobile ? 12 : 14 };
   return (
     <div onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} style={mobile ? base : mergeStyle(base, hoverStyle)}>
       <div style={iconWrap}>{s.icon}</div>
       <div>
-        {!spanFull && <span style={{ display: 'block', fontFamily: "'Archivo',sans-serif", fontSize: mobile ? 10.5 : 11, fontWeight: 800, color: '#8BC53F', letterSpacing: 1, marginBottom: mobile ? 8 : 10 }}>{s.num}</span>}
-        <div style={{ fontFamily: "'Poppins',sans-serif", fontSize: mobile ? 12.5 : 13.5, fontWeight: 600, letterSpacing: 0.2, marginBottom: 3, minHeight: !spanFull && mobile ? 30 : undefined }}>{s.title}</div>
-        <div style={{ fontFamily: "'Noto Kufi Arabic',sans-serif", direction: 'rtl', textAlign: spanFull ? 'right' : undefined, fontSize: mobile ? 11.5 : 12.5, fontWeight: 600, color: '#6E9E2E', marginBottom: mobile ? 8 : 10 }}>{s.titleAr}</div>
+        <span style={{ display: 'block', fontFamily: "'Archivo',sans-serif", fontSize: mobile ? 10.5 : 11, fontWeight: 800, color: '#8BC53F', letterSpacing: 1, marginBottom: mobile ? 8 : 10 }}>{s.num}</span>
+        <div style={{ fontFamily: "'Poppins',sans-serif", fontSize: mobile ? 12.5 : 13.5, fontWeight: 600, letterSpacing: 0.2, marginBottom: 3, minHeight: mobile ? 30 : undefined }}>{s.title}</div>
+        <div style={{ fontFamily: "'Noto Kufi Arabic',sans-serif", direction: 'rtl', fontSize: mobile ? 11.5 : 12.5, fontWeight: 600, color: '#6E9E2E', marginBottom: mobile ? 8 : 10 }}>{s.titleAr}</div>
         <p style={{ fontSize: mobile ? 11 : 11.5, color: '#3C403D', lineHeight: 1.6, margin: '0 0 6px' }}>{s.body}</p>
-        <p style={{ fontFamily: "'Noto Kufi Arabic',sans-serif", direction: 'rtl', textAlign: spanFull ? 'right' : undefined, fontSize: mobile ? 10 : 10.5, color: '#6E9E2E', lineHeight: 1.8, margin: 0 }}>{s.bodyAr}</p>
+        <p style={{ fontFamily: "'Noto Kufi Arabic',sans-serif", direction: 'rtl', fontSize: mobile ? 10 : 10.5, color: '#6E9E2E', lineHeight: 1.8, margin: 0 }}>{s.bodyAr}</p>
       </div>
     </div>
   );
@@ -209,10 +209,14 @@ function EngineeringMaintenanceMobile() {
       </div>
 
       {/* SERVICES GRID — PART 1 */}
-      <div style={{ background: '#F5F4F0', padding: '36px 16px 28px' }}>
-        <SectionHeading eyebrow="WHAT WE DELIVER" title="Ten Services. One Partner." mobile />
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
-          {firstFive.map((s, i) => <ServiceCard key={s.num} s={s} mobile spanFull={i === firstFive.length - 1} />)}
+      <div style={{ background: '#F5F4F0', padding: '36px 0 28px' }}>
+        <div style={{ padding: '0 16px' }}>
+          <SectionHeading eyebrow="WHAT WE DELIVER" title="Ten Services. One Partner." mobile />
+        </div>
+        <div className="hscroll" style={{ overflowX: 'auto', overflowY: 'hidden', padding: '0 16px 6px' }}>
+          <div style={{ display: 'flex', gap: 12, width: 'max-content', alignItems: 'stretch' }}>
+            {firstFive.map((s) => <ServiceCard key={s.num} s={s} mobile />)}
+          </div>
         </div>
       </div>
 
@@ -220,9 +224,11 @@ function EngineeringMaintenanceMobile() {
       <ImageBanner mobile />
 
       {/* SERVICES GRID — PART 2 */}
-      <div style={{ background: '#F5F4F0', padding: '28px 16px 36px' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
-          {lastFive.map((s, i) => <ServiceCard key={s.num} s={s} mobile spanFull={i === lastFive.length - 1} />)}
+      <div style={{ background: '#F5F4F0', padding: '28px 0 36px' }}>
+        <div className="hscroll" style={{ overflowX: 'auto', overflowY: 'hidden', padding: '0 16px 6px' }}>
+          <div style={{ display: 'flex', gap: 12, width: 'max-content', alignItems: 'stretch' }}>
+            {lastFive.map((s) => <ServiceCard key={s.num} s={s} mobile />)}
+          </div>
         </div>
       </div>
 
