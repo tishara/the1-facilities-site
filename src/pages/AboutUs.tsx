@@ -20,7 +20,7 @@ const CLIENTS = [
   { img: 'client-ikea-trim.png', alt: 'IKEA', h: 35, mh: 29 },
   { img: 'client-ge-trim.png', alt: 'General Electric', h: 44, mh: 37 },
   { img: 'client-chevron-trim.png', alt: 'Chevron', h: 26, mh: 22 },
-  { img: 'client-citi-trim.png', alt: 'Citi', h: 41, mh: 35 },
+  { img: 'client-citi-trim.png', alt: 'Citi', h: 41, mh: 35, dy: -5, mdy: -4 },
   { img: 'client-hilton-trim.png', alt: 'Hilton Worldwide', h: 35, mh: 29 },
   { img: 'client-amazon-trim.png', alt: 'Amazon', h: 31, mh: 26 },
 ];
@@ -129,7 +129,7 @@ function AboutUsDesktop() {
         </div>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexWrap: 'wrap', gap: 44, maxWidth: 1300, margin: '0 auto' }}>
           {CLIENTS.map((c) => (
-            <img key={c.alt} src={`/assets/${c.img}`} alt={c.alt} style={{ height: c.h, width: 'auto', objectFit: 'contain' }} />
+            <img key={c.alt} src={`/assets/${c.img}`} alt={c.alt} style={{ height: c.h, width: 'auto', objectFit: 'contain', position: 'relative', top: c.dy ?? 0 }} />
           ))}
         </div>
       </div>
@@ -224,7 +224,7 @@ function AboutUsMobile() {
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '24px 18px', alignItems: 'center', justifyItems: 'center' }}>
           {CLIENTS.map((c) => (
-            <img key={c.alt} src={`/assets/${c.img}`} alt={c.alt} style={{ maxWidth: '100%', height: c.mh, objectFit: 'contain' }} />
+            <img key={c.alt} src={`/assets/${c.img}`} alt={c.alt} style={{ maxWidth: '100%', height: c.mh, objectFit: 'contain', position: 'relative', top: c.mdy ?? 0 }} />
           ))}
         </div>
       </div>
