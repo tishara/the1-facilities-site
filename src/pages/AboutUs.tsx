@@ -17,12 +17,12 @@ const SCALE_STATS = [
 ];
 
 const CLIENTS = [
-  { img: 'client-ikea-trim.png', alt: 'IKEA', h: 35, mh: 29 },
-  { img: 'client-ge-trim.png', alt: 'General Electric', h: 44, mh: 37 },
-  { img: 'client-chevron-trim.png', alt: 'Chevron', h: 26, mh: 22 },
-  { img: 'client-citi-trim.png', alt: 'Citi', h: 41, mh: 35, dy: -5, mdy: -4 },
-  { img: 'client-hilton-trim.png', alt: 'Hilton Worldwide', h: 35, mh: 29 },
-  { img: 'client-amazon-trim.png', alt: 'Amazon', h: 31, mh: 26 },
+  { img: 'client-ikea-trim.png', alt: 'IKEA', h: 35, mh: 45 },
+  { img: 'client-ge-trim.png', alt: 'General Electric', h: 44, mh: 58 },
+  { img: 'client-chevron-trim.png', alt: 'Chevron', h: 26, mh: 34 },
+  { img: 'client-citi-trim.png', alt: 'Citi', h: 41, mh: 54, dy: -5, mdy: -6 },
+  { img: 'client-hilton-trim.png', alt: 'Hilton Worldwide', h: 35, mh: 45 },
+  { img: 'client-amazon-trim.png', alt: 'Amazon', h: 31, mh: 40 },
 ];
 
 function CtaButton({ mobile = false }: { mobile?: boolean }) {
@@ -222,7 +222,7 @@ function AboutUsMobile() {
             </div>
           ))}
         </div>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '24px 18px', alignItems: 'center', justifyItems: 'center' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '32px 20px', alignItems: 'center', justifyItems: 'center' }}>
           {CLIENTS.map((c) => (
             <img key={c.alt} src={`/assets/${c.img}`} alt={c.alt} style={{ maxWidth: '100%', height: c.mh, objectFit: 'contain', position: 'relative', top: c.mdy ?? 0 }} />
           ))}

@@ -700,13 +700,13 @@ function HomeMobile() {
           <div style={{ fontSize: 12, letterSpacing: 3, color: '#6E9E2E', fontWeight: 600, marginBottom: 10 }}>TRUSTED BY</div>
           <h2 style={{ fontFamily: "'Archivo',sans-serif", fontSize: 26, fontWeight: 800, color: '#111412', margin: 0 }}>Proven At Scale</h2>
         </div>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '24px 18px', alignItems: 'center', justifyItems: 'center' }}>
-          <img src="/assets/client-ikea-trim.png" alt="IKEA" style={{ maxWidth: '100%', height: 29, objectFit: 'contain' }} />
-          <img src="/assets/client-ge-trim.png" alt="General Electric" style={{ maxWidth: '100%', height: 37, objectFit: 'contain' }} />
-          <img src="/assets/client-chevron-trim.png" alt="Chevron" style={{ maxWidth: '100%', height: 22, objectFit: 'contain' }} />
-          <img src="/assets/client-citi-trim.png" alt="Citi" style={{ maxWidth: '100%', height: 35, objectFit: 'contain', position: 'relative', top: -4 }} />
-          <img src="/assets/client-hilton-trim.png" alt="Hilton Worldwide" style={{ maxWidth: '100%', height: 29, objectFit: 'contain' }} />
-          <img src="/assets/client-amazon-trim.png" alt="Amazon" style={{ maxWidth: '100%', height: 26, objectFit: 'contain' }} />
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '32px 20px', alignItems: 'center', justifyItems: 'center' }}>
+          <img src="/assets/client-ikea-trim.png" alt="IKEA" style={{ maxWidth: '100%', height: 45, objectFit: 'contain' }} />
+          <img src="/assets/client-ge-trim.png" alt="General Electric" style={{ maxWidth: '100%', height: 58, objectFit: 'contain' }} />
+          <img src="/assets/client-chevron-trim.png" alt="Chevron" style={{ maxWidth: '100%', height: 34, objectFit: 'contain' }} />
+          <img src="/assets/client-citi-trim.png" alt="Citi" style={{ maxWidth: '100%', height: 54, objectFit: 'contain', position: 'relative', top: -6 }} />
+          <img src="/assets/client-hilton-trim.png" alt="Hilton Worldwide" style={{ maxWidth: '100%', height: 45, objectFit: 'contain' }} />
+          <img src="/assets/client-amazon-trim.png" alt="Amazon" style={{ maxWidth: '100%', height: 40, objectFit: 'contain' }} />
         </div>
       </div>
 
