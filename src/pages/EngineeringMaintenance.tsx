@@ -106,25 +106,12 @@ function ServiceCard({ s, mobile = false, spanFull = false }: { s: typeof SERVIC
   );
 }
 
-function SectionHeading({ eyebrow, title, mobile = false, dark = false }: { eyebrow: string; title: string; mobile?: boolean; dark?: boolean }) {
+function SectionHeading({ eyebrow, title, mobile = false }: { eyebrow: string; title: string; mobile?: boolean }) {
   return (
-    <div style={{ position: 'relative', textAlign: 'center', maxWidth: 680, margin: mobile ? '0 auto 24px' : '0 auto 40px' }}>
-      <div style={{ fontFamily: "'Poppins',sans-serif", fontSize: mobile ? 11 : 12, letterSpacing: 3, fontWeight: 600, color: dark ? '#8BC53F' : '#6E9E2E', marginBottom: mobile ? 8 : 12 }}>{eyebrow}</div>
-      <h2 style={{ fontFamily: "'Archivo',sans-serif", fontSize: mobile ? 20 : 30, fontWeight: 800, margin: 0, color: dark ? '#fff' : '#111412', textTransform: 'uppercase', lineHeight: 1.25 }}>{title}</h2>
+    <div style={{ textAlign: 'center', maxWidth: 680, margin: mobile ? '0 auto 24px' : '0 auto 40px' }}>
+      <div style={{ fontFamily: "'Poppins',sans-serif", fontSize: mobile ? 11 : 12, letterSpacing: 3, fontWeight: 600, color: '#6E9E2E', marginBottom: mobile ? 8 : 12 }}>{eyebrow}</div>
+      <h2 style={{ fontFamily: "'Archivo',sans-serif", fontSize: mobile ? 20 : 30, fontWeight: 800, margin: 0, color: '#111412', textTransform: 'uppercase', lineHeight: 1.25 }}>{title}</h2>
     </div>
-  );
-}
-
-function DotPattern({ patternId }: { patternId: string }) {
-  return (
-    <svg style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', opacity: 0.35 }} preserveAspectRatio="none" viewBox="0 0 390 500">
-      <defs><pattern id={patternId} width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="1.2" cy="1.2" r="1.2" fill="#B9DE7C" /></pattern></defs>
-      <rect width="390" height="500" fill={`url(#${patternId})`} />
-      <g stroke="#8BC53F" strokeWidth={1} fill="none" opacity={0.45}>
-        <path d="M-40 500 L300 0" />
-        <path d="M120 500 L460 0" />
-      </g>
-    </svg>
   );
 }
 
@@ -222,13 +209,10 @@ function EngineeringMaintenanceMobile() {
       </div>
 
       {/* SERVICES GRID — PART 1 */}
-      <div style={{ position: 'relative', background: 'linear-gradient(150deg, #1C201B 0%, #2A2E2A 50%, #1C201B 100%)', padding: '36px 16px 28px', overflow: 'hidden' }}>
-        <DotPattern patternId="egMDots1" />
-        <div style={{ position: 'relative' }}>
-          <SectionHeading eyebrow="WHAT WE DELIVER" title="Ten Services. One Partner." mobile dark />
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
-            {firstFive.map((s, i) => <ServiceCard key={s.num} s={s} mobile spanFull={i === firstFive.length - 1} />)}
-          </div>
+      <div style={{ background: '#F5F4F0', padding: '36px 16px 28px' }}>
+        <SectionHeading eyebrow="WHAT WE DELIVER" title="Ten Services. One Partner." mobile />
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
+          {firstFive.map((s, i) => <ServiceCard key={s.num} s={s} mobile spanFull={i === firstFive.length - 1} />)}
         </div>
       </div>
 
@@ -236,9 +220,8 @@ function EngineeringMaintenanceMobile() {
       <ImageBanner mobile />
 
       {/* SERVICES GRID — PART 2 */}
-      <div style={{ position: 'relative', background: 'linear-gradient(150deg, #1C201B 0%, #2A2E2A 50%, #1C201B 100%)', padding: '28px 16px 36px', overflow: 'hidden' }}>
-        <DotPattern patternId="egMDots2" />
-        <div style={{ position: 'relative', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
+      <div style={{ background: '#F5F4F0', padding: '28px 16px 36px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
           {lastFive.map((s, i) => <ServiceCard key={s.num} s={s} mobile spanFull={i === lastFive.length - 1} />)}
         </div>
       </div>
